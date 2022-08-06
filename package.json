@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "site",
-    "admin"
+    "admin",
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build --filter=next-commerce...",
