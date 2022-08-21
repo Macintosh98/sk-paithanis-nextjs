@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { some } from 'lodash';
 import { addProduct } from 'store/reducers/cart';
 import { toggleFavProduct } from 'store/reducers/user';
-import { ProductType, ProductStoreType } from 'types';
+import { ProductStoreType } from 'types';
 import { RootState } from 'store';
 
 // type ProductContent = {
