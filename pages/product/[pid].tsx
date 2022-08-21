@@ -14,11 +14,11 @@ import products1 from '../../utils/data/products';
 
 
 // types
-import { ProductType } from 'types';
+// import { ProductType } from 'types';
 
-type ProductPageType = {
-  product: ProductType;
-}
+// type ProductPageType = {
+//   product: ProductType;
+// }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const pid = query.pid;
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   }
 }
 
-const Product = ({ product }: ProductPageType) => {
+const Product = ({ product }: any) => {
   const [showBlock, setShowBlock] = useState('description');
 
   return (
