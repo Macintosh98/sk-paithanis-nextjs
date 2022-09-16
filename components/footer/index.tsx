@@ -1,4 +1,4 @@
-import Logo from '../../assets/icons/logo';
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -6,7 +6,9 @@ const Footer = () => {
       <div className="container">
         <div className="site-footer__top">
           <div className="site-footer__description">
-            <h6><Logo /> <span>E</span>-Shop</h6>
+            {/* <h6><Logo /> <span>E</span>-Shop</h6> */}
+            <Image style={{}} src={"/images/logo.jpg"} height={200} width={400}/> 
+            {/* <span>VakratundaSK </span> - Paithani & Sarees*/}
             <p>House My Brand designs clothing for the young, the old & everyone in between – but most 
               importantly, for the fashionable</p>
             <ul className="site-footer__social-networks">

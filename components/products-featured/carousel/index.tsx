@@ -53,7 +53,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselType) => {
         ))} */}
 
           {products.map((item: any)  => { 
-            item={...item,...products1[0]}
+            item={...products1[0],...item}
             return (
               <SwiperSlide key={item._id}>
             <ProductItem 

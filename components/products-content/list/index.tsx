@@ -19,7 +19,7 @@ const ProductsContent = () => {
       {data &&
         <section className="products-list">
           {data.map((item: any)  => { 
-            item={...item,...products[0]}
+            item={...products[0],...item}
             return (
             <ProductItem 
               id={item._id} 

@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {EffectFade, Navigation} from 'swiper';
+import Image from 'next/image'
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -8,18 +9,33 @@ const PageIntro = () => {
   return (
     <section className="page-intro">  
       <Swiper navigation effect="fade" className="swiper-wrapper">
-        <SwiperSlide>
-          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
+        {/* <SwiperSlide>
+          <div className="page-intro__slide">
             <div className="container">
               <div className="page-intro__slide__content">
-                <h2>Sale of the summer collection</h2>
-                <a href="#" className="btn-shop"><i className="icon-right"></i>Shop now</a>
+                <Image
+                  src="/images/slide-1.png"
+                  alt="Picture of the author"
+                  width={1432}
+                  height={716}
+                />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide> */}
+
+        <SwiperSlide>
+          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.png')" }}>
+            <div className="container">
+              <div className="page-intro__slide__content">
+                {/* <h2>Sale of the summer collection</h2>
+                <a href="#" className="btn-shop"><i className="icon-right"></i>Shop now</a> */}
               </div>
             </div>
           </div>
         </SwiperSlide>
-
-        <SwiperSlide>
+        
+        {/* <SwiperSlide>
           <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.jpg')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
@@ -28,7 +44,7 @@ const PageIntro = () => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
 
       <div className="shop-data">

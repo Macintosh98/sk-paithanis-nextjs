@@ -73,7 +73,7 @@ html,body{overflow-x:hidden !important}
 
 body {
   box-sizing: border-box;
-  background-color: white;
+  background-color: rgba(255,222,255);
   font-family: var(--main-font);
   color: var(--color-text);
   font-size: 16px;
@@ -233,17 +233,17 @@ h1,h2,h3,h4,h5 {
   @include breakpoint(phone) {
     font-size: 16px;
   }
-  svg {
-    width: 38px;
-    height: 28px;
+  // svg {
+    width: 128px;
+    // height: 128px;
     fill: currentColor;
     object-fit: contain;
     margin-right: 15px;
     @include breakpoint(phone) {
-      width: 45px;
-      height: 35px;
+      // width: 145px;
+      height: 100%;
     }
-  }
+  // }
 }
 
 .breadcrumb {
@@ -420,7 +420,7 @@ h1,h2,h3,h4,h5 {
   .search-form {
     position: fixed;
     z-index: 100;
-    top: -100vh;
+    top: -103vh;
     left: 0;
     height: 100vh;
     right: 0;
@@ -491,6 +491,7 @@ h1,h2,h3,h4,h5 {
 .page-intro {
   position: relative;
   .swiper-button-prev, .swiper-button-next {
+    border-radius: 50%;
     bottom: 20px;
     top: auto;
     transform: translateX(50%);
@@ -506,7 +507,7 @@ h1,h2,h3,h4,h5 {
     align-items: center;
     position: absolute;
     display: none;
-    background-color: rgba(255,255,255, .12);
+    background-color: rgba(255,0,255, .2);
     @include breakpoint(phone) {
       width: 52px;
       height: 52px;
@@ -527,10 +528,10 @@ h1,h2,h3,h4,h5 {
       font-family: 'icons';
     }
     &:hover {
-      background: #FFF;
-      &:before {
-        color: #000;
-      }
+      background: rgba(255,0,255, .5);
+      // &:before {
+      //   color: #000;
+      // }
     }
   }
   .swiper-button-next {
@@ -557,7 +558,7 @@ h1,h2,h3,h4,h5 {
       display: block;
     }
     &:before {
-      background: #FFF;
+      background: rgba(255,222,255);
       content: '';
       left: 0;
       bottom: 0;
@@ -618,24 +619,26 @@ h1,h2,h3,h4,h5 {
     }
   }
   .page-intro__slide {
-    height: 450px;
+    margin-top: 10vh;
+    height: 250px;
     position: relative;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
-    background-color: #FAFAFA;
+    background-size: contain;
+    // border-radius: 100px;
+    // background-color: rgba(255,222,255);
     @include breakpoint(phone) {
       height: 90vh;
     }
-    &:before {
-      content: '';
-      left: 0;
-      z-index: 5;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background-color: rgba(0,0,0, 0.2);
-    }
+    // &:before {
+    //   content: '';
+    //   left: 0;
+    //   z-index: 5;
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   background-color: rgba(0,0,0, 0.2);
+    // }
     .container {
       z-index: 10;
       display: flex;
@@ -1074,7 +1077,7 @@ h1,h2,h3,h4,h5 {
     }
     h6 {
       display: flex;
-      color: #000;
+      // color: #000;
       font-weight: 300;
       align-items: center;
       margin-bottom: 33px;
@@ -1118,7 +1121,7 @@ h1,h2,h3,h4,h5 {
       }
       li {
         font-size: 14px;
-        color: #000;
+        // color: #000;
         margin-bottom: 12px;
         @include breakpoint(phone) {
           margin-bottom: 15px;
@@ -1404,8 +1407,8 @@ h1,h2,h3,h4,h5 {
         right: 0;
         display: none;
         z-index: 50;
-        border: 1px solid #E5E5E5;
-        background-color: #FFF;
+        // border: 1px solid #E5E5E5;
+        // background-color: #FFF;
         &.products-order-open {
           display: block;
         }

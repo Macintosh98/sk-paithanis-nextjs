@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import useOnClickOutside from 'use-onclickoutside';
-import Logo from '../../assets/icons/logo';
+// import Logo from '../../assets/icons/logo';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { RootState } from 'store';
@@ -53,10 +54,15 @@ const Header = ({ isErrorPage }: HeaderType) => {
   useOnClickOutside(searchRef, closeSearch);
 
   return(
-    <header className={`site-header ${!onTop ? 'site-header--fixed' : ''}`}>
-      <div className="container">
+    // <header className={`site-header ${!onTop ? 'site-header--fixed' : ''}`}>
+    <header className={`site-header`}>
+      <div className="container" style={{backgroundColor:"rgba(100, 0, 100, 0.5)", borderRadius:"20px",marginTop:"20px", boxShadow: "inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%)",WebkitBackdropFilter: "blur(8px)",backdropFilter: "blur(8px)",paddingLeft: "0px"}}>
         <Link href="/">
-          <a><h1 className="site-logo"><Logo />E-Shop</h1></a>
+          <a><h1 className="site-logo">
+            {/* <Logo /> */}
+            <Image style={{ borderRadius: "20px", boxShadow: "0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%)"}} src={"/images/logo.jpg"} height={100} width={200}/> 
+           {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
+           </h1></a>
         </Link>
         <nav ref={navRef} className={`site-nav ${menuOpen ? 'site-nav--open' : ''}`}>
           <Link href="/products">
@@ -64,7 +70,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
           </Link>
           <a href="#">Inspiration</a>
           <a href="#">Rooms</a>
-          <button className="site-nav__btn"><p>Account</p></button>
+          {/* <button className="site-nav__btn"><p>Account</p></button> */}
         </nav>
 
         <div className="site-header__actions">
