@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {EffectFade, Navigation} from 'swiper';
-import Image from 'next/image'
+// import Image from 'next/image'
 
 SwiperCore.use([EffectFade, Navigation]);
 
