@@ -9,9 +9,9 @@ const IndexPage = () => {
     <Layout>
       <PageIntro />
 
-      {/* <section className="featured">
+      <section className="featured">
         <div className="container">
-          <article style={{backgroundImage: 'url(/images/featured-1.jpg)'}} className="featured-item featured-item-large">
+          {/* <article style={{backgroundImage: 'url(/images/slide-1_blank.jpg)'}} className="featured-item featured-item-large">
             <div className="featured-item__content">
               <h3>New arrivals are now in!</h3>
               <a href="#" className="btn btn--rounded">Show Collection</a>
@@ -30,9 +30,9 @@ const IndexPage = () => {
               <h3>Sale this summer</h3>
               <a href="#" className="btn btn--rounded">VIEW ALL</a>
             </div>
-          </article>
+          </article> */}
         </div>
-      </section> */}
+      </section>
 
       <section className="section">
         <div className="container">

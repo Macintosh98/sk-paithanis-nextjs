@@ -625,8 +625,7 @@ h1,h2,h3,h4,h5 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    // border-radius: 100px;
-    // background-color: rgba(255,222,255);
+    border-radius: 20%;
     @include breakpoint(phone) {
       height: 90vh;
     }
@@ -926,6 +925,12 @@ h1,h2,h3,h4,h5 {
     display: flex;
     align-items: center;
     margin-bottom: 35px;
+
+    background-color: rgba(255,0,255, .2);
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+
     justify-content: space-between;
     @include breakpoint(phone) {
       margin-bottom: 65px;
@@ -952,12 +957,12 @@ h1,h2,h3,h4,h5 {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    background-position: center;
+    background-position: right;
     @include breakpoint(phone) {
       padding: 40px 60px 40px 60px;
     }
     @include breakpoint(tablet-lg) {
-      padding: 80px 125px 80px 105px;
+      padding: 280px 125px 80px 105px;
       display: flex;
       align-items: center;
     }
@@ -1028,7 +1033,11 @@ h1,h2,h3,h4,h5 {
     margin-bottom: 150px;
   }
   .section__intro {
-    margin-bottom: 36px;
+    background-color: rgba(255,0,255, .2);
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 0px 100px;
+    margin-bottom: 80px;
     @include breakpoint(phone) {
       margin-bottom: 93px;
     }
@@ -2822,4 +2831,179 @@ h1,h2,h3,h4,h5 {
       background-color: red;
     }
   }
+}
+
+@keyframes move {
+  0% {
+    transform: rotateZ(50deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: rotateZ(120deg);
+    opacity: 0.8;
+  }
+  from {
+    transform: rotateZ(15deg);
+    opacity: 1;
+  }
+}
+/* position of each feather ---------------------------------- */
+.feather1, .feather2, .feather3, .feather4, .feather5 {
+  position: absolute;
+  left: -25vmin;
+  top: 10vmin;
+  transform: rotate(-20deg);
+  filter:drop-shadow(-1vmin 0vmin 5vmin rgba(70, 64, 39, 0.5)) ;
+  animation: move 2000ms ease-in-out;
+}
+.feather2 {
+  position: absolute;
+  top: 10vmin;
+  left: 25vmin;
+  transform: rotate(-10deg);
+  animation: move 2200ms ease-in-out;
+}
+.feather3 {
+  top: 20vmin;
+  left: 0vmin;
+  transform: rotate(-35deg);
+  animation: move 2400ms ease-in-out;
+}
+.feather4 {
+  top: 20vmin;
+  left: 20vmin;
+  transform: rotate(15deg);
+  animation: move 2600ms ease-in-out;
+}
+.feather5 {
+  top: 12vmin;
+  left: -10vmin;
+  transform: rotate(0deg);
+  animation: move 2800ms ease-in-out;
+}
+.middle-feather-line {
+  position: absolute;
+  top: 25vmin;
+  left: 30vmin;
+  height: 70vmin;
+  width: 0.5vmin;
+  background: linear-gradient(270deg, #9E9552 -1%, #433F22 105%);
+  transform: rotate(55deg);
+}
+/* colofrul rounded part -------------------------- */
+.blue-circle, .middle-circle {
+  position: absolute;
+  border-radius: 50%;
+}
+.blue-circle {
+  position: absolute;
+  top: 35vmin;
+  left: 44vmin;
+  width: 16vmin;
+  height: 13vmin;
+  background: radial-gradient(63.92% 63.92% at 51.46% 36.08%, #102E81 6.65%, #192654 27.14%, #23283C 50.62%, #067FBB 54.4%, #00838C 63.46%, #5AD1D1 93.99%, #074834 100%);
+  transform: rotate(46.6deg);
+}
+.middle-circle {
+  top: 20vmin;
+  left: 40vmin;
+  width: 40vmin;
+  height: 33vmin;
+  background: radial-gradient(74.24% 73.52% at 36.23% 52.27%, #D7C574 0.19%, #C09557 21.93%, #8A503B 39.7%, #53523A 41.19%, rgba(174, 208, 122, 0.8) 47.03%, rgba(11, 94, 18, 0.8) 49.35%, rgba(27, 38, 19, 0.5) 65%);
+  transform: rotate(-23.6deg);
+  box-shadow:
+      -20vmin 6vmin 6vmin rgba(70, 64, 39, 0.4),
+      -35vmin 8vmin 6vmin rgba(170,145,89, 0.3);
+}
+/* vertical lines on feather -------------------------------------- */
+/* round base behind the colorful part -------------- */
+.base-feather {
+  position: absolute;
+  top: 21vmin;
+  left: 41vmin;
+  width: 40vmin;
+  height: 32vmin;
+  border-radius: 50%;
+  background: transparent;
+    background-image: linear-gradient(-180deg, rgba(82, 75, 38, 0.4) 60.59%, #464027 16.94%);
+  background-size: 1vmin 0.6vmin;
+  transform: rotate(150deg);
+  box-shadow: inset -2vmin 0.5vmin 0vmin rgba(70, 64, 39, 0.3),
+              5vmin -1vmin 5vmin 0vmin rgba(70, 64, 39, 0.7);
+}
+/* feather strait lines around the main feather line,
+::before is above the line and ::after below --------------------------------*/
+.base-feather::before, .base-feather::after {
+  content: '';
+  position: absolute;
+  top: 11vmin;
+  left: 38vmin;
+  height: 20vmin;
+  width: 40vmin;
+  background: transparent;
+  background-image: linear-gradient(90.2deg, #464027 -0.08%, rgba(196, 196, 196, 0) 3.44%, rgba(112, 98, 57, 0) 15.15%, #464027 17.49%, rgba(112, 98, 57, 0) 17.5%, rgba(112, 98, 57, 0) 30.96%, #464027 33.89%, rgba(112, 98, 57, 0) 33.9%, rgba(112, 98, 57, 0) 58.49%, #464027 62.01%, rgba(112, 98, 57, 0) 62.02%, rgba(112, 98, 57, 0) 81.91%, #464027 81.92%, rgba(112, 98, 57, 0) 84.27%, rgba(112, 98, 57, 0) 95.98%, #464027 100.08%, rgba(112, 98, 57, 0) 105.94%);
+  background-size: 6vmin;
+  transform: skewX(-56deg) rotate(-8deg);
+  box-shadow: -4vmin -2vmin 2vmin rgba(70, 64, 39, 0.9),
+        inset 2vmin 1vmin 1vmin rgba(70, 64, 39, 0.9);
+}
+.base-feather::after {
+  top: 0vmin;
+  left: 30vmin;
+  height: 10vmin;
+  width: 50vmin;
+  transform: skewX(60deg) rotate(-3deg);
+  box-shadow: -8vmin 2vmin 2vmin rgba(70, 64, 39, 0.9),
+      inset 0vmin -2vmin 2vmin rgba(70, 64, 39, 0.9);
+}
+/* rounded feather lines, added for more realistic look ----------------------- */
+.line-feather-1, .line-feather-1::before, .line-feather-1::after,
+.line-feather-2, .line-feather-2::before, .line-feather-2::after,
+.line-feather-3, .line-feather-3::before, .line-feather-3::after {
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0.2vmin 0 0 0 rgba(70, 64, 39, 0.9);
+  transform: rotate(20deg);
+  height: 25vmin;
+  width: 10vmin;
+}
+.line-feather-1 {
+  top: 33vmin;
+  left: 30vmin;
+}
+.line-feather-2 {
+  top: 40vmin;
+  left: 20vmin;
+}
+.line-feather-3 {
+  top: 43vmin;
+  left: 15vmin;
+}
+.line-feather-1::before, .line-feather-2::before, .line-feather-3::before {
+   content: '';
+   top: 15vmin;
+   left: 10vmin;
+   box-shadow: -0.2vmin -0.2vmin 0 0 rgba(70, 64, 39, 0.9);
+   transform: rotate(80deg);
+}
+.line-feather-1::after, .line-feather-2::after, .line-feather-3::after {
+  content: '';
+  top: 8vmin;
+  left: 16vmin;
+  box-shadow: -0.2vmin -0.2vmin 0 0 rgba(70, 64, 39, 0.9);
+  transform: rotate(80deg);
+}
+
+.container-feather{
+    @include breakpoint(phone) {
+      top: 0;
+    }
+    top: 25%;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    transform: scale(0.7);
+    z-index: -999;
+    opacity: 0.5;
 }
