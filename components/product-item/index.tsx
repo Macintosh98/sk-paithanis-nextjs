@@ -31,7 +31,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: any) =
   },[])
 
   return (
-    <div className="product-item">
+    <div className="product-item glasscard">
       <div className="product__image">
         <button type="button" onClick={toggleFav} className={`btn-heart ${isFavourite ? 'btn-heart--active' : ''}`}><i className="icon-heart"></i></button>
 

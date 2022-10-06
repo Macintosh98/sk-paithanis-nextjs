@@ -6,7 +6,7 @@ const ProductsContent = () => {
   
   return (
     <section className="products-content">
-      <div className="products-content__intro">
+      <div className="products-content__intro glasscard">
         {/* <h2>Men's Tops <span>(133)</span></h2> */}
         <h2>Paithani's</h2>
         <button type="button" onClick={() => setOrderProductsOpen(!orderProductsOpen)} className="products-filter-btn"><i className="icon-filters"></i></button>

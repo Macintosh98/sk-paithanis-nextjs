@@ -11,7 +11,7 @@ const ProductsFeatured = () => {
   return (
     <section className="section section-products-featured">
       <div className="container">
-        <header className="section-products-featured__header">
+        <header className="section-products-featured__header glasscard">
           <h3>Paithanis under ₹1500</h3>
           <a href="/products" className="btn btn--rounded btn--border">Show All</a>
         </header>
@@ -20,7 +20,7 @@ const ProductsFeatured = () => {
       </div>
       <br/><br/><br/><br/>
       <div className="container">
-        <header className="section-products-featured__header">
+        <header className="section-products-featured__header glasscard">
           <h3>Our Bestsellers</h3>
           <a href="/products" className="btn btn--rounded btn--border">Show All</a>
         </header>

@@ -56,7 +56,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
   return(
     // <header className={`site-header ${!onTop ? 'site-header--fixed' : ''}`}>
     <header className={`site-header`}>
-      <div className="container" style={{backgroundColor:"rgba(100, 0, 100, 0.5)", borderRadius:"20px",marginTop:"20px", boxShadow: "inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%)",WebkitBackdropFilter: "blur(8px)",backdropFilter: "blur(8px)",paddingLeft: "0px"}}>
+      <div className="container glasscard" style={{marginTop:"20px"}}>
         <Link href="/">
           <a><h1 className="site-logo">
             {/* <Logo /> */}

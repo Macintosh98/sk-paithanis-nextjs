@@ -202,6 +202,24 @@ h1,h2,h3,h4,h5 {
   }
 }
 
+.glasscard{
+  background-color:rgba(255, 155, 255, 0.5);
+  border-radius:20px;
+  box-shadow: inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%);
+  padding: 15px;
+  // color: var(--color-black);
+  // backdrop-filter: blur(8px);
+  // -webkit-backdrop-filter: blur(8px);
+
+  /* From https://css.glass */
+  // background: rgba(255, 255, 255, 0.2);
+  // border-radius: 16px;
+  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 155, 255, 0.2);
+}
+
 .btn {
   color: #000000;
   cursor: pointer;
@@ -334,7 +352,7 @@ h1,h2,h3,h4,h5 {
     margin-left: auto;
     margin-right: auto;
     position: fixed;
-    background-color: #FFF;
+    background-color: rgba(255,222,255);
     transition: all .3s ease;
     border-left: 1px solid #E5E5E5;
     @include breakpoint(tablet-lg) {
@@ -369,7 +387,7 @@ h1,h2,h3,h4,h5 {
       @include breakpoint(tablet-lg) {
         width: auto;
         padding: 0;
-        color: #FFF;
+        // color: #FFF;
         margin-right: 76px;
         display: inline-block;
         font-size: 14px;
@@ -491,7 +509,8 @@ h1,h2,h3,h4,h5 {
 .page-intro {
   position: relative;
   .swiper-button-prev, .swiper-button-next {
-    border-radius: 50%;
+    @extend .glasscard;
+    border-radius: 0 50%;
     bottom: 20px;
     top: auto;
     transform: translateX(50%);
@@ -507,7 +526,6 @@ h1,h2,h3,h4,h5 {
     align-items: center;
     position: absolute;
     display: none;
-    background-color: rgba(255,0,255, .2);
     @include breakpoint(phone) {
       width: 52px;
       height: 52px;
@@ -558,7 +576,13 @@ h1,h2,h3,h4,h5 {
       display: block;
     }
     &:before {
-      background: rgba(255,222,255);
+      @extend .glasscard;
+      // background: rgba(255,222,255);
+      // background-color:rgba(100, 0, 100, 0.5);
+      // box-shadow: inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%);
+      // backdrop-filter: blur(8px);
+      // -webkit-backdrop-filter: blur(8px);
+
       content: '';
       left: 0;
       bottom: 0;
@@ -619,15 +643,15 @@ h1,h2,h3,h4,h5 {
     }
   }
   .page-intro__slide {
-    margin-top: 10vh;
+    margin-top: 12vh;
     height: 250px;
     position: relative;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: contain;
-    border-radius: 20%;
+    // border-radius: 20%;
     @include breakpoint(phone) {
-      height: 90vh;
+      height: 88vh;
     }
     // &:before {
     //   content: '';
@@ -647,6 +671,7 @@ h1,h2,h3,h4,h5 {
     }
     .page-intro__slide__content {
       margin-top: auto;
+      // margin-left: ;
       margin-bottom: 40px;
       @include breakpoint(phone) {
         margin-bottom: 80px;
@@ -654,7 +679,7 @@ h1,h2,h3,h4,h5 {
       }
       h2 {
         font-size: 36px;
-        color: #FFF;
+        // color: #FFF;
         font-weight: 600;
         line-height: 120%;
         margin-bottom: 45px;
@@ -665,7 +690,7 @@ h1,h2,h3,h4,h5 {
       }
       .btn-shop {
         display: flex;
-        color: #FFF;
+        // color: #FFF;
         align-items: center;
         i {
           justify-content: center;
@@ -673,7 +698,7 @@ h1,h2,h3,h4,h5 {
           display: flex;
           width: 40px;
           height: 40px;
-          color: #FFF;
+          // color: #FFF;
           font-size: 15px;
           margin-right: 10px;
           background-color: var(--color-orange);
@@ -903,7 +928,8 @@ h1,h2,h3,h4,h5 {
         }
       }
       span {
-        color: #CECECE;
+        // color: #CECECE;
+        color: #FF0000;
         margin-left: 20px;
         font-size: 15px;
         @include breakpoint(phone) {
@@ -911,11 +937,11 @@ h1,h2,h3,h4,h5 {
           margin-left: 29px;
         }
       }
-      &.product__price--discount {
-        h4 {
-          color: #FF0000;
-        }
-      }
+      // &.product__price--discount {
+      //   h4 {
+      //      color: #FF0000;
+      //   }
+      // }
     }
   }
 }
@@ -926,10 +952,10 @@ h1,h2,h3,h4,h5 {
     align-items: center;
     margin-bottom: 35px;
 
-    background-color: rgba(255,0,255, .2);
-    padding: 15px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
+    // background-color: rgba(255,0,255, .2);
+    // padding: 15px;
+    // border-radius: 20px;
+    // backdrop-filter: blur(8px);
 
     justify-content: space-between;
     @include breakpoint(phone) {
@@ -953,7 +979,7 @@ h1,h2,h3,h4,h5 {
 .subscribe {
   .subscribe__content {
     padding: 35px 20px;
-    background-color: #FAFAFA;
+    // background-color: #FAFAFA;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -962,28 +988,28 @@ h1,h2,h3,h4,h5 {
       padding: 40px 60px 40px 60px;
     }
     @include breakpoint(tablet-lg) {
-      padding: 280px 125px 80px 105px;
+      padding: 80px 125px 80px 105px;
       display: flex;
       align-items: center;
     }
-    &:before {
-      content: '';
-      width: 100%;
-      left: 0;
-      top: 0;
-      z-index: 5;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background-color: rgba(0,0,0, 0.4);
-    }
+    // &:before {
+    //   content: '';
+    //   width: 100%;
+    //   left: 0;
+    //   top: 0;
+    //   z-index: 5;
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   background-color: rgba(0,0,0, 0.4);
+    // }
     * {
       z-index: 10;
       position: relative;
     }
     h4 {
       font-size: 18px;
-      color: #FFF;
+      // color: #FFF;
       margin-bottom: 20px;
       line-height: 130%;
       margin-right: auto;
@@ -1033,8 +1059,8 @@ h1,h2,h3,h4,h5 {
     margin-bottom: 150px;
   }
   .section__intro {
-    background-color: rgba(255,0,255, .2);
-    backdrop-filter: blur(8px);
+    // background-color: rgba(255,0,255, .2);
+    // backdrop-filter: blur(8px);
     padding: 35px;
     border-radius: 0px 100px;
     margin-bottom: 80px;
@@ -2998,12 +3024,13 @@ h1,h2,h3,h4,h5 {
 .container-feather{
     @include breakpoint(phone) {
       top: 0;
+      left:18%
     }
-    top: 25%;
+    top: 30%;
     position: fixed;
     width: 100vw;
     height: 100vh;
     transform: scale(0.7);
     z-index: -999;
-    opacity: 0.5;
+    // opacity: 0.5;
 }

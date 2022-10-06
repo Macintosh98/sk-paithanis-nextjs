@@ -25,11 +25,12 @@ const PageIntro = () => {
         </SwiperSlide> */}
 
         <SwiperSlide>
-          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.png')" }}>
+          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.png')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
-                {/* <h2>Sale of the summer collection</h2>
-                <a href="#" className="btn-shop"><i className="icon-right"></i>Shop now</a> */}
+                <h2 style={{marginBottom:"0px"}}>SALE</h2> 
+                <h2>20% OFF</h2>
+                <a href="#" className="btn-shop"><i className="icon-right"></i>Shop now</a>
               </div>
             </div>
           </div>

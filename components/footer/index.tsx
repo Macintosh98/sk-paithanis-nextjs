@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="site-footer">
       <div className="container">
         <div className="site-footer__top">
-          <div className="site-footer__description">
+          <div className="site-footer__description glasscard">
             {/* <h6><Logo /> <span>E</span>-Shop</h6> */}
             <Image style={{}} src={"/images/logo.jpg"} height={200} width={400}/> 
             {/* <span>VakratundaSK </span> - Paithani & Sarees*/}
@@ -20,7 +20,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="site-footer__links">
+          <div className="site-footer__links glasscard">
             <ul>
               <li>Shopping online</li>
               <li><a href="#">Order Status</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
       
-      <div className="site-footer__bottom">
+      <div className="site-footer__bottom glasscard">
         <div className="container">
           <p>DESIGN BY <a href="http://abhishekzambare.vercel.app/">"Abhishek Zambare"</a> - © 2022. ALL RIGHTS RESERVED.</p>
         </div>
