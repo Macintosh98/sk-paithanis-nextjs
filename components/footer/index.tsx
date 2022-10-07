@@ -7,8 +7,9 @@ const Footer = () => {
         <div className="site-footer__top">
           <div className="site-footer__description glasscard">
             {/* <h6><Logo /> <span>E</span>-Shop</h6> */}
-            <Image style={{}} src={"/images/logo.jpg"} height={200} width={400}/> 
-            {/* <span>VakratundaSK </span> - Paithani & Sarees*/}
+            <Image style={{borderRadius:"20px"}} src={"/images/logo.jpg"} height={100} width={200}/> 
+            <br/><br/><br/>
+            {/* <h6><span>VakratundaSK </span> - Paithani & Sarees</h6> */}
             <p>House My Brand designs clothing for the young, the old & everyone in between – but most 
               importantly, for the fashionable</p>
             <ul className="site-footer__social-networks">
@@ -20,7 +21,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="site-footer__links glasscard">
+          <div className="site-footer__links glasscard" style={{padding:"50px"}}>
             <ul>
               <li>Shopping online</li>
               <li><a href="#">Order Status</a></li>
@@ -40,7 +41,7 @@ const Footer = () => {
             <ul>
               <li>Contact</li>
               {/* <li><a href="#">store@uikit.com</a></li> */}
-              <li><a href="https://wa.me/+918793780458">Hotline: +91 8793780458</a></li>
+              <li><a href="https://wa.me/+917350451717">Hotline: +91 7350451717</a></li>
             </ul>
           </div>
         </div>

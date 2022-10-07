@@ -13,7 +13,7 @@ const Subscribe = () => {
     //   </div>
     // </section>
     <section className="subscribe">
-    <div className="container glasscard">
+    <div className="container glasscard" style={{backgroundImage: 'url(/images/pngegg2.png)',backgroundPosition:"center",backgroundRepeat:"repeat",backgroundSize: "contain"}}>
       <div className="subscribe__content">
         <h4>Subscribe to our newsletter and receive exclusive offers every week</h4>
 

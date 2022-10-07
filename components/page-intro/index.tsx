@@ -7,7 +7,7 @@ SwiperCore.use([EffectFade, Navigation]);
 const PageIntro = () => {
 
   return (
-    <section className="page-intro">  
+    <section className="page-intro" style={{ background: "url('/images/pngegg.png') no-repeat right top",backgroundSize:"contain" }}>  
       <Swiper navigation effect="fade" className="swiper-wrapper">
         {/* <SwiperSlide>
           <div className="page-intro__slide">
