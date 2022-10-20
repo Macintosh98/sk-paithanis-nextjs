@@ -19,13 +19,13 @@ const Gallery = ({ images }:any) => {
 
   return (
     <section className="product-gallery">
-      <div className="product-gallery__thumbs">
-        {/* {images.map(image => (
+      {/* <div className="product-gallery__thumbs">
+        {images.map(image => (
           <div key={image} className="product-gallery__thumb">
             <img src={image} alt="" />
           </div>
-        ))} */}
-      </div>
+        ))}
+      </div> */}
 
       <div className="product-gallery__image">
         {/* <img src={featImage} alt="" /> */}

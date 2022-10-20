@@ -60,7 +60,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
         <Link href="/">
           <a><h1 className="site-logo">
             {/* <Logo /> */}
-            <Image style={{ borderRadius: "20px", boxShadow: "0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%)"}} src={"/images/logo.jpg"} height={100} width={200}/> 
+            <Image src={"/images/logo_21_comp.png"} height={150} width={250}/> 
            {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
            </h1></a>
         </Link>

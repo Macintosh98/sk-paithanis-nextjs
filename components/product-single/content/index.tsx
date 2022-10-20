@@ -53,9 +53,9 @@ const Content = ({ product }: any) => {
   }
 
   return (
-    <section className="product-content">
+    <section className="product-content glasscard">
       <div className="product-content__intro">
-        <h5 className="product__id">Product ID:<br></br>{product.id}</h5>
+        {/* <h5 className="product__id">Product ID:<br></br>{product.id}</h5> */}
         <span className="product-on-sale">Sale</span>
         <h2 className="product__name">{product.text}</h2>
         <p>{product.discription}</p><br/>
@@ -68,7 +68,7 @@ const Content = ({ product }: any) => {
       </div>
 
       <div className="product-content__filters">
-        <div className="product-filter-item">
+        {/* <div className="product-filter-item">
           <h5>Color:</h5>
           <div className="checkbox-color-wrapper">
             {productsColors.map(type => (
@@ -95,7 +95,7 @@ const Content = ({ product }: any) => {
               </select>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="product-filter-item">
           <h5>Quantity:</h5>
           <div className="quantity-buttons">

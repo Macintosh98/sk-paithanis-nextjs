@@ -15,6 +15,11 @@ export default ({ children, title = 'VakratundaSK - Paithani & Sarees' }: Layout
     <div className="app-main">
       <Head>
         <title>{ title }</title>
+        <meta name="description" content={title}/>
+        <meta property="og:title" content={title}/>
+        <meta property="og:description" content={title}/>
+        <meta property="og:url" content="https://vakratunda-sk-paithani-and-saree.vercel.app/"/>
+        <meta property="og:type" content="website"/>
       </Head>
 
       <Header />
