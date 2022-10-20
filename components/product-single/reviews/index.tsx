@@ -13,7 +13,7 @@ const Reviews = ({ show, product }: ReviewsProductType) => {
   }
 
   return (
-    <section style={style} className="product-single__reviews">
+    <section style={style} className="product-single__reviews glasscard">
       <Punctuation 
         punctuation={product.punctuation.punctuation}
         countOpinions={product.punctuation.countOpinions}

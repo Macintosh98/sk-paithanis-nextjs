@@ -29,8 +29,8 @@ const ShoppingCart = () => {
               <tbody>
                 <tr>
                   <th style={{textAlign: 'left'}}>Product</th>
-                  <th>Color</th>
-                  <th>Size</th>
+                  {/* <th>Color</th>
+                  <th>Size</th> */}
                   <th>Ammount</th>
                   <th>Price</th>
                   <th></th>
@@ -42,9 +42,9 @@ const ShoppingCart = () => {
                     id={item.id}
                     thumb={item.thumb}
                     name={item.name}
-                    color={item.color}
+                    // color={item.color}
                     price={item.price}
-                    size={item.size}
+                    // size={item.size}
                     count={item.count}
                   />
                 ))}
