@@ -713,16 +713,16 @@ h5 {
     }
   }
   .page-intro__slide {
-    margin-top: 10vh;
-    height: 90vh;
+    height: 80vh;
     position: relative;
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
     // border-radius: 20%;
-    // @include breakpoint(phone) {
-    //   height: 88vh;
-    // }
+    @include breakpoint(phone) {
+      margin-top: 12vh;
+      height: 88vh;
+    }
     // &:before {
     //   content: '';
     //   left: 0;
