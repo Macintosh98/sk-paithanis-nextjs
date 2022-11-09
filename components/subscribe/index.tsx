@@ -13,19 +13,30 @@ const Subscribe = () => {
     //   </div>
     // </section>
     <section className="subscribe">
-    <div className="container glasscard" style={{backgroundImage: 'url(/images/pngegg2.png)',backgroundPosition:"center",backgroundRepeat:"repeat",backgroundSize: "contain"}}>
-      <div className="subscribe__content">
-        <h4>Subscribe to our newsletter and receive exclusive offers every week</h4>
+      <div className="container">
+        <div
+          className="subscribe__content glasscard"
+          style={{
+            backgroundImage: "url(/images/pngegg2.png)",
+            backgroundPosition: "center",
+            backgroundRepeat: "repeat",
+            backgroundSize: "contain",
+          }}
+        >
+          <h4>
+            Subscribe to our newsletter and receive exclusive offers every week
+          </h4>
 
-        <form className="subscribe__form">
-          <input type="email" placeholder="Email address" />
-          <button type="submit" className="btn btn--rounded btn--yellow">Subscribe</button>
-        </form>
+          <form className="subscribe__form">
+            <input type="email" placeholder="Email address" />
+            <button type="submit" className="btn btn--rounded btn--yellow">
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  </section>
-  )
+    </section>
+  );
 };
 
-
-export default Subscribe
+export default Subscribe;

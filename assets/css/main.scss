@@ -276,7 +276,7 @@ h5 {
   // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(25px);
   // -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 155, 255, 0.2);
+  // border: 1px solid rgba(255, 255, 255, 0.2);
   // animation: fg 10s infinite;
 }
 
@@ -416,7 +416,8 @@ h5 {
     // margin-left: auto;
     // margin-right: auto;
     position: fixed;
-    background-color: rgba(255, 222, 255);
+    background-color: rgba(255, 225, 255);
+    animation: bg 10s infinite;
     transition: all 0.3s ease;
     // border-left: 1px solid #E5E5E5;
     @include breakpoint(tablet-lg) {
@@ -712,14 +713,14 @@ h5 {
     }
   }
   .page-intro__slide {
-    margin-top: 12vh;
-    height: 250px;
+    height: 100vh;
     position: relative;
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
     // border-radius: 20%;
     @include breakpoint(phone) {
+      margin-top: 12vh;
       height: 88vh;
     }
     // &:before {
@@ -746,6 +747,7 @@ h5 {
         margin-bottom: 80px;
         margin-top: 0;
       }
+      h1,
       h2 {
         font-size: 36px;
         // color: #FFF;
@@ -1162,7 +1164,7 @@ h5 {
     @include breakpoint(phone) {
       display: flex;
       flex-wrap: wrap;
-      padding-bottom: 60px;
+      // padding-bottom: 60px;
     }
     @include breakpoint(tablet-lg) {
       flex-wrap: nowrap;
@@ -1210,6 +1212,7 @@ h5 {
     }
   }
   .site-footer__links {
+    padding: 50px;
     @include breakpoint(phone) {
       display: flex;
       width: 100%;
@@ -1253,6 +1256,8 @@ h5 {
   }
   .site-footer__bottom {
     padding: 20px 0;
+    margin-top: 50px;
+    border-radius: 0px;
     // border-top: 1px solid #EBEBEB;
     @include breakpoint(phone) {
       padding: 33px 0;
@@ -1302,6 +1307,7 @@ h5 {
       }
     }
     .data-item__content {
+      animation: bg 10s infinite;
       h4 {
         margin-bottom: 20px;
       }
@@ -1418,7 +1424,7 @@ h5 {
         margin-right: 30px;
       }
       &.products-filter__wrapper--open {
-        left: 0;
+        left: 10px;
       }
     }
     .products-filter__menu-btn {
@@ -3171,7 +3177,7 @@ h5 {
     top: 0;
     left: 18%;
   }
-  top: 30%;
+  top: 20%;
   position: fixed;
   width: 100vw;
   height: 100vh;
