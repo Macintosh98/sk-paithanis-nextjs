@@ -36,12 +36,25 @@ const PageIntro = () => {
           >
             <div className="container">
               <div className="page-intro__slide__content">
-                <h1 style={{ padding: "10px" }} className="glasscard">
-                  VakratundaSK Paithani & Sarees
+                <h1
+                  style={{ padding: "10px", width: "fit-content" }}
+                  className="glasscard"
+                >
+                  VakratundaSK <br />
+                  Paithani & Sarees
                 </h1>
-                <h2 style={{ marginBottom: "0px" }}>SALE</h2>
-                <h2>20% OFF</h2>
-                <a href="#" className="btn-shop">
+                <h2
+                  style={{ padding: "10px", width: "fit-content" }}
+                  className="glasscard"
+                >
+                  SALE 20% OFF
+                </h2>
+                {/* <h2>20% OFF</h2> */}
+                <a
+                  href="#"
+                  style={{ padding: "10px", width: "fit-content" }}
+                  className="glasscard btn-shop"
+                >
                   <i className="icon-right"></i>Shop now
                 </a>
               </div>
