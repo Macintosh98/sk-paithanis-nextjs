@@ -59,7 +59,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
       <div className="container glasscard" style={{ marginTop: "20px" }}>
         <Link href="/">
           <a>
-            <h1 className="site-logo">
+            <div className="site-logo">
               {/* <Logo /> */}
               <Image
                 src={"/images/logo_21_comp.png"}
@@ -67,7 +67,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
                 width={250}
               />
               {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
-            </h1>
+            </div>
           </a>
         </Link>
         <nav
