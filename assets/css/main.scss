@@ -118,6 +118,10 @@ body {
   box-sizing: border-box;
 }
 
+.animation {
+  animation: bg 10s infinite;
+}
+
 body {
   box-sizing: border-box;
   background-color: rgba(255, 222, 255);
@@ -749,13 +753,13 @@ h5 {
       }
       h1,
       h2 {
-        font-size: 32px;
+        font-size: 30px;
         // color: #FFF;
         font-weight: 600;
         line-height: 120%;
         margin-bottom: 45px;
         @include breakpoint(phone) {
-          font-size: 64px;
+          font-size: 60px;
           width: 600px;
         }
       }
@@ -875,12 +879,12 @@ h5 {
     .product__price h4 {
       &:before {
         content: "";
-        background-color: rgba(255, 222, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.5);
         background-image: linear-gradient(
           90deg,
-          rgba(255, 222, 255, 0.5),
-          rgba(255, 222, 255, 0.8),
-          rgba(255, 222, 255, 0.5)
+          rgba(255, 255, 255, 0.5),
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.5)
         );
         animation-name: skeleton;
         animation-duration: 1.2s;
@@ -1212,7 +1216,6 @@ h5 {
     }
   }
   .site-footer__links {
-    padding: 50px;
     @include breakpoint(phone) {
       display: flex;
       width: 100%;
@@ -1485,13 +1488,13 @@ h5 {
         height: 20px;
         width: 20px;
         margin-top: -7px;
-        border-color: rgba(255, 0, 255);
+        border-color: var(--color-orange);
         &.rc-slider-handle-dragging {
           box-shadow: none;
         }
       }
       .rc-slider-track {
-        background: rgba(255, 0, 255);
+        background: var(--color-orange);
       }
     }
     .products-filter__block__content {
@@ -3186,12 +3189,20 @@ h5 {
   // opacity: 0.5;
 }
 
-// @keyframes fg {
-//   0%   {background-color:rgba(155, 255, 255, 0.5);}
-//   33%  {background-color:rgba(255, 155, 255, 0.5);}
-//   66%  {background-color:rgba(255, 255, 155, 0.5);}
-//   100%  {background-color:rgba(155, 255, 255, 0.5);}
-// }
+@keyframes fg {
+  0% {
+    background-color: rgba(155, 255, 255, 0.5);
+  }
+  33% {
+    background-color: rgba(255, 155, 255, 0.5);
+  }
+  66% {
+    background-color: rgba(255, 255, 155, 0.5);
+  }
+  100% {
+    background-color: rgba(155, 255, 255, 0.5);
+  }
+}
 
 @keyframes bg {
   0% {

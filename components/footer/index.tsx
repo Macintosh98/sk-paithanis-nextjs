@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
 
           <div className="site-footer__links glasscard">
-            <ul>
+            <ul className="animation glasscard">
               <li>Shopping online</li>
               <li>
                 <a href="#">Order Status</a>
@@ -66,7 +66,7 @@ const Footer = () => {
                 <a href="#">Contact Us</a>
               </li>
             </ul>
-            <ul>
+            <ul className="animation glasscard">
               <li>Information</li>
               <li>
                 <a href="#">Gift Cards</a>
@@ -84,7 +84,7 @@ const Footer = () => {
                 <a href="#">Site feedback</a>
               </li>
             </ul>
-            <ul>
+            <ul className="animation glasscard">
               <li>Contact</li>
               {/* <li><a href="#">store@uikit.com</a></li> */}
               <li>

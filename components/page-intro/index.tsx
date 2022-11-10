@@ -40,7 +40,8 @@ const PageIntro = () => {
                   style={{ padding: "10px", width: "fit-content" }}
                   className="glasscard"
                 >
-                  VakratundaSK <br />
+                  VAKRATUNDA SK
+                  <br />
                   Paithani & Sarees
                 </h1>
                 <h2
