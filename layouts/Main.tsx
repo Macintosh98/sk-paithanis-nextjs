@@ -19,6 +19,10 @@ export default ({
       <Head>
         <title>{title}</title>
 
+        <meta
+          name="google-site-verification"
+          content="uekPvgvSmjuATzDfa7Gwm3DVHPDk0obila4r-7tj-KY"
+        />
         <meta charSet="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
