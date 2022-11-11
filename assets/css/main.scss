@@ -367,6 +367,7 @@ h5 {
     &:after,
     span {
       background-color: var(--color-black);
+      animation: color-black 10s infinite;
     }
   }
   .container {
@@ -378,10 +379,10 @@ h5 {
     color: #fff;
   }
   .site-header__btn-avatar {
-    display: none;
-    @include breakpoint(tablet-lg) {
-      display: block;
-    }
+    display: block;
+    // @include breakpoint(tablet-lg) {
+    //   display: block;
+    // }
   }
   .site-header__btn-menu {
     @include breakpoint(tablet-lg) {
@@ -636,8 +637,8 @@ h5 {
       content: "\e811";
     }
   }
-  .swiper-pagination-progressbar {
-  }
+  // .swiper-pagination-progressbar {
+  // }
   .shop-data {
     bottom: 0;
     left: 0;
@@ -1685,12 +1686,12 @@ h5 {
 
 .checkbox-square-wrapper {
   display: flex;
-  .checkbox {
-  }
+  // .checkbox {
+  // }
 }
 
-.checkbox-wrapper {
-}
+// .checkbox-wrapper {
+// }
 
 .products-list {
   display: flex;

@@ -105,7 +105,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
               className="icon-search"
             ></i>
           </button>
-          {/* <Link href="/cart">
+          <Link href="/cart">
             <button className="btn-cart">
               <i className="icon-cart"></i>
               {cartItems.length > 0 && (
@@ -117,7 +117,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
             <button className="site-header__btn-avatar">
               <i className="icon-avatar"></i>
             </button>
-          </Link> */}
+          </Link>
           <button
             onClick={() => setMenuOpen(true)}
             className="site-header__btn-menu"
