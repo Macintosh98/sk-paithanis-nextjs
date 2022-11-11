@@ -1,61 +1,92 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ProductStoreType } from 'types';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ProductStoreType } from "types";
+import { server } from "../../utils/server";
+import axios from "axios";
 
 interface CartTypes {
-  cartItems: ProductStoreType[]
+  cartItems: ProductStoreType[];
+  products: [];
+  status: string;
 }
 
-const initialState = { 
-  cartItems: [] 
+const initialState = {
+  cartItems: [],
+  products: [],
+  status: "idle",
 } as CartTypes;
 
-const indexSameProduct = (state: CartTypes, action: ProductStoreType) => {
-  const sameProduct = (product: ProductStoreType) => (
-    product.id === action.id 
-    // && 
-    // product.color === action.color && 
-    // product.size === action.size
-  );
+export const getProduct = createAsyncThunk("cart/getProduct", async () => {
+  const response = await axios({
+    url: `${server}/api/goals/`,
+    method: "GET",
+    responseType: "json",
+    headers: {
+      // Authorization: this.authString,
+      "Content-Type": "application/json",
+    },
+  });
+  return response.data;
+});
 
-  return state.cartItems.findIndex(sameProduct)
+const indexSameProduct = (state: CartTypes, action: ProductStoreType) => {
+  const sameProduct = (product: ProductStoreType) => product.id === action.id;
+  // &&
+  // product.color === action.color &&
+  // product.size === action.size
+
+  return state.cartItems.findIndex(sameProduct);
 };
 
 type AddProductType = {
-  product: ProductStoreType,
-  count: number,
-}
+  product: ProductStoreType;
+  count: number;
+};
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
-    addProduct: (state, action: PayloadAction<AddProductType>) => {
+    addProduct: (state: CartTypes, action: PayloadAction<AddProductType>) => {
       const cartItems = state.cartItems;
 
       // find index of product
       const index = indexSameProduct(state, action.payload.product);
 
-      if(index !== -1) {
+      if (index !== -1) {
         cartItems[index].count += action.payload.count;
         return;
       }
 
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload.product ]
+        cartItems: [...state.cartItems, action.payload.product],
       };
     },
-    removeProduct(state, action: PayloadAction<ProductStoreType>) {
+    removeProduct(state: CartTypes, action: PayloadAction<ProductStoreType>) {
       // find index of product
       state.cartItems.splice(indexSameProduct(state, action.payload), 1);
     },
-    setCount(state, action: PayloadAction<AddProductType>) {
+    setCount(state: CartTypes, action: PayloadAction<AddProductType>) {
       // find index and add new count on product count
       const indexItem = indexSameProduct(state, action.payload.product);
       state.cartItems[indexItem].count = action.payload.count;
     },
   },
-})
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProduct.pending, (state: CartTypes) => {
+        state.status = "loading";
+      })
+      .addCase(getProduct.fulfilled, (state: CartTypes, action) => {
+        state.status = "idle";
+        state.products = action.payload;
+      })
+      .addCase(getProduct.rejected, (state: CartTypes) => {
+        state.status = "fail";
+        state.products = [];
+      });
+  },
+});
 
-export const { addProduct, removeProduct, setCount } = cartSlice.actions
-export default cartSlice.reducer
+export const { addProduct, removeProduct, setCount } = cartSlice.actions;
+export default cartSlice.reducer;

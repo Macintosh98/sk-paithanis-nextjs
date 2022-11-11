@@ -1,3 +1,7 @@
+// import { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getProduct } from "store/reducers/cart";
+
 import Layout from "../layouts/Main";
 import PageIntro from "../components/page-intro";
 import ProductsFeatured from "../components/products-featured";
@@ -5,6 +9,15 @@ import Footer from "../components/footer";
 import Subscribe from "../components/subscribe";
 
 const IndexPage = () => {
+  // const dispatch = useDispatch();
+  // const AllProducts = useSelector((state: any) => state.cart);
+
+  // useEffect(() => {
+  //   if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
+  //     dispatch(getProduct());
+  //   }
+  // }, [AllProducts]);
+
   return (
     <Layout>
       <PageIntro />

@@ -1,40 +1,48 @@
-import useSwr from 'swr';
-import ProductItem from '../../product-item';
-import ProductsLoading from './loading';
+// import useSwr from 'swr';
+import ProductItem from "../../product-item";
+import ProductsLoading from "./loading";
 // import { ProductTypeList } from 'types';
-import products from '../../../utils/data/products';
-import { server } from '../../../utils/server'; 
+import products from "../../../utils/data/products";
+// import { server } from '../../../utils/server';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getProduct } from "store/reducers/cart";
 
 const ProductsContent = () => {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error } = useSwr(`${server}/api/goals/`, fetcher);
+  const dispatch = useDispatch();
+  const AllProducts = useSelector((state: any) => state.cart);
 
-  if (error) return <div>Failed to load users</div>;
+  useEffect(() => {
+    if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
+      dispatch(getProduct());
+    }
+  }, [AllProducts]);
+
+  if (AllProducts.status == "fail") return <div>Failed to load products</div>;
   return (
     <>
-      {!data && 
-        <ProductsLoading />
-      }
+      {AllProducts.status == "loading" && <ProductsLoading />}
 
-      {data &&
+      {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
         <section className="products-list">
-          {data.map((item: any)  => { 
-            item={...products[0],...item}
+          {AllProducts.products.map((item: any) => {
+            item = { ...products[0], ...item };
             return (
-            <ProductItem 
-              id={item._id} 
-              name={item.text}
-              price={item.price}
-              color={item.color}
-              currentPrice={item.currentPrice}
-              key={item._id}
-              images={item.img} 
-            />)
+              <ProductItem
+                id={item._id}
+                name={item.text}
+                price={item.price}
+                color={item.color}
+                currentPrice={item.currentPrice}
+                key={item._id}
+                images={item.img}
+              />
+            );
           })}
         </section>
-      }
+      )}
     </>
   );
 };
-  
-export default ProductsContent
+
+export default ProductsContent;
