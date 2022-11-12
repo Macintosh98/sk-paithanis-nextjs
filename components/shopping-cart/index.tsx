@@ -18,12 +18,12 @@ const ShoppingCart = () => {
   return (
     <section className="cart">
       <div className="container">
-        <div className="cart__intro">
+        <div className="cart__intro glasscard">
           <h3 className="cart__title">Shopping Cart</h3>
           <CheckoutStatus step="cart" />
         </div>
 
-        <div className="cart-list">
+        <div className="cart-list glasscard">
           {cartItems.length > 0 && (
             <table>
               <tbody>
@@ -55,7 +55,7 @@ const ShoppingCart = () => {
           {cartItems.length === 0 && <p>Nothing in the cart</p>}
         </div>
 
-        <div className="cart-actions">
+        <div className="cart-actions glasscard">
           <a href="/paithanis/all-paithani" className="cart__btn-back">
             <i className="icon-left"></i> Continue Shopping
           </a>

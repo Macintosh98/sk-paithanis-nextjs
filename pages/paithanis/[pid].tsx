@@ -11,7 +11,6 @@ const Products = () => {
   const { minprice = 0, maxprice = 50000, pid = "all-paithani" } = router.query;
 
   const [productType, setProductType] = useState(pid);
-  console.log(minprice, maxprice, productType);
   const [productPrice, setProductPrice] = useState([minprice, maxprice]);
 
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -20,7 +19,6 @@ const Products = () => {
   useEffect(() => {
     setProductType(pid);
     setProductPrice([minprice, maxprice]);
-    // console.log(router.query);
   }, [router.query]);
 
   return (

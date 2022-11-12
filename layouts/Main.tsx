@@ -24,7 +24,7 @@ export default ({
           content="uekPvgvSmjuATzDfa7Gwm3DVHPDk0obila4r-7tj-KY"
         />
         <meta charSet="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#111111" />
         <meta name="format-detection" content="telephone=no" />

@@ -1,8 +1,13 @@
 import Layout from "../layouts/Main";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { server } from "../utils/server";
-import { postData } from "../utils/services";
+import { useRouter } from "next/router";
+import Spinner from "../components/Spinner";
+// import { server } from "../utils/server";
+// import { postData } from "../utils/services";
+import { login, reset } from "store/reducers/auth/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 type LoginMail = {
   email: string;
@@ -12,14 +17,40 @@ type LoginMail = {
 const LoginPage = () => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = async (data: LoginMail) => {
-    const res = await postData(`${server}/api/login`, {
-      email: data.email,
-      password: data.password,
-    });
+  const dispatch = useDispatch();
+  const router = useRouter();
 
-    console.log(res);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state: any) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    if (isSuccess || user) {
+      router.push("/admin/all-paithani");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, dispatch]);
+
+  const onSubmit = async (data: LoginMail) => {
+    // const res = await postData(`${server}/api/login`, {
+    //   email: data.email,
+    //   password: data.password,
+    // });
+
+    dispatch(
+      login({
+        email: data.email,
+        password: data.password,
+      })
+    );
   };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <Layout>
@@ -33,13 +64,13 @@ const LoginPage = () => {
             </Link>
           </div>
 
-          <div className="form-block">
+          <div className="form-block glasscard">
             <h2 className="form-block__title">Log in</h2>
-            <p className="form-block__description">
+            {/* <p className="form-block__description">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s
-            </p>
+            </p> */}
 
             <form className="form" onSubmit={handleSubmit(onSubmit)}>
               <div className="form__input-row">
@@ -107,14 +138,14 @@ const LoginPage = () => {
                 </a>
               </div>
 
-              <div className="form__btns">
+              {/* <div className="form__btns">
                 <button type="button" className="btn-social fb-btn">
                   <i className="icon-facebook"></i>Facebook
                 </button>
                 <button type="button" className="btn-social google-btn">
                   <img src="/images/icons/gmail.svg" alt="gmail" /> Gmail
                 </button>
-              </div>
+              </div> */}
 
               <button
                 type="submit"

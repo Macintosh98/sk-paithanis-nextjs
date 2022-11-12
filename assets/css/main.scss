@@ -1430,7 +1430,7 @@ h5 {
         margin-right: 30px;
       }
       &.products-filter__wrapper--open {
-        left: 10px;
+        left: 5px;
       }
     }
     .products-filter__menu-btn {
@@ -2614,6 +2614,7 @@ h5 {
     width: 100%;
     font-weight: 500;
     color: #808080;
+    animation: bg 10s infinite;
     padding: 0 22px;
     border-radius: 40px;
     border: 1px solid #d8d8d8;
