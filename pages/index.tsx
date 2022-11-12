@@ -31,8 +31,8 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>New arrivals are now in!</h3> */}
-              <Link href="/paithanis/all-paithani" className="btn btn--rounded">
-                VIEW ALL
+              <Link href="/paithanis/all-paithani">
+                <div className="btn btn--rounded">VIEW ALL</div>
               </Link>
             </div>
           </article>
@@ -43,11 +43,8 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>Basic t-shirts $29,99</h3> */}
-              <Link
-                href="/paithanis/semi-silk-paithani"
-                className="btn btn--rounded"
-              >
-                Semi Silk Paithani
+              <Link href="/paithanis/semi-silk-paithani">
+                <div className="btn btn--rounded">Semi Silk Paithani</div>
               </Link>
             </div>
           </article>
@@ -58,11 +55,8 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>Sale this summer</h3> */}
-              <Link
-                href="/paithanis/pure-silk-paithani"
-                className="btn btn--rounded"
-              >
-                Pure Silk Paithani
+              <Link href="/paithanis/pure-silk-paithani">
+                <div className="btn btn--rounded">Pure Silk Paithani</div>
               </Link>
             </div>
           </article>

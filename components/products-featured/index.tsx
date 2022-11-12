@@ -23,11 +23,8 @@ const ProductsFeatured = () => {
       <div className="container">
         <header className="section-products-featured__header glasscard">
           <h3>Paithanis under ₹1500</h3>
-          <Link
-            href="/paithanis/all-paithani?minprice=0&maxprice=1500"
-            className="btn btn--rounded btn--border"
-          >
-            <a>Show All</a>
+          <Link href="/paithanis/all-paithani?minprice=0&maxprice=1500">
+            <div className="btn btn--rounded btn--border">Show All</div>
           </Link>
         </header>
         {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
@@ -45,11 +42,8 @@ const ProductsFeatured = () => {
       <div className="container">
         <header className="section-products-featured__header glasscard">
           <h3>Our Bestsellers</h3>
-          <Link
-            href="/paithanis/all-paithani?minprice=1500&maxprice=50000"
-            className="btn btn--rounded btn--border"
-          >
-            <a>Show All</a>
+          <Link href="/paithanis/all-paithani?minprice=1500&maxprice=50000">
+            <div className="btn btn--rounded btn--border">Show All</div>
           </Link>
         </header>
 
