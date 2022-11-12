@@ -1139,9 +1139,9 @@ h5 {
 
 .section {
   margin-bottom: 70px;
-  @include breakpoint(phone) {
-    margin-bottom: 150px;
-  }
+  // @include breakpoint(phone) {
+  //   margin-bottom: 150px;
+  // }
   .section__intro {
     // background-color: rgba(255,0,255, .2);
     // backdrop-filter: blur(8px);
@@ -1164,9 +1164,9 @@ h5 {
 
 .site-footer {
   padding-top: 50px;
-  @include breakpoint(phone) {
-    padding-top: 90px;
-  }
+  // @include breakpoint(phone) {
+  //   padding-top: 90px;
+  // }
   .site-footer__top {
     @include breakpoint(phone) {
       display: flex;
@@ -1709,12 +1709,12 @@ h5 {
     margin-right: 15px;
     @include breakpoint(phone) {
       margin-right: 33px;
-      margin-bottom: 55px;
+      // margin-bottom: 55px;
       width: calc(100% / 3 - 33px);
     }
     @include breakpoint(tablet-lg) {
       margin-right: 63px;
-      margin-bottom: 85px;
+      // margin-bottom: 85px;
       width: calc(100% / 3 - 63px);
     }
   }
@@ -1803,9 +1803,9 @@ h5 {
 
 .product-single {
   margin-bottom: 70px;
-  @include breakpoint(phone) {
-    margin-bottom: 170px;
-  }
+  // @include breakpoint(phone) {
+  //   margin-bottom: 170px;
+  // }
   .product-single__description {
     max-width: 938px;
     margin: 0 auto;

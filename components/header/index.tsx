@@ -74,11 +74,9 @@ const Header = ({ isErrorPage }: HeaderType) => {
           ref={navRef}
           className={`site-nav ${menuOpen ? "site-nav--open" : ""}`}
         >
-          <Link href="/paithani">
-            <a>All Paithani</a>
-          </Link>
-          <a href="/paithani/semi-silk-paithani">Semi Silk Paithani</a>
-          <a href="/paithani/pure-silk-paithani">Pure Silk Paithani</a>
+          <Link href="/paithanis/all-paithani">All Paithani</Link>
+          <Link href="/paithanis/semi-silk-paithani">Semi Silk Paithani</Link>
+          <Link href="/paithanis/pure-silk-paithani">Pure Silk Paithani</Link>
           {/* <button className="site-nav__btn"><p>Account</p></button> */}
         </nav>
 

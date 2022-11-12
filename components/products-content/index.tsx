@@ -1,15 +1,22 @@
 // import { useState } from 'react';
-import List from './list';
+import List from "./list";
 
 const ProductsContent = (props: any) => {
   // const [orderProductsOpen, setOrderProductsOpen] = useState(false);
-  
+  // filtersSubmit productType productPrice
+
   return (
     <section className="products-content">
       <div className="products-content__intro glasscard">
         {/* <h2>Men's Tops <span>(133)</span></h2> */}
         <h2>Paithani's</h2>
-        <button type="button" onClick={() => props.setFiltersOpen(!props.filtersOpen)}  className="products-filter-btn"><i className="icon-filters"></i></button>
+        <button
+          type="button"
+          onClick={() => props.setFiltersOpen(!props.filtersOpen)}
+          className="products-filter-btn"
+        >
+          <i className="icon-filters"></i>
+        </button>
         {/* old onClick={() => setOrderProductsOpen(!orderProductsOpen)} */}
         {/* <form className={`products-content__filter ${orderProductsOpen ? 'products-order-open' : ''}`}>
           <div className="products__filter__select">
@@ -31,10 +38,14 @@ const ProductsContent = (props: any) => {
         </form> */}
       </div>
 
-      <List />
+      <List
+        // setFiltersSubmit={props.setFiltersSubmit}
+        // filtersSubmit={props.filtersSubmit}
+        productType={props.productType}
+        productPrice={props.productPrice}
+      />
     </section>
   );
 };
-  
-export default ProductsContent
-  
+
+export default ProductsContent;

@@ -56,7 +56,7 @@ const ShoppingCart = () => {
         </div>
 
         <div className="cart-actions">
-          <a href="/paithani" className="cart__btn-back">
+          <a href="/paithanis/all-paithani" className="cart__btn-back">
             <i className="icon-left"></i> Continue Shopping
           </a>
           <input

@@ -23,7 +23,10 @@ const ProductsFeatured = () => {
       <div className="container">
         <header className="section-products-featured__header glasscard">
           <h3>Paithanis under ₹1500</h3>
-          <Link href="/paithani" className="btn btn--rounded btn--border">
+          <Link
+            href="/paithanis/all-paithani?minprice=0&maxprice=1500"
+            className="btn btn--rounded btn--border"
+          >
             <a>Show All</a>
           </Link>
         </header>
@@ -42,7 +45,10 @@ const ProductsFeatured = () => {
       <div className="container">
         <header className="section-products-featured__header glasscard">
           <h3>Our Bestsellers</h3>
-          <Link href="/paithani" className="btn btn--rounded btn--border">
+          <Link
+            href="/paithanis/all-paithani?minprice=1500&maxprice=50000"
+            className="btn btn--rounded btn--border"
+          >
             <a>Show All</a>
           </Link>
         </header>

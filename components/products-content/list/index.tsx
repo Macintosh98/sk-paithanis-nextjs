@@ -2,21 +2,56 @@
 import ProductItem from "../../product-item";
 import ProductsLoading from "./loading";
 // import { ProductTypeList } from 'types';
-import products from "../../../utils/data/products";
+import products1 from "../../../utils/data/products";
 // import { server } from '../../../utils/server';
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProduct } from "store/reducers/cart";
 
-const ProductsContent = () => {
-  const dispatch = useDispatch();
+const ProductsContent = ({
+  // setFiltersSubmit,
+  // filtersSubmit,
+  productType,
+  productPrice,
+}: any) => {
   const AllProducts = useSelector((state: any) => state.cart);
+  const [Products, setProducts] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
       dispatch(getProduct());
+    } else if (
+      AllProducts.status == "idle" &&
+      AllProducts.products.length > 0
+    ) {
+      setProducts(
+        AllProducts.products.filter(
+          (a: any) =>
+            a.currentPrice < productPrice[1] &&
+            a.currentPrice > productPrice[0] &&
+            a.category == productType
+        )
+      );
     }
-  }, [AllProducts]);
+  }, [AllProducts, productType, productPrice]);
+
+  // useEffect(() => {
+  //   if (filtersSubmit == true) {
+  //     if (AllProducts.status == "idle" && AllProducts.products.length > 0) {
+  //       setProducts(
+  //         AllProducts.products.filter(
+  //           (a: any) =>
+  //             a.currentPrice < productPrice[1] &&
+  //             a.currentPrice > productPrice[0] &&
+  //             a.category == productType
+  //         )
+  //       );
+  //     }
+  //     setFiltersSubmit(false);
+  //   }
+  // }, [filtersSubmit]);
 
   if (AllProducts.status == "fail") return <div>Failed to load products</div>;
   return (
@@ -25,8 +60,8 @@ const ProductsContent = () => {
 
       {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
         <section className="products-list">
-          {AllProducts.products.map((item: any) => {
-            item = { ...products[0], ...item };
+          {Products.map((item: any) => {
+            item = { ...products1[0], ...item };
             return (
               <ProductItem
                 id={item._id}
