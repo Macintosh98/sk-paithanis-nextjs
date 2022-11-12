@@ -7,6 +7,7 @@ import PageIntro from "../components/page-intro";
 import ProductsFeatured from "../components/products-featured";
 import Footer from "../components/footer";
 import Subscribe from "../components/subscribe";
+import Link from "next/link";
 
 const IndexPage = () => {
   // const dispatch = useDispatch();
@@ -30,9 +31,9 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>New arrivals are now in!</h3> */}
-              <a href="#" className="btn btn--rounded">
+              <Link href="/paithanis/all-paithani" className="btn btn--rounded">
                 VIEW ALL
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -42,9 +43,12 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>Basic t-shirts $29,99</h3> */}
-              <a href="#" className="btn btn--rounded">
+              <Link
+                href="/paithanis/semi-silk-paithani"
+                className="btn btn--rounded"
+              >
                 Semi Silk Paithani
-              </a>
+              </Link>
             </div>
           </article>
 
@@ -54,9 +58,12 @@ const IndexPage = () => {
           >
             <div className="featured-item__content">
               {/* <h3>Sale this summer</h3> */}
-              <a href="#" className="btn btn--rounded">
+              <Link
+                href="/paithanis/pure-silk-paithani"
+                className="btn btn--rounded"
+              >
                 Pure Silk Paithani
-              </a>
+              </Link>
             </div>
           </article>
         </div>
