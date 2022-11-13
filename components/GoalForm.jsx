@@ -26,9 +26,12 @@ function GoalForm() {
     profiledata.append("currentPrice", currentPrice);
     profiledata.append("file", image);
 
-    // console.log("first",profiledata.get("file"),text,image)
     dispatch(createGoal(profiledata));
     setText("");
+    setdiscription("");
+    setcategory("semi-silk-paithani");
+    setprice(0);
+    setcurrentPrice(0);
     setImage();
     setViewImage();
   };
@@ -43,7 +46,7 @@ function GoalForm() {
   return (
     <section className="form glasscard">
       <br /> <br />
-      <form onSubmit={onSubmit}>
+      <form>
         <div className="form-group">
           <label htmlFor="text">Name</label>
           <input
@@ -119,7 +122,10 @@ function GoalForm() {
         </div>
         <hr />
         <div className="form-group">
-          <button className="btn btn--rounded btn--border" type="submit">
+          <button
+            onClick={(e) => onSubmit(e)}
+            className="btn btn--rounded btn--border"
+          >
             Add
           </button>
         </div>

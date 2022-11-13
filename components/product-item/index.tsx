@@ -4,9 +4,9 @@ import { some } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavProduct } from "store/reducers/user";
 import { RootState } from "store";
-import { deleteGoal, reset } from "store/reducers/goals/goalSlice";
-import { getProduct } from "store/reducers/cart";
-import Spinner from "../Spinner";
+import { deleteGoal } from "store/reducers/goals/goalSlice";
+// import { getProduct } from "store/reducers/cart";
+// import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
 const ProductItem = ({
@@ -21,12 +21,15 @@ const ProductItem = ({
 }: any) => {
   const dispatch = useDispatch();
   const { favProducts } = useSelector((state: RootState) => state.user);
-  const { isLoading, isSuccess } = useSelector((state: any) => state.goal);
+  // const { isLoading } = useSelector((state: any) => state.goal);
+  // const AllProducts = useSelector((state: any) => state.cart);
 
-  useEffect(() => {
-    dispatch(reset());
-    if (isSuccess) dispatch(getProduct());
-  }, [isSuccess]);
+  // useEffect(() => {
+  //   if (isSuccess && AllProducts.status == "idle")
+  //     console.log("logggg", AllProducts, isSuccess, isLoading);
+  //   // dispatch(getProduct());
+  //   dispatch(reset());
+  // }, [isSuccess]);
 
   const isFavourite = some(favProducts, (productId) => productId === id);
 
@@ -48,9 +51,10 @@ const ProductItem = ({
     setBase64(btoa(b));
   }, []);
 
+  // if (isLoading) return <Spinner />;
+
   return (
     <div className="product-item glasscard">
-      {isLoading && <Spinner />}
       {admin && (
         <button
           onClick={() => dispatch(deleteGoal(id))}

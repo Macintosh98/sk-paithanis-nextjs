@@ -7,7 +7,7 @@ import Spinner from "../../components/Spinner";
 import ProductsFilter from "../../components/products-filter";
 import ProductsContent from "../../components/products-content";
 
-import { getGoals, reset } from "store/reducers/goals/goalSlice";
+// import { getGoals, reset } from "store/reducers/goals/goalSlice";
 import Layout from "../../layouts/Main";
 import { useRouter } from "next/router";
 
@@ -44,9 +44,9 @@ function Dashboard() {
     if (!user) router.push("/login");
     // else dispatch(getGoals());
 
-    return () => {
-      dispatch(reset());
-    };
+    // return () => {
+    //   dispatch(reset());
+    // };
   }, [user]);
 
   // if (isLoading) return <Spinner />;

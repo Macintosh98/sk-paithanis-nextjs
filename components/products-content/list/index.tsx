@@ -31,8 +31,8 @@ const ProductsContent = ({
         AllProducts.products.filter((a: any) => {
           a = { ...products1[0], ...a };
           return (
-            a.currentPrice < productPrice[1] &&
-            a.currentPrice > productPrice[0] &&
+            a.currentPrice <= productPrice[1] &&
+            a.currentPrice >= productPrice[0] &&
             a.category == productType
           );
         })
@@ -57,6 +57,7 @@ const ProductsContent = ({
   // }, [filtersSubmit]);
 
   if (AllProducts.status == "fail") return <div>Failed to load products</div>;
+
   return (
     <>
       {AllProducts.status == "loading" && <ProductsLoading />}

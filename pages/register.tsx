@@ -13,7 +13,7 @@ const RegisterPage = () => (
           </Link>
         </div>
 
-        <div className="form-block">
+        <div className="form-block glasscard">
           <h2 className="form-block__title">
             Create an account and discover the benefits
           </h2>

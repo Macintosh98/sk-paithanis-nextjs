@@ -31,7 +31,7 @@ const ForgotPassword = () => {
             </Link>
           </div>
 
-          <div className="form-block">
+          <div className="form-block glasscard">
             <h2 className="form-block__title">Forgot your password?</h2>
             <p className="form-block__description">
               Enter your email or phone number and recover your account

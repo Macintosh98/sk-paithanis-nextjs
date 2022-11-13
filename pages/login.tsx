@@ -1,12 +1,12 @@
 import Layout from "../layouts/Main";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+// import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import Spinner from "../components/Spinner";
 // import { server } from "../utils/server";
 // import { postData } from "../utils/services";
-import { login, reset } from "store/reducers/auth/authSlice";
+import { login } from "store/reducers/auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 type LoginMail = {
@@ -15,18 +15,31 @@ type LoginMail = {
 };
 
 const LoginPage = () => {
-  const { register, handleSubmit, errors } = useForm();
+  // const { register, handleSubmit, errors } = useForm();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  } as LoginMail);
+
+  const onChange = (e: any) => {
+    setFormData((prevState: any) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    dispatch(login(formData));
+  };
 
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const {
-    user,
-    isLoading,
-    // isError,
-    isSuccess,
-    //  message
-  } = useSelector((state: any) => state.auth);
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state: any) => state.auth
+  );
 
   useEffect(() => {
     // if (isError) {
@@ -37,22 +50,22 @@ const LoginPage = () => {
       router.push("/admin/all-paithani");
     }
 
-    dispatch(reset());
+    // dispatch(reset());
   }, [user, isSuccess]);
 
-  const onSubmit = async (data: LoginMail) => {
-    // const res = await postData(`${server}/api/login`, {
-    //   email: data.email,
-    //   password: data.password,
-    // });
+  // const onSubmit = async (data: LoginMail) => {
+  //   // const res = await postData(`${server}/api/login`, {
+  //   //   email: data.email,
+  //   //   password: data.password,
+  //   // });
 
-    dispatch(
-      login({
-        email: data.email,
-        password: data.password,
-      })
-    );
-  };
+  //   dispatch(
+  //     login({
+  //       email: data.email,
+  //       password: data.password,
+  //     })
+  //   );
+  // };
 
   // if (isLoading) return ;
 
@@ -73,37 +86,17 @@ const LoginPage = () => {
             <br />
             <h2 className="form-block__title">Log in</h2>
             <hr />
-            {/* <p className="form-block__description">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
-            </p> */}
 
-            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <form className="form" onSubmit={onSubmit}>
               <div className="form__input-row">
                 <input
                   className="form__input"
                   placeholder="email"
                   type="text"
                   name="email"
-                  ref={register({
-                    required: true,
-                    pattern:
-                      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  })}
+                  value={formData.email}
+                  onChange={onChange}
                 />
-
-                {errors.email && errors.email.type === "required" && (
-                  <p className="message message--error">
-                    This field is required
-                  </p>
-                )}
-
-                {errors.email && errors.email.type === "pattern" && (
-                  <p className="message message--error">
-                    Please write a valid email
-                  </p>
-                )}
               </div>
 
               <div className="form__input-row">
@@ -112,14 +105,12 @@ const LoginPage = () => {
                   type="password"
                   placeholder="Password"
                   name="password"
-                  ref={register({ required: true })}
+                  value={formData.password}
+                  onChange={onChange}
                 />
-                {errors.password && errors.password.type === "required" && (
-                  <p className="message message--error">
-                    This field is required
-                  </p>
-                )}
               </div>
+
+              {isError && <p className="message message--error">{message}</p>}
 
               <div className="form__info">
                 <div className="checkbox-wrapper">
@@ -131,7 +122,6 @@ const LoginPage = () => {
                       type="checkbox"
                       name="keepSigned"
                       id="check-signed-in"
-                      ref={register({ required: false })}
                     />
                     <span className="checkbox__check"></span>
                     <p>Keep me signed in</p>
