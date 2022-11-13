@@ -7,16 +7,16 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: "",
-};
+} as any;
 
 // Create new goal
 export const createGoal = createAsyncThunk(
   "goals/create",
-  async (goalData, thunkAPI) => {
+  async (goalData, thunkAPI: any) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
       return await goalService.createGoal(goalData, token);
-    } catch (error) {
+    } catch (error: any) {
       const message =
         (error.response &&
           error.response.data &&
@@ -31,11 +31,11 @@ export const createGoal = createAsyncThunk(
 // Get user goals
 export const getGoals = createAsyncThunk(
   "goals/getAll",
-  async (_, thunkAPI) => {
+  async (_, thunkAPI: any) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
       return await goalService.getGoals(token);
-    } catch (error) {
+    } catch (error: any) {
       const message =
         (error.response &&
           error.response.data &&
@@ -50,11 +50,11 @@ export const getGoals = createAsyncThunk(
 // Delete user goal
 export const deleteGoal = createAsyncThunk(
   "goals/delete",
-  async (id, thunkAPI) => {
+  async (id: String, thunkAPI: any) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
       return await goalService.deleteGoal(id, token);
-    } catch (error) {
+    } catch (error: any) {
       const message =
         (error.response &&
           error.response.data &&
@@ -70,7 +70,7 @@ export const goalSlice = createSlice({
   name: "goal",
   initialState,
   reducers: {
-    reset: (state) => initialState,
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -107,7 +107,7 @@ export const goalSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.goals = state.goals.filter(
-          (goal) => goal._id !== action.payload.id
+          (goal: { _id: any }) => goal._id !== action.payload.id
         );
       })
       .addCase(deleteGoal.rejected, (state, action) => {

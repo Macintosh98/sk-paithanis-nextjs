@@ -1705,7 +1705,7 @@ h5 {
     margin-right: -63px;
   }
   .product-item {
-    width: calc(100% / 2 - 15px);
+    width: calc(100% / 1 - 15px);
     margin-bottom: 50px;
     margin-right: 15px;
     @include breakpoint(phone) {

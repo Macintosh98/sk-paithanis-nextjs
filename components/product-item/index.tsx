@@ -4,6 +4,9 @@ import { some } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleFavProduct } from "store/reducers/user";
 import { RootState } from "store";
+import { deleteGoal, reset } from "store/reducers/goals/goalSlice";
+import { getProduct } from "store/reducers/cart";
+import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
 const ProductItem = ({
@@ -14,9 +17,16 @@ const ProductItem = ({
   price,
   currentPrice,
   productType,
+  admin = false,
 }: any) => {
   const dispatch = useDispatch();
   const { favProducts } = useSelector((state: RootState) => state.user);
+  const { isLoading, isSuccess } = useSelector((state: any) => state.goal);
+
+  useEffect(() => {
+    dispatch(reset());
+    if (isSuccess) dispatch(getProduct());
+  }, [isSuccess]);
 
   const isFavourite = some(favProducts, (productId) => productId === id);
 
@@ -40,6 +50,28 @@ const ProductItem = ({
 
   return (
     <div className="product-item glasscard">
+      {isLoading && <Spinner />}
+      {admin && (
+        <button
+          onClick={() => dispatch(deleteGoal(id))}
+          className="glasscard animation close"
+        >
+          Delete
+        </button>
+      )}
+
+      <style jsx>{`
+        .close {
+          position: absolute;
+          // top: 10px;
+          // right: 15px;
+          cursor: pointer;
+          border: none;
+          background: none;
+          z-index: 6;
+        }
+      `}</style>
+
       <div className="product__image">
         <button
           type="button"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import GoalForm from "../../components/GoalForm";
-import GoalItem from "../../components/GoalItem";
+// import GoalItem from "../../components/GoalItem";
 import Spinner from "../../components/Spinner";
 
 import ProductsFilter from "../../components/products-filter";
@@ -26,7 +26,7 @@ function Dashboard() {
     setProductPrice([minprice, maxprice]);
   }, [router.query]);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [Show, setShow] = useState(false);
 
@@ -36,18 +36,18 @@ function Dashboard() {
   //   (state) => state.goal
   // );
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     console.log(message);
-  //   }
+  useEffect(() => {
+    // if (isError) {
+    //   console.log(message);
+    // }
 
-  //   if (!user) router.push("/login");
-  //   else dispatch(getGoals());
+    if (!user) router.push("/login");
+    // else dispatch(getGoals());
 
-  //   return () => {
-  //     dispatch(reset());
-  //   };
-  // }, [user, isError, message, dispatch]);
+    return () => {
+      dispatch(reset());
+    };
+  }, [user]);
 
   // if (isLoading) return <Spinner />;
 
@@ -97,6 +97,7 @@ function Dashboard() {
           <ProductsContent
             // filtersSubmit={filtersSubmit}
             // setFiltersSubmit={setFiltersSubmit}
+            admin={true}
             productType={productType}
             productPrice={productPrice}
             filtersOpen={filtersOpen}

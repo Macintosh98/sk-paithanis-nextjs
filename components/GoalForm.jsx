@@ -5,7 +5,7 @@ import { createGoal } from "../store/reducers/goals/goalSlice";
 function GoalForm() {
   const [text, setText] = useState("");
   const [discription, setdiscription] = useState("");
-  const [category, setcategory] = useState("semi_silk");
+  const [category, setcategory] = useState("semi-silk-paithani");
   const [price, setprice] = useState(0);
   const [currentPrice, setcurrentPrice] = useState(0);
 

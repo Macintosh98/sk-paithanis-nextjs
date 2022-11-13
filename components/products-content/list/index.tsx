@@ -13,6 +13,7 @@ const ProductsContent = ({
   // filtersSubmit,
   productType,
   productPrice,
+  admin,
 }: any) => {
   const AllProducts = useSelector((state: any) => state.cart);
   const [Products, setProducts] = useState([]);
@@ -74,6 +75,7 @@ const ProductsContent = ({
                 key={item._id}
                 images={item.img}
                 productType={item.category}
+                admin={admin}
               />
             );
           })}

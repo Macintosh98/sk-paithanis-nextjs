@@ -20,21 +20,25 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state: any) => state.auth
-  );
+  const {
+    user,
+    isLoading,
+    // isError,
+    isSuccess,
+    //  message
+  } = useSelector((state: any) => state.auth);
 
   useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
+    // if (isError) {
+    //   console.log(message);
+    // }
 
     if (isSuccess || user) {
       router.push("/admin/all-paithani");
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, dispatch]);
+  }, [user, isSuccess]);
 
   const onSubmit = async (data: LoginMail) => {
     // const res = await postData(`${server}/api/login`, {
@@ -50,10 +54,11 @@ const LoginPage = () => {
     );
   };
 
-  if (isLoading) return <Spinner />;
+  // if (isLoading) return ;
 
   return (
     <Layout>
+      {isLoading && <Spinner />}
       <section className="form-page">
         <div className="container">
           <div className="back-button-section">
