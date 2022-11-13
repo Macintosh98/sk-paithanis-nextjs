@@ -1,20 +1,20 @@
-import ProductItem from './../../product-item';
-import { ProductTypeList } from 'types';
-import products1 from '../../../utils/data/products';
+import ProductItem from "./../../product-item";
+import { ProductTypeList } from "types";
+import products1 from "../../../utils/data/products";
 
 // import Swiper core and required components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 let slidesPerView = 1.3;
 let centeredSlides = true;
 let spaceBetween = 30;
 if (process.browser) {
-  if(window.innerWidth > 768) {
+  if (window.innerWidth > 768) {
     slidesPerView = 3;
     spaceBetween = 35;
     centeredSlides = false;
   }
-  if(window.innerWidth > 1024) {
+  if (window.innerWidth > 1024) {
     slidesPerView = 4;
     spaceBetween = 65;
     centeredSlides = false;
@@ -22,21 +22,22 @@ if (process.browser) {
 }
 
 type ProductsCarouselType = {
-  products: ProductTypeList[]
-}
+  products: ProductTypeList[];
+};
 
 const ProductsCarousel = ({ products }: ProductsCarouselType) => {
   if (!products) return <div>Loading</div>;
 
   return (
     <div className="products-carousel">
-      <Swiper 
-      spaceBetween={spaceBetween} 
-      // loop={true} 
-      centeredSlides={centeredSlides} 
-      watchOverflow={true} 
-      slidesPerView={slidesPerView} 
-      className="swiper-wrapper">
+      <Swiper
+        spaceBetween={spaceBetween}
+        // loop={true}
+        centeredSlides={centeredSlides}
+        watchOverflow={true}
+        slidesPerView={slidesPerView}
+        className="swiper-wrapper"
+      >
         {/* {products.map(item => (
           <SwiperSlide key={item.id}>
             <ProductItem 
@@ -52,26 +53,27 @@ const ProductsCarousel = ({ products }: ProductsCarouselType) => {
           </SwiperSlide>
         ))} */}
 
-          {products.map((item: any)  => { 
-            item={...products1[0],...item}
-            return (
-              <SwiperSlide key={item._id}>
-            <ProductItem 
-              id={item._id} 
-              name={item.text}
-              price={item.price}
-              color={item.color}
-              discount={item.discount}
-              currentPrice={item.currentPrice}
-              key={item._id}
-              images={item.img} 
-            />
-                      </SwiperSlide>
-            )
-          })}
+        {products.map((item: any) => {
+          item = { ...products1[0], ...item };
+          return (
+            <SwiperSlide key={item._id}>
+              <ProductItem
+                id={item._id}
+                name={item.text}
+                price={item.price}
+                color={item.color}
+                discount={item.discount}
+                currentPrice={item.currentPrice}
+                key={item._id}
+                images={item.img}
+                productType={item.category}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
-export default ProductsCarousel
+export default ProductsCarousel;

@@ -14,7 +14,7 @@ const Footer = () => {
             <Image src={"/images/logo_21_comp.png"} height={220} width={400} />
             {/* <br/><br/><br/> */}
             {/* <h6><span>VakratundaSK </span> - Paithani & Sarees</h6> */}
-            <p>
+            <p className="glasscard animation">
               House My Brand designs clothing for the young, the old & everyone
               in between – but most importantly, for the fashionable
             </p>
@@ -49,7 +49,8 @@ const Footer = () => {
 
           <div className="site-footer__links glasscard">
             <ul className="animation glasscard">
-              <li>Shopping online</li>
+              <h4>Shopping online</h4>
+              <hr />
               <li>
                 <a href="#">Order Status</a>
               </li>
@@ -67,7 +68,8 @@ const Footer = () => {
               </li>
             </ul>
             <ul className="animation glasscard">
-              <li>Information</li>
+              <h4>Information</h4>
+              <hr />
               <li>
                 <a href="#">Gift Cards</a>
               </li>
@@ -85,7 +87,8 @@ const Footer = () => {
               </li>
             </ul>
             <ul className="animation glasscard">
-              <li>Contact</li>
+              <h4>Contact</h4>
+              <hr />
               {/* <li><a href="#">store@uikit.com</a></li> */}
               <li>
                 <a href="https://wa.me/+917350451717">
@@ -101,7 +104,12 @@ const Footer = () => {
         <div className="container">
           <p>
             DESIGN BY{" "}
-            <a href="http://abhishekzambare.vercel.app/">"Abhishek Zambare"</a>{" "}
+            <a
+              href="http://abhishekzambare.vercel.app/"
+              style={{ fontWeight: 600 }}
+            >
+              "Abhishek Zambare"
+            </a>{" "}
             - © 2022. ALL RIGHTS RESERVED.
           </p>
         </div>

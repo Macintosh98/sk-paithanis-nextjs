@@ -27,12 +27,14 @@ const ProductsContent = ({
       AllProducts.products.length > 0
     ) {
       setProducts(
-        AllProducts.products.filter(
-          (a: any) =>
+        AllProducts.products.filter((a: any) => {
+          a = { ...products1[0], ...a };
+          return (
             a.currentPrice < productPrice[1] &&
             a.currentPrice > productPrice[0] &&
             a.category == productType
-        )
+          );
+        })
       );
     }
   }, [AllProducts, productType, productPrice]);
@@ -71,6 +73,7 @@ const ProductsContent = ({
                 currentPrice={item.currentPrice}
                 key={item._id}
                 images={item.img}
+                productType={item.category}
               />
             );
           })}

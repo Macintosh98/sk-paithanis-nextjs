@@ -13,6 +13,7 @@ const ProductItem = ({
   name,
   price,
   currentPrice,
+  productType,
 }: any) => {
   const dispatch = useDispatch();
   const { favProducts } = useSelector((state: RootState) => state.user);
@@ -62,7 +63,10 @@ const ProductItem = ({
       </div>
 
       <div className="product__description glasscard animation">
-        <h3>{name}</h3>
+        <h2>{name}</h2>
+        <br />
+        <p>Type: {productType}</p>
+        <br />
         <div
           className={
             "product__price " + (discount ? "product__price--discount" : "")

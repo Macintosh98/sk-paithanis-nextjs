@@ -65,7 +65,9 @@ const LoginPage = () => {
           </div>
 
           <div className="form-block glasscard">
+            <br />
             <h2 className="form-block__title">Log in</h2>
+            <hr />
             {/* <p className="form-block__description">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text

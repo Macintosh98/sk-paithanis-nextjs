@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Navigation } from "swiper";
+import Link from "next/link";
 // import Image from 'next/image'
 
 SwiperCore.use([EffectFade, Navigation]);
@@ -51,13 +52,14 @@ const PageIntro = () => {
                   SALE 20% OFF
                 </h2>
                 {/* <h2>20% OFF</h2> */}
-                <a
-                  href="#"
-                  style={{ padding: "10px", width: "fit-content" }}
-                  className="glasscard btn-shop"
-                >
-                  <i className="icon-right"></i>Shop now
-                </a>
+                <Link href="/paithanis/all-paithani">
+                  <div
+                    style={{ padding: "10px", width: "fit-content" }}
+                    className="glasscard btn-shop"
+                  >
+                    <i className="icon-right"></i>Shop now
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
