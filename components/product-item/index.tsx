@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavProduct } from "store/reducers/user";
 import { RootState } from "store";
 import { deleteGoal } from "store/reducers/goals/goalSlice";
-// import { getProduct } from "store/reducers/cart";
+import { removeProductLocal } from "store/reducers/cart";
 // import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
@@ -21,6 +21,9 @@ const ProductItem = ({
 }: any) => {
   const dispatch = useDispatch();
   const { favProducts } = useSelector((state: RootState) => state.user);
+
+  const [viewimage, setViewImage] = useState();
+
   // const { isLoading } = useSelector((state: any) => state.goal);
   // const AllProducts = useSelector((state: any) => state.cart);
 
@@ -44,20 +47,29 @@ const ProductItem = ({
   const [base64, setBase64] = useState("");
 
   useEffect(() => {
-    const a = new Uint8Array(images.data.data);
-    const b = a.reduce((data, byte) => {
-      return data + String.fromCharCode(byte);
-    }, "");
-    setBase64(btoa(b));
+    if (images.data == false) {
+      var reader: any = new FileReader();
+      reader.readAsDataURL(images.file);
+      reader.onloadend = () => setViewImage(reader.result);
+    } else {
+      const a = new Uint8Array(images.data.data);
+      const b = a.reduce((data, byte) => {
+        return data + String.fromCharCode(byte);
+      }, "");
+      setBase64(btoa(b));
+    }
   }, []);
 
   // if (isLoading) return <Spinner />;
 
   return (
     <div className="product-item glasscard">
-      {admin && (
+      {admin && !viewimage && (
         <button
-          onClick={() => dispatch(deleteGoal(id))}
+          onClick={() => {
+            dispatch(deleteGoal(id));
+            dispatch(removeProductLocal(id));
+          }}
           className="glasscard animation close"
         >
           Delete
@@ -89,7 +101,11 @@ const ProductItem = ({
           <a>
             <img
               src={
-                images ? "data:" + images.contentType + ";base64," + base64 : ""
+                viewimage
+                  ? viewimage
+                  : images
+                  ? "data:" + images.contentType + ";base64," + base64
+                  : ""
               }
               alt="product"
             />

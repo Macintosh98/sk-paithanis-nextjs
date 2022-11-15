@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createGoal } from "../store/reducers/goals/goalSlice";
+import { addProductLocal } from "../store/reducers/cart";
+import products1 from "../utils/data/products";
 
 function GoalForm() {
   const [text, setText] = useState("");
@@ -17,6 +19,25 @@ function GoalForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    const temp = {
+      ...products1[0],
+      ...{
+        text,
+        discription,
+        currentPrice,
+        category,
+        price,
+        img: {
+          //not using in local
+          data: false,
+          // contentType: image.mimetype,
+          file: image,
+        },
+        _id: Math.random() * 100000,
+        local: true,
+      },
+    };
+
     const profiledata = new FormData();
 
     profiledata.append("text", text);
@@ -27,6 +48,7 @@ function GoalForm() {
     profiledata.append("file", image);
 
     dispatch(createGoal(profiledata));
+    dispatch(addProductLocal(temp));
     setText("");
     setdiscription("");
     setcategory("semi-silk-paithani");

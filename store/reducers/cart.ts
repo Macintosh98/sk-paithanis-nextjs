@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductStoreType } from "types";
+import { ProductType, ProductStoreType } from "types";
 import { server } from "../../utils/server";
 import axios from "axios";
 
 interface CartTypes {
   cartItems: ProductStoreType[];
-  products: [];
+  products: ProductType[];
   status: string;
 }
 
@@ -66,6 +66,31 @@ const cartSlice = createSlice({
       // find index of product
       state.cartItems.splice(indexSameProduct(state, action.payload), 1);
     },
+    addProductLocal: (state: CartTypes, action: PayloadAction<any>) => {
+      // find index of product
+      const index = state.products.findIndex(
+        (product: any) => product._id === action.payload._id
+      );
+
+      if (index !== -1) {
+        return;
+      }
+
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+      };
+    },
+    removeProductLocal(state: CartTypes, action: PayloadAction<string>) {
+      // find index of product
+      const newproducts = state.products.filter(
+        (product: any) => product._id != action.payload
+      );
+      return {
+        ...state,
+        products: newproducts,
+      };
+    },
     setCount(state: CartTypes, action: PayloadAction<AddProductType>) {
       // find index and add new count on product count
       const indexItem = indexSameProduct(state, action.payload.product);
@@ -88,5 +113,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct, setCount } = cartSlice.actions;
+export const {
+  addProduct,
+  removeProduct,
+  setCount,
+  addProductLocal,
+  removeProductLocal,
+} = cartSlice.actions;
 export default cartSlice.reducer;

@@ -40,10 +40,8 @@ function Dashboard() {
     // if (isError) {
     //   console.log(message);
     // }
-
     if (!user) router.push("/login");
     // else dispatch(getGoals());
-
     // return () => {
     //   dispatch(reset());
     // };
