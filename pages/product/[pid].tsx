@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
 
 // import { useState } from "react";
-import Footer from "../../components/footer";
-import Layout from "../../layouts/Main";
+// import Footer from "../../components/footer";
+// import Layout from "../../layouts/Main";
 import Breadcrumb from "../../components/breadcrumb";
 import ProductsFeatured from "../../components/products-featured";
 import Gallery from "../../components/product-single/gallery";
@@ -35,7 +35,7 @@ const Product = ({ product }: any) => {
   // const [showBlock, setShowBlock] = useState("description");
 
   return (
-    <Layout>
+    <>
       <Breadcrumb />
 
       <section className="product-single">
@@ -78,8 +78,8 @@ const Product = ({ product }: any) => {
       <div className="product-single-page">
         <ProductsFeatured />
       </div>
-      <Footer />
-    </Layout>
+      {/* <Footer /> */}
+    </>
   );
 };
 

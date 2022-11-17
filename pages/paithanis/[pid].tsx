@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Layout from "../../layouts/Main";
-import Footer from "../../components/footer";
+// import Layout from "../../layouts/Main";
+// import Footer from "../../components/footer";
 import Breadcrumb from "../../components/breadcrumb";
 import ProductsFilter from "../../components/products-filter";
 import ProductsContent from "../../components/products-content";
@@ -22,7 +22,7 @@ const Products = () => {
   }, [router.query]);
 
   return (
-    <Layout>
+    <>
       <Breadcrumb />
       <section className="products-page">
         <div className="container">
@@ -45,8 +45,8 @@ const Products = () => {
           />
         </div>
       </section>
-      <Footer />
-    </Layout>
+      {/* <Footer /> */}
+    </>
   );
 };
 

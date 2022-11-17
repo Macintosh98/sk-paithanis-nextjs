@@ -2,10 +2,10 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { getProduct } from "store/reducers/cart";
 
-import Layout from "../layouts/Main";
+// import Layout from "../layouts/Main";
 import PageIntro from "../components/page-intro";
 import ProductsFeatured from "../components/products-featured";
-import Footer from "../components/footer";
+// import Footer from "../components/footer";
 import Subscribe from "../components/subscribe";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const IndexPage = () => {
   // }, [AllProducts]);
 
   return (
-    <Layout>
+    <>
       <PageIntro />
 
       <section className="featured">
@@ -119,8 +119,8 @@ const IndexPage = () => {
 
       <ProductsFeatured />
       <Subscribe />
-      <Footer />
-    </Layout>
+      {/* <Footer /> */}
+    </>
   );
 };
 

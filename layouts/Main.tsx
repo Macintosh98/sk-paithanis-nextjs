@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "components/header";
+import Footer from "components/footer";
 import { useRouter } from "next/router";
 
 type LayoutType = {
@@ -65,6 +66,8 @@ export default ({
       <Header />
 
       <main className={pathname !== "/" ? "main-page" : ""}>{children}</main>
+
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -91,9 +92,9 @@ const Footer = () => {
               <hr />
               {/* <li><a href="#">store@uikit.com</a></li> */}
               <li>
-                <a href="https://wa.me/+917350451717">
+                <Link href="https://wa.me/+917350451717">
                   Hotline: +91 7350451717
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

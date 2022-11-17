@@ -8,7 +8,7 @@ import ProductsFilter from "../../components/products-filter";
 import ProductsContent from "../../components/products-content";
 
 // import { getGoals, reset } from "store/reducers/goals/goalSlice";
-import Layout from "../../layouts/Main";
+// import Layout from "../../layouts/Main";
 import { useRouter } from "next/router";
 
 function Dashboard() {
@@ -50,7 +50,7 @@ function Dashboard() {
   // if (isLoading) return <Spinner />;
 
   return (
-    <Layout>
+    <>
       <div className="container">
         <section className="heading glasscard">
           <div>
@@ -131,7 +131,7 @@ function Dashboard() {
           }
         }
       `}</style>
-    </Layout>
+    </>
   );
 }
 

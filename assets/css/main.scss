@@ -266,7 +266,7 @@ h5 {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   // box-shadow: inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%);
-  box-shadow: 0 2px 8px 2px rgb(0 0 0 / 0.07), 0 2px 4px -1px rgb(0 0 0 / 0.04);
+  // box-shadow: 0 2px 8px 2px rgb(0 0 0 / 0.07), 0 2px 4px -1px rgb(0 0 0 / 0.04);
   box-shadow: 0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%),
     0 12px 24px rgb(0 0 0 / 5%);
   padding: 20px;
@@ -285,27 +285,32 @@ h5 {
 }
 
 .btn {
-  color: #000000;
+  // color: #000000;
+  animation: color-black 10s infinite;
+  animation: fgnormal 10s infinite;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%),
+    0 12px 24px rgb(0 0 0 / 5%);
+  border-radius: 20px;
   cursor: pointer;
-  &.btn--rounded {
-    font-size: 12px;
-    background: #fff;
-    display: inline-block;
-    border-radius: 50px;
-    padding: 11px 20px;
-    font-weight: 500;
-    text-transform: uppercase;
-    @include breakpoint(phone) {
-      font-size: 13px;
-      padding: 15px 25px;
-    }
-    &.btn--border {
-      border: 1px solid #d8d8d8;
-    }
-    &.btn--yellow {
-      background-color: var(--color-orange);
-    }
+  // &.btn--rounded {
+  font-size: 12px;
+  //   background: #fff;
+  //   display: inline-block;
+  //   border-radius: 50px;
+  padding: 11px 20px;
+  //   font-weight: 500;
+  //   text-transform: uppercase;
+  @include breakpoint(phone) {
+    font-size: 13px;
+    padding: 15px 25px;
   }
+  //   &.btn--border {
+  //     border: 1px solid #d8d8d8;
+  //   }
+  //   &.btn--yellow {
+  //     background-color: var(--color-orange);
+  //   }
+  // }
 }
 
 .site-logo {
@@ -844,17 +849,17 @@ h5 {
     @include breakpoint(tablet-lg) {
       margin-bottom: 0;
     }
-    &:before {
-      content: "";
-      border-radius: 20px;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1;
-      height: 100%;
-      position: absolute;
-      background: rgba(0, 0, 0, 0.28);
-    }
+    // &:before {
+    //   content: "";
+    //   border-radius: 20px;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   z-index: 1;
+    //   height: 100%;
+    //   position: absolute;
+    //   background: rgba(0, 0, 0, 0.28);
+    // }
     .featured-item__content {
       margin-top: auto;
       position: relative;
@@ -1399,7 +1404,6 @@ h5 {
       // }
     }
     .products-filter__wrapper {
-      width: 300px;
       left: -300px;
       // top: 101px;
       overflow: auto;
@@ -1414,9 +1418,11 @@ h5 {
       // height: 100%;
       position: absolute;
       @include breakpoint(phone) {
-        top: 134px;
+        width: 300px;
+        // top: 134px;
       }
       @include breakpoint(tablet-lg) {
+        width: 300px;
         position: relative;
         left: 0;
         top: 0;
@@ -3252,5 +3258,20 @@ h5 {
   }
   100% {
     color: rgb(0, 100, 100);
+  }
+}
+
+@keyframes fgnormal {
+  0% {
+    background-color: rgba(155, 255, 255);
+  }
+  33% {
+    background-color: rgba(255, 155, 255);
+  }
+  66% {
+    background-color: rgba(255, 255, 155);
+  }
+  100% {
+    background-color: rgba(155, 255, 255);
   }
 }

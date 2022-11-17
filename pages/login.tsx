@@ -1,6 +1,7 @@
-import Layout from "../layouts/Main";
+// import Layout from "../layouts/Main";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Breadcrumb from "../components/breadcrumb";
 // import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import Spinner from "../components/Spinner";
@@ -70,72 +71,77 @@ const LoginPage = () => {
   // if (isLoading) return ;
 
   return (
-    <Layout>
+    // <Layout>
+    <section className="form-page">
       {isLoading && <Spinner />}
-      <section className="form-page">
-        <div className="container">
-          <div className="back-button-section">
-            <Link href="/paithanis/all-paithani">
-              <a>
-                <i className="icon-left"></i> Back to store
-              </a>
-            </Link>
-          </div>
+      <div className="container">
+        {/* <div className="back-button-section">
+          <Link href="/paithanis/all-paithani">
+            <a>
+              <i className="icon-left"></i> Back to store
+            </a>
+          </Link>
+        </div> */}
+        <Breadcrumb />
 
-          <div className="form-block glasscard">
-            <br />
+        <div className="form-block glasscard">
+          <div className="glasscard animation">
             <h2 className="form-block__title">Log in</h2>
             <hr />
+            <p className="form-block__description">
+              Enter your email or phone number and recover your account
+            </p>
+          </div>
 
-            <form className="form" onSubmit={onSubmit}>
-              <div className="form__input-row">
-                <input
-                  className="form__input"
-                  placeholder="email"
-                  type="text"
-                  name="email"
-                  value={formData.email}
-                  onChange={onChange}
-                />
-              </div>
+          <form className="form" onSubmit={onSubmit}>
+            <div className="form__input-row">
+              <input
+                className="form__input"
+                placeholder="email"
+                type="text"
+                name="email"
+                value={formData.email}
+                onChange={onChange}
+              />
+            </div>
 
-              <div className="form__input-row">
-                <input
-                  className="form__input"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={formData.password}
-                  onChange={onChange}
-                />
-              </div>
+            <div className="form__input-row">
+              <input
+                className="form__input"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={formData.password}
+                onChange={onChange}
+              />
+            </div>
 
-              {isError && <p className="message message--error">{message}</p>}
+            {isError && <p className="message message--error">{message}</p>}
 
-              <div className="form__info">
-                <div className="checkbox-wrapper">
-                  <label
-                    htmlFor="check-signed-in"
-                    className={`checkbox checkbox--sm`}
-                  >
-                    <input
-                      type="checkbox"
-                      name="keepSigned"
-                      id="check-signed-in"
-                    />
-                    <span className="checkbox__check"></span>
-                    <p>Keep me signed in</p>
-                  </label>
-                </div>
-                <a
-                  href="/forgot-password"
-                  className="form__info__forgot-password"
+            <div className="form__info">
+              <div className="checkbox-wrapper">
+                <label
+                  htmlFor="check-signed-in"
+                  className={`checkbox checkbox--sm`}
                 >
-                  Forgot password?
-                </a>
+                  <input
+                    type="checkbox"
+                    name="keepSigned"
+                    id="check-signed-in"
+                  />
+                  <span className="checkbox__check"></span>
+                  <p>Keep me signed in</p>
+                </label>
               </div>
+              <Link
+                href="/forgot-password"
+                className="form__info__forgot-password"
+              >
+                Forgot password?
+              </Link>
+            </div>
 
-              {/* <div className="form__btns">
+            {/* <div className="form__btns">
                 <button type="button" className="btn-social fb-btn">
                   <i className="icon-facebook"></i>Facebook
                 </button>
@@ -144,21 +150,21 @@ const LoginPage = () => {
                 </button>
               </div> */}
 
-              <button
-                type="submit"
-                className="btn btn--rounded btn--yellow btn-submit"
-              >
-                Sign in
-              </button>
+            <button
+              type="submit"
+              className="btn btn--rounded btn--yellow btn-submit"
+            >
+              Sign in
+            </button>
 
-              <p className="form__signup-link">
-                Not a member yet? <a href="/register">Sign up</a>
-              </p>
-            </form>
-          </div>
+            <p className="form__signup-link">
+              Not a member yet? <Link href="/register">Sign up</Link>
+            </p>
+          </form>
         </div>
-      </section>
-    </Layout>
+      </div>
+    </section>
+    // {/* </Layout> */}
   );
 };
 
