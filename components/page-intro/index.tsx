@@ -10,10 +10,10 @@ const PageIntro = () => {
   return (
     <section
       className="page-intro"
-      style={{
-        background: "url('/images/444.png') no-repeat left center",
-        backgroundSize: "contain",
-      }}
+      // style={{
+      //   background: "url('/images/444.png') no-repeat left center",
+      //   backgroundSize: "contain",
+      // }}
     >
       <Swiper navigation effect="fade" className="swiper-wrapper">
         {/* <SwiperSlide>
