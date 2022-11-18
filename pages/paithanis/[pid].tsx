@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Breadcrumb from "../../components/breadcrumb";
 import ProductsFilter from "../../components/products-filter";
 import ProductsContent from "../../components/products-content";
+import { motion } from "framer-motion";
 
 const Products = () => {
   const router = useRouter();
@@ -22,7 +23,13 @@ const Products = () => {
   }, [router.query]);
 
   return (
-    <>
+    <motion.div
+      key={productType as string}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Breadcrumb />
       <section className="products-page">
         <div className="container">
@@ -45,8 +52,7 @@ const Products = () => {
           />
         </div>
       </section>
-      {/* <Footer /> */}
-    </>
+    </motion.div>
   );
 };
 

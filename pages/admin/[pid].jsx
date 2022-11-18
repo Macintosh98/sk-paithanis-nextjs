@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 import GoalForm from "../../components/GoalForm";
 // import GoalItem from "../../components/GoalItem";
 import Spinner from "../../components/Spinner";
@@ -50,7 +51,12 @@ function Dashboard() {
   // if (isLoading) return <Spinner />;
 
   return (
-    <>
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container">
         <section className="heading glasscard">
           <div>
@@ -131,7 +137,7 @@ function Dashboard() {
           }
         }
       `}</style>
-    </>
+    </motion.div>
   );
 }
 

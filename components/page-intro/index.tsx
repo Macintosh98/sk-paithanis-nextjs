@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Navigation } from "swiper";
 import Link from "next/link";
+import { motion } from "framer-motion";
 // import Image from 'next/image'
 
 SwiperCore.use([EffectFade, Navigation]);
@@ -45,12 +46,27 @@ const PageIntro = () => {
                   <br />
                   Paithani & Sarees
                 </h1>
-                <h2
-                  style={{ padding: "10px", width: "fit-content" }}
-                  className="glasscard"
+                <motion.div
+                  animate={{
+                    scale: [1, 1.5, 1.5, 1, 1],
+                    rotate: [0, 0, 180, 180, 0],
+                    // borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                  }}
+                  transition={{
+                    duration: 4,
+                    ease: "easeInOut",
+                    times: [0, 0.2, 0.5, 0.8, 1],
+                    repeat: Infinity,
+                    // repeatDelay: 1,
+                  }}
                 >
-                  SALE 20% OFF
-                </h2>
+                  <h2
+                    style={{ padding: "10px", width: "fit-content" }}
+                    className="glasscard"
+                  >
+                    SALE 20% OFF
+                  </h2>
+                </motion.div>
                 {/* <h2>20% OFF</h2> */}
                 <Link href="/paithanis/all-paithani">
                   <div

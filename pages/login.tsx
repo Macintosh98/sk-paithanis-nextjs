@@ -9,6 +9,7 @@ import Spinner from "../components/Spinner";
 // import { postData } from "../utils/services";
 import { login } from "store/reducers/auth/authSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 
 type LoginMail = {
   email: string;
@@ -72,76 +73,82 @@ const LoginPage = () => {
 
   return (
     // <Layout>
-    <section className="form-page">
-      {isLoading && <Spinner />}
-      <div className="container">
-        {/* <div className="back-button-section">
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <section className="form-page">
+        {isLoading && <Spinner />}
+        <div className="container">
+          {/* <div className="back-button-section">
           <Link href="/paithanis/all-paithani">
             <a>
               <i className="icon-left"></i> Back to store
             </a>
           </Link>
         </div> */}
-        <Breadcrumb />
+          <Breadcrumb />
 
-        <div className="form-block glasscard">
-          <div className="glasscard animation">
-            <h2 className="form-block__title">Log in</h2>
-            <hr />
-            <p className="form-block__description">
-              Enter your email or phone number and recover your account
-            </p>
-          </div>
-
-          <form className="form" onSubmit={onSubmit}>
-            <div className="form__input-row">
-              <input
-                className="form__input"
-                placeholder="email"
-                type="text"
-                name="email"
-                value={formData.email}
-                onChange={onChange}
-              />
+          <div className="form-block glasscard">
+            <div className="glasscard animation">
+              <h2 className="form-block__title">Log in</h2>
+              <hr />
+              <p className="form-block__description">
+                Enter your email or phone number and recover your account
+              </p>
             </div>
 
-            <div className="form__input-row">
-              <input
-                className="form__input"
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={onChange}
-              />
-            </div>
-
-            {isError && <p className="message message--error">{message}</p>}
-
-            <div className="form__info">
-              <div className="checkbox-wrapper">
-                <label
-                  htmlFor="check-signed-in"
-                  className={`checkbox checkbox--sm`}
-                >
-                  <input
-                    type="checkbox"
-                    name="keepSigned"
-                    id="check-signed-in"
-                  />
-                  <span className="checkbox__check"></span>
-                  <p>Keep me signed in</p>
-                </label>
+            <form className="form" onSubmit={onSubmit}>
+              <div className="form__input-row">
+                <input
+                  className="form__input"
+                  placeholder="email"
+                  type="text"
+                  name="email"
+                  value={formData.email}
+                  onChange={onChange}
+                />
               </div>
-              <Link
-                href="/forgot-password"
-                className="form__info__forgot-password"
-              >
-                Forgot password?
-              </Link>
-            </div>
 
-            {/* <div className="form__btns">
+              <div className="form__input-row">
+                <input
+                  className="form__input"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  value={formData.password}
+                  onChange={onChange}
+                />
+              </div>
+
+              {isError && <p className="message message--error">{message}</p>}
+
+              <div className="form__info">
+                <div className="checkbox-wrapper">
+                  <label
+                    htmlFor="check-signed-in"
+                    className={`checkbox checkbox--sm`}
+                  >
+                    <input
+                      type="checkbox"
+                      name="keepSigned"
+                      id="check-signed-in"
+                    />
+                    <span className="checkbox__check"></span>
+                    <p>Keep me signed in</p>
+                  </label>
+                </div>
+                <Link
+                  href="/forgot-password"
+                  className="form__info__forgot-password"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+
+              {/* <div className="form__btns">
                 <button type="button" className="btn-social fb-btn">
                   <i className="icon-facebook"></i>Facebook
                 </button>
@@ -150,20 +157,21 @@ const LoginPage = () => {
                 </button>
               </div> */}
 
-            <button
-              type="submit"
-              className="btn btn--rounded btn--yellow btn-submit"
-            >
-              Sign in
-            </button>
+              <button
+                type="submit"
+                className="btn btn--rounded btn--yellow btn-submit"
+              >
+                Sign in
+              </button>
 
-            <p className="form__signup-link">
-              Not a member yet? <Link href="/register">Sign up</Link>
-            </p>
-          </form>
+              <p className="form__signup-link">
+                Not a member yet? <Link href="/register">Sign up</Link>
+              </p>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </motion.div>
     // {/* </Layout> */}
   );
 };

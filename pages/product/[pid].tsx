@@ -11,6 +11,7 @@ import Content from "../../components/product-single/content";
 import Reviews from "../../components/product-single/reviews";
 import { server } from "../../utils/server";
 import products1 from "../../utils/data/products";
+import { motion } from "framer-motion";
 
 // types
 // import { ProductType } from 'types';
@@ -35,7 +36,12 @@ const Product = ({ product }: any) => {
   // const [showBlock, setShowBlock] = useState("description");
 
   return (
-    <>
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Breadcrumb />
 
       <section className="product-single">
@@ -79,7 +85,7 @@ const Product = ({ product }: any) => {
         <ProductsFeatured />
       </div>
       {/* <Footer /> */}
-    </>
+    </motion.div>
   );
 };
 
