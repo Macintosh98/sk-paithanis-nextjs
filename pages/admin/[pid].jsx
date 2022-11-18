@@ -27,6 +27,10 @@ function Dashboard() {
     setProductPrice([minprice, maxprice]);
   }, [router.query]);
 
+  useEffect(() => {
+    setFiltersOpen(false);
+  }, [productType]);
+
   const dispatch = useDispatch();
 
   const [Show, setShow] = useState(false);
@@ -52,6 +56,7 @@ function Dashboard() {
 
   return (
     <motion.div
+      key={productType}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -1,6 +1,7 @@
 import Head from "next/head";
-import Header from "components/header";
+import Header from "../components/header";
 import { useRouter } from "next/router";
+import React from "react";
 
 type LayoutType = {
   title?: string;
@@ -29,6 +30,10 @@ export default ({
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <meta name="theme-color" content="#111111" />
       <meta name="format-detection" content="telephone=no" />
+      <meta
+        name="keywords"
+        content="vakratunda-sk-paithani,paithanis,sarees,vakratunda-paithani,sk-paithani"
+      ></meta>
       <meta
         name="description"
         content="Looking for Paithani Sarees online? vakratunda-sk-paithani.com offers 100% original Paithani Silk Sarees, Yeola Paithani Sarees, 9 Yards Sarees, Bridal Sarees &amp; more!"

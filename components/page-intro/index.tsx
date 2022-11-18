@@ -11,7 +11,7 @@ const PageIntro = () => {
     <section
       className="page-intro"
       style={{
-        background: "url('/images/pngegg.png') no-repeat right top",
+        background: "url('/images/444.png') no-repeat left center",
         backgroundSize: "contain",
       }}
     >
@@ -31,7 +31,12 @@ const PageIntro = () => {
           </div>
         </SwiperSlide> */}
 
-        <SwiperSlide>
+        <SwiperSlide
+          style={{
+            background: "url('/images/pngegg.png') no-repeat right top",
+            backgroundSize: "contain",
+          }}
+        >
           <div
             className="page-intro__slide"
             style={{ backgroundImage: "url('/images/slide-1.png')" }}

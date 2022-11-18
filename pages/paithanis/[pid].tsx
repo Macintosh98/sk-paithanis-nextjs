@@ -22,6 +22,10 @@ const Products = () => {
     setProductPrice([minprice, maxprice]);
   }, [router.query]);
 
+  useEffect(() => {
+    setFiltersOpen(false);
+  }, [productType]);
+
   return (
     <motion.div
       key={productType as string}

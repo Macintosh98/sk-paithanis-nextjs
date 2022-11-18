@@ -1643,6 +1643,13 @@ h5 {
       opacity: 1;
     }
   }
+
+  .checkbox__check_linkactive {
+    &:before {
+      opacity: 1;
+    }
+  }
+
   &.checkbox--square {
     position: relative;
     width: calc(100% / 6);

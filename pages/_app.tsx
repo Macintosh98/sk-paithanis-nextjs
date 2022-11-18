@@ -24,7 +24,7 @@ if (isProduction) {
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <Fragment>
-    <div className="container-feather">
+    {/* <div className="container-feather">
       <div className="feather1">
         <div className="base-feather"></div>
         <div className="line-feather-1"></div>
@@ -70,7 +70,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         <div className="middle-circle"></div>
         <div className="blue-circle"></div>
       </div>
-    </div>
+    </div> */}
     <Layout>
       <Component {...pageProps} />
     </Layout>

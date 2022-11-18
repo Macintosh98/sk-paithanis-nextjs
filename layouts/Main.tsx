@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Header from "components/header";
-import Footer from "components/footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import { useRouter } from "next/router";
 
 type LayoutType = {
@@ -24,6 +24,10 @@ export default ({
           name="google-site-verification"
           content="uekPvgvSmjuATzDfa7Gwm3DVHPDk0obila4r-7tj-KY"
         />
+        <meta
+          name="keywords"
+          content="vakratunda-sk-paithani,paithanis,sarees,vakratunda-paithani,sk-paithani"
+        ></meta>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />

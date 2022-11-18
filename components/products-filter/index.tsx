@@ -1,10 +1,11 @@
 // import { useState } from 'react';
-import Checkbox from "./form-builder/checkbox";
+// import Checkbox from "./form-builder/checkbox";
 // import CheckboxColor from './form-builder/checkbox-color';
 import Slider from "rc-slider";
 
 // data
 import productsTypes from "./../../utils/data/products-types";
+import Link from "next/link";
 // import productsColors from './../../utils/data/products-colors';
 // import productsSizes from './../../utils/data/products-sizes';
 
@@ -31,16 +32,31 @@ const ProductsFilter = (props: any) => {
           <button type="button">Product type</button>
           <div className="products-filter__block__content">
             {productsTypes.map((type) => (
-              <Checkbox
-                key={type.id}
-                name="product-type"
-                label={type.name}
-                value={type.value}
-                checked={type.value === props.productType}
-                onChange={(e: any) =>
-                  props.setProductType(e.currentTarget.value)
-                }
-              />
+              <>
+                <Link href={`/paithanis/${type.value}`}>
+                  <div className={`checkbox`}>
+                    {" "}
+                    <span
+                      className={`checkbox__check ${
+                        type.value === props.productType
+                          ? "checkbox__check_linkactive"
+                          : ""
+                      }`}
+                    ></span>
+                    <p>{type.name}</p>
+                  </div>
+                </Link>
+              </>
+              // <Checkbox
+              //   key={type.id}
+              //   name="product-type"
+              //   label={type.name}
+              //   value={type.value}
+              //   checked={type.value === props.productType}
+              //   onChange={(e: any) =>
+              //     props.setProductType(e.currentTarget.value)
+              //   }
+              // />
             ))}
           </div>
         </div>
