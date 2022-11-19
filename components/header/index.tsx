@@ -63,8 +63,8 @@ const Header = ({ isErrorPage }: HeaderType) => {
               {/* <Logo /> */}
               <Image
                 src={"/images/logo_21_comp.png"}
-                height={150}
-                width={250}
+                height={100}
+                width={150}
               />
               {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
             </div>

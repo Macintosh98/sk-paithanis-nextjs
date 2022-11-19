@@ -99,6 +99,8 @@ const Content = ({ product }: any) => {
 
         <h4>Details :</h4>
         <br />
+        <p>{product.category}</p>
+        <br />
         <p>{product.discription}</p>
         <br />
         <hr />

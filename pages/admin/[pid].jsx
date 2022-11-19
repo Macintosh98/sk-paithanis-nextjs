@@ -95,6 +95,7 @@ function Dashboard() {
       <section className="products-page">
         <div className="container">
           <ProductsFilter
+            admin={true}
             productType={productType}
             productPrice={productPrice}
             setProductType={setProductType}

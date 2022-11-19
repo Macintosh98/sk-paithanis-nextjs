@@ -33,7 +33,9 @@ const ProductsFilter = (props: any) => {
           <div className="products-filter__block__content">
             {productsTypes.map((type) => (
               <>
-                <Link href={`/paithanis/${type.value}`}>
+                <Link
+                  href={`/${props.admin ? "admin" : "paithanis"}/${type.value}`}
+                >
                   <div className={`checkbox`}>
                     {" "}
                     <span

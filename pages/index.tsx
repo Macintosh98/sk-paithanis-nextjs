@@ -50,7 +50,11 @@ const IndexPage = () => {
       <section className="featured">
         <div className="container">
           <article
-            style={{ backgroundImage: "url(/images/featured-1.jpg)" }}
+            style={{
+              boxShadow:
+                "0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%), 0 12px 24px rgb(0 0 0 / 5%)",
+              backgroundImage: "url(/images/featured-1.jpg)",
+            }}
             className="featured-item featured-item-large"
           >
             <div className="featured-item__content">
@@ -62,7 +66,11 @@ const IndexPage = () => {
           </article>
 
           <article
-            style={{ backgroundImage: "url(/images/featured-2.jpg)" }}
+            style={{
+              boxShadow:
+                "0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%), 0 12px 24px rgb(0 0 0 / 5%)",
+              backgroundImage: "url(/images/featured-2.jpg)",
+            }}
             className="featured-item featured-item-small-first"
           >
             <div className="featured-item__content">
@@ -74,7 +82,11 @@ const IndexPage = () => {
           </article>
 
           <article
-            style={{ backgroundImage: "url(/images/featured-3.jpg)" }}
+            style={{
+              boxShadow:
+                "0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%), 0 12px 24px rgb(0 0 0 / 5%)",
+              backgroundImage: "url(/images/featured-3.jpg)",
+            }}
             className="featured-item featured-item-small"
           >
             <div className="featured-item__content">

@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { EffectFade, Navigation } from "swiper";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,12 +11,12 @@ const PageIntro = () => {
     <section
       className="page-intro"
       // style={{
-      //   background: "url('/images/444.png') no-repeat left center",
+      //   background: "url('/images/pngegg.png') no-repeat left top",
       //   backgroundSize: "contain",
       // }}
     >
-      <Swiper navigation effect="fade" className="swiper-wrapper">
-        {/* <SwiperSlide>
+      {/* <Swiper navigation effect="fade" className="swiper-wrapper"> */}
+      {/* <SwiperSlide>
           <div className="page-intro__slide">
             <div className="container">
               <div className="page-intro__slide__content">
@@ -31,62 +31,62 @@ const PageIntro = () => {
           </div>
         </SwiperSlide> */}
 
-        <SwiperSlide
-          style={{
-            background: "url('/images/pngegg.png') no-repeat right top",
-            backgroundSize: "contain",
-          }}
+      <div
+        style={{
+          background: "url('/images/444.png') no-repeat right top",
+          backgroundSize: "contain",
+        }}
+      >
+        <div
+          className="page-intro__slide"
+          style={{ backgroundImage: "url('/images/slide-1.png')" }}
         >
-          <div
-            className="page-intro__slide"
-            style={{ backgroundImage: "url('/images/slide-1.png')" }}
-          >
-            <div className="container">
-              <div className="page-intro__slide__content">
-                <h1
+          <div className="container">
+            <div className="page-intro__slide__content">
+              <h1
+                style={{ padding: "10px", width: "fit-content" }}
+                className="glasscard"
+              >
+                VAKRATUNDA SK
+                <br />
+                Paithani & Sarees
+              </h1>
+              <motion.div
+                animate={{
+                  scale: [1, 1.5, 1.5, 1, 1],
+                  rotate: [0, 0, 180, 180, 0],
+                  // borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  times: [0, 0.2, 0.5, 0.8, 1],
+                  repeat: Infinity,
+                  // repeatDelay: 1,
+                }}
+              >
+                <h2
                   style={{ padding: "10px", width: "fit-content" }}
                   className="glasscard"
                 >
-                  VAKRATUNDA SK
-                  <br />
-                  Paithani & Sarees
-                </h1>
-                <motion.div
-                  animate={{
-                    scale: [1, 1.5, 1.5, 1, 1],
-                    rotate: [0, 0, 180, 180, 0],
-                    // borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                  }}
-                  transition={{
-                    duration: 4,
-                    ease: "easeInOut",
-                    times: [0, 0.2, 0.5, 0.8, 1],
-                    repeat: Infinity,
-                    // repeatDelay: 1,
-                  }}
+                  SALE 20% OFF
+                </h2>
+              </motion.div>
+              {/* <h2>20% OFF</h2> */}
+              <Link href="/paithanis/all-paithani">
+                <div
+                  style={{ padding: "10px", width: "fit-content" }}
+                  className="glasscard btn-shop"
                 >
-                  <h2
-                    style={{ padding: "10px", width: "fit-content" }}
-                    className="glasscard"
-                  >
-                    SALE 20% OFF
-                  </h2>
-                </motion.div>
-                {/* <h2>20% OFF</h2> */}
-                <Link href="/paithanis/all-paithani">
-                  <div
-                    style={{ padding: "10px", width: "fit-content" }}
-                    className="glasscard btn-shop"
-                  >
-                    <i className="icon-right"></i>Shop now
-                  </div>
-                </Link>
-              </div>
+                  <i className="icon-right"></i>Shop now
+                </div>
+              </Link>
             </div>
           </div>
-        </SwiperSlide>
+        </div>
+      </div>
 
-        {/* <SwiperSlide>
+      {/* <SwiperSlide>
           <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.png')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
@@ -96,7 +96,7 @@ const PageIntro = () => {
             </div>
           </div>
         </SwiperSlide> */}
-      </Swiper>
+      {/* </Swiper> */}
 
       <div className="shop-data">
         <div className="container">
