@@ -418,10 +418,10 @@ h5 {
   }
   .site-nav {
     @extend .glasscard;
-    top: 0px;
+    top: 100px;
     right: -1250px;
     // width: 250px;
-    z-index: 9999;
+    // z-index: 0;
     // height: 100vh;
     // margin-left: auto;
     // margin-right: auto;
@@ -430,7 +430,11 @@ h5 {
     animation: bg 10s infinite;
     transition: all 0.3s ease;
     // border-left: 1px solid #E5E5E5;
+    @include breakpoint(phone) {
+      top: 130px;
+    }
     @include breakpoint(tablet-lg) {
+      top: 0px;
       position: relative;
       height: auto;
       right: 0;
@@ -576,7 +580,7 @@ h5 {
         width: 300px;
         padding: 0 19px;
         text-align: left;
-        z-index: 9999999;
+        // z-index: 9999999;
       }
     }
     i {

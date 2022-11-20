@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import useOnClickOutside from "use-onclickoutside";
+// import useOnClickOutside from "use-onclickoutside";
 // import Logo from '../../assets/icons/logo';
 import Image from "next/image";
 import Link from "next/link";
@@ -41,17 +41,17 @@ const Header = ({ isErrorPage }: HeaderType) => {
     // };
   }, []);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  // const closeMenu = () => {
+  //   setMenuOpen(false);
+  // };
 
-  const closeSearch = () => {
-    setSearchOpen(false);
-  };
+  // const closeSearch = () => {
+  //   setSearchOpen(false);
+  // };
 
   // on click outside
-  useOnClickOutside(navRef, closeMenu);
-  useOnClickOutside(searchRef, closeSearch);
+  // useOnClickOutside(navRef, closeMenu);
+  // useOnClickOutside(searchRef, closeSearch);
 
   return (
     // <header className={`site-header ${!onTop ? 'site-header--fixed' : ''}`}>
@@ -117,7 +117,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
             </button>
           </Link>
           <button
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setMenuOpen(!menuOpen)}
             className="site-header__btn-menu"
           >
             <i className="btn-hamburger">
