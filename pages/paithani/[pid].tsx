@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
 // }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const pid = query.pid;
+  const pid = query.id;
   const res = await fetch(`${server}/api/goals/${pid}`);
   const product = await res.json();
 
@@ -34,6 +34,22 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
 const Product = ({ product }: any) => {
   // const [showBlock, setShowBlock] = useState("description");
+
+  // useEffect(() => {
+  //   if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
+  //     fetch(`${server}/api/goals/${pid}`).then(async (res) => {
+  //       product = await res.json();
+  //     });
+  //   } else if (
+  //     AllProducts.status == "idle" &&
+  //     AllProducts.products.length > 0
+  //   ) {
+  //     product = AllProducts.products.filter((a: any) => {
+  //       a = { ...products1[0], ...a };
+  //       return a._id == pid;
+  //     });
+  //   }
+  // }, [AllProducts]);
 
   return (
     <motion.div

@@ -97,7 +97,7 @@ const ProductItem = ({
           <i className="icon-heart"></i>
         </button>
 
-        <Link href={`/product/${id}`}>
+        <Link href={`/paithani/${name}?id=${id}`}>
           <a>
             <img
               src={

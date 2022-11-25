@@ -263,7 +263,7 @@ h5 {
 }
 
 .glasscard {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   border-radius: 20px;
   // box-shadow: inset 1px 1px 2px hsl(0deg 0% 100% / 20%), inset -1px -1px 2px hsl(0deg 0% 100% / 20%);
   // box-shadow: 0 2px 8px 2px rgb(0 0 0 / 0.07), 0 2px 4px -1px rgb(0 0 0 / 0.04);
@@ -1077,17 +1077,17 @@ h5 {
 
 .subscribe {
   .subscribe__content {
-    padding: 105px 20px;
+    padding: 120px 20px;
     // background-color: #FAFAFA;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     background-position: right;
-    @include breakpoint(phone) {
-      padding: 40px 60px 40px 60px;
-    }
+    // @include breakpoint(phone) {
+    //   padding: 40px 60px 40px 60px;
+    // }
     @include breakpoint(tablet-lg) {
-      padding: 80px 125px 80px 105px;
+      padding: 150px 50px;
       display: flex;
       align-items: center;
     }
@@ -2805,6 +2805,7 @@ h5 {
   text-align: center;
   padding: 60px 0;
   min-height: calc(100vh - 200px);
+  justify-content: center;
   h1 {
     font-size: 44px;
     margin: 0 auto 20px auto;
