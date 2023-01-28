@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductType, ProductStoreType } from "types";
 import { server } from "../../utils/server";
 import axios from "axios";
+// import goalService from "./goals/goalService";
 
 interface CartTypes {
   cartItems: ProductStoreType[];
@@ -15,9 +16,29 @@ const initialState = {
   status: "idle",
 } as CartTypes;
 
+// export const getProduct = createAsyncThunk(
+//   "cart/getProduct",
+//   async (_, thunkAPI: any) => {
+//     try {
+//       const token = thunkAPI.getState().auth.user.token;
+//       console.log("callllleeeeed 2");
+//       return await goalService.getGoals(token);
+//     } catch (error: any) {
+//       console.log("callllleeeeed 3");
+//       const message =
+//         (error.response &&
+//           error.response.data &&
+//           error.response.data.message) ||
+//         error.message ||
+//         error.toString();
+//       return thunkAPI.rejectWithValue(message);
+//     }
+//   }
+// );
+
 export const getProduct = createAsyncThunk("cart/getProduct", async () => {
   const response = await axios({
-    url: `${server}/api/goals/`,
+    url: `${server}/api/product/`,
     method: "GET",
     responseType: "json",
     headers: {

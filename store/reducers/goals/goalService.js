@@ -1,7 +1,7 @@
 import axios from "axios";
 import { server } from "../../../utils/server";
 
-const API_URL = `${server}/api/goals/`;
+const API_URL = `${server}/api/product/`;
 
 // Create new goal
 const createGoal = async (goalData, token) => {

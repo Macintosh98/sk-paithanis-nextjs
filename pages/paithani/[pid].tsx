@@ -22,7 +22,8 @@ import { motion } from "framer-motion";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const pid = query.id;
-  const res = await fetch(`${server}/api/goals/${pid}`);
+  const res = await fetch(`${server}/api/product/${pid}`);
+  // const res = await fetch(`/api/product/${pid}`);
   const product = await res.json();
 
   return {
