@@ -41,6 +41,7 @@ const ProductsContent = (props: any) => {
       <List
         // setFiltersSubmit={props.setFiltersSubmit}
         // filtersSubmit={props.filtersSubmit}
+        data={props.data}
         admin={props.admin}
         productType={props.productType}
         productPrice={props.productPrice}

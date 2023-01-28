@@ -14,6 +14,7 @@ const ProductsContent = ({
   productType,
   productPrice,
   admin,
+  data,
 }: any) => {
   const AllProducts = useSelector((state: any) => state.cart);
   const [Products, setProducts] = useState([]);
@@ -21,14 +22,9 @@ const ProductsContent = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
-      dispatch(getProduct());
-    } else if (
-      AllProducts.status == "idle" &&
-      AllProducts.products.length > 0
-    ) {
+    if (data.length > 0) {
       setProducts(
-        AllProducts.products.filter((a: any) => {
+        data.filter((a: any) => {
           a = { ...products1[0], ...a };
           return (
             a.currentPrice <= productPrice[1] &&
@@ -38,7 +34,27 @@ const ProductsContent = ({
         })
       );
     }
-  }, [AllProducts, productType, productPrice]);
+  }, [data, productType, productPrice]);
+
+  // useEffect(() => {
+  //   if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
+  //     dispatch(getProduct());
+  //   } else if (
+  //     AllProducts.status == "idle" &&
+  //     AllProducts.products.length > 0
+  //   ) {
+  //     setProducts(
+  //       AllProducts.products.filter((a: any) => {
+  //         a = { ...products1[0], ...a };
+  //         return (
+  //           a.currentPrice <= productPrice[1] &&
+  //           a.currentPrice >= productPrice[0] &&
+  //           a.category == productType
+  //         );
+  //       })
+  //     );
+  //   }
+  // }, [AllProducts, productType, productPrice]);
 
   // useEffect(() => {
   //   if (filtersSubmit == true) {
@@ -56,13 +72,33 @@ const ProductsContent = ({
   //   }
   // }, [filtersSubmit]);
 
-  if (AllProducts.status == "fail") return <div>Failed to load products</div>;
+  // if (AllProducts.status == "fail") return <div>Failed to load products</div>;
 
   return (
     <>
-      {AllProducts.status == "loading" && <ProductsLoading />}
+      {/* {AllProducts.status == "loading" && <ProductsLoading />} */}
 
-      {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+      {/* {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+        <section className="products-list">
+          {Products.map((item: any) => {
+            item = { ...products1[0], ...item };
+            return (
+              <ProductItem
+                id={item._id}
+                name={item.text}
+                price={item.price}
+                color={item.color}
+                currentPrice={item.currentPrice}
+                key={item._id}
+                images={item.img}
+                productType={item.category}
+                admin={admin}
+              />
+            );
+          })}
+        </section>
+      )} */}
+      {Products.length > 0 && (
         <section className="products-list">
           {Products.map((item: any) => {
             item = { ...products1[0], ...item };
