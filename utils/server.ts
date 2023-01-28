@@ -4,4 +4,4 @@
 //   ? "http://localhost:5000"
 //   : "https://vakratundaskpaithani.herokuapp.com";
 
-export const server = "http://localhost:3000";
+export const server = "";
