@@ -1,12 +1,12 @@
 // import useSwr from 'swr';
 import ProductItem from "../../product-item";
-import ProductsLoading from "./loading";
+// import ProductsLoading from "./loading";
 // import { ProductTypeList } from 'types';
 import products1 from "../../../utils/data/products";
 // import { server } from '../../../utils/server';
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getProduct } from "store/reducers/cart";
+// import { getProduct } from "store/reducers/cart";
 
 const ProductsContent = ({
   // setFiltersSubmit,
@@ -16,10 +16,10 @@ const ProductsContent = ({
   admin,
   data,
 }: any) => {
-  const AllProducts = useSelector((state: any) => state.cart);
+  // const AllProducts = useSelector((state: any) => state.cart);
   const [Products, setProducts] = useState([]);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (data.length > 0) {
