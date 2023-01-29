@@ -10,10 +10,10 @@ const PageIntro = () => {
   return (
     <section
       className="page-intro"
-      // style={{
-      //   background: "url('/images/pngegg.png') no-repeat left top",
-      //   backgroundSize: "contain",
-      // }}
+      style={{
+        background: "url('/images/featured-111.png') no-repeat left top",
+        backgroundSize: "contain",
+      }}
     >
       {/* <Swiper navigation effect="fade" className="swiper-wrapper"> */}
       {/* <SwiperSlide>
@@ -33,13 +33,15 @@ const PageIntro = () => {
 
       <div
         style={{
-          background: "url('/images/444.png') no-repeat right top",
+          background: "url('/images/4442.png') no-repeat right top",
           backgroundSize: "contain",
         }}
       >
         <div
           className="page-intro__slide"
-          style={{ backgroundImage: "url('/images/slide-1.png')" }}
+          // style={{
+          //   backgroundImage: "url('/images/slide-1.png')",
+          // }}
         >
           <div className="container">
             <div className="page-intro__slide__content">

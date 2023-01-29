@@ -375,6 +375,7 @@ h5 {
     }
   }
   .container {
+    // background-color: rgba(255, 255, 255, 0.8);
     display: flex;
     height: 100%;
     align-items: center;
@@ -591,9 +592,9 @@ h5 {
 }
 
 .page-intro {
-  background: url("../../public/images/pngegg\ \(copy\).png") no-repeat right
-    top;
-  background-size: contain;
+  // background: url("../../public/images/pngegg\ \(copy\).png") no-repeat right
+  //   top;
+  // background-size: contain;
   position: relative;
   .swiper-button-prev,
   .swiper-button-next {
@@ -733,14 +734,14 @@ h5 {
     }
   }
   .page-intro__slide {
-    height: 88vh;
+    height: 100vh;
     position: relative;
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
     // border-radius: 20%;
     @include breakpoint(phone) {
-      margin-top: 12vh;
+      margin-top: 0vh;
       // height: 88vh;
     }
     // &:before {
@@ -757,6 +758,7 @@ h5 {
       display: flex;
       position: relative;
       align-items: center;
+      justify-content: end;
       height: 100%;
     }
     .page-intro__slide__content {
