@@ -4,7 +4,17 @@ import connectDB from "backend/config/db";
 export default async function handler(req, res) {
   if (req.method === "GET") {
     connectDB();
-    const goals = await Goal.find({});
+    const goals = await Goal.find(
+      {},
+      {
+        text: 1,
+        price: 1,
+        currentPrice: 1,
+        discription: 1,
+        category: 1,
+        user: 1,
+      }
+    );
 
     res.status(200).json(goals);
   } else if (req.method === "POST") {

@@ -1,10 +1,10 @@
 import ReviewsList from "./reviews-list";
 import Punctuation from "./punctuation";
-import { ProductType } from "types";
+// import { ProductType } from "types";
 
 type ReviewsProductType = {
   show: boolean;
-  product: ProductType;
+  product: any;
 };
 
 const Reviews = ({ show, product }: ReviewsProductType) => {

@@ -2,8 +2,6 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { getProduct } from "store/reducers/cart";
 
-import Goal from "backend/models/goalModel";
-import connectDB from "backend/config/db";
 // import Layout from "../layouts/Main";
 import PageIntro from "../components/page-intro";
 import ProductsFeatured from "../components/products-featured";
@@ -30,7 +28,7 @@ import { motion } from "framer-motion";
 //   },
 // };
 
-const IndexPage = ({ data }: any) => {
+const IndexPage = () => {
   // const dispatch = useDispatch();
   // const AllProducts = useSelector((state: any) => state.cart);
 
@@ -106,6 +104,7 @@ const IndexPage = ({ data }: any) => {
           <header className="section__intro glasscard">
             <h4>Why should you choose us?</h4>
           </header>
+
           <ul className="shop-data-items glasscard">
             <li>
               <i className="icon-shipping glasscard"></i>
@@ -151,26 +150,13 @@ const IndexPage = ({ data }: any) => {
               </div>
             </li>
           </ul>
-          import Goal from "backend/models/goalModel"; import connectDB from
-          "backend/config/db";
         </div>
       </section>
 
-      <ProductsFeatured data={data} />
+      <ProductsFeatured />
       <Subscribe />
     </motion.div>
   );
 };
-
-// This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  // console.log("daaaaaaaaaaaaaata 2");
-  await connectDB();
-  const goals = await Goal.find({});
-  // console.log("daaaaaaaaaaaaaata 2", goals);
-  // Pass data to the page via props
-  return { props: { data: JSON.parse(JSON.stringify(goals)) } };
-}
 
 export default IndexPage;

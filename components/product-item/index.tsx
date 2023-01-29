@@ -6,6 +6,7 @@ import { toggleFavProduct } from "store/reducers/user";
 import { RootState } from "store";
 import { deleteGoal } from "store/reducers/goals/goalSlice";
 import { removeProductLocal } from "store/reducers/cart";
+import { server } from "utils/server";
 // import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
@@ -45,18 +46,34 @@ const ProductItem = ({
   };
 
   const [base64, setBase64] = useState("");
+  const [contentType, setContentType] = useState("");
 
   useEffect(() => {
-    if (images.data == false) {
-      var reader: any = new FileReader();
-      reader.readAsDataURL(images.file);
-      reader.onloadend = () => setViewImage(reader.result);
+    if (images) {
+      if (images.data == false) {
+        var reader: any = new FileReader();
+        reader.readAsDataURL(images.file);
+        reader.onloadend = () => setViewImage(reader.result);
+      } else {
+        const a = new Uint8Array(images.data.data);
+        const b = a.reduce((data, byte) => {
+          return data + String.fromCharCode(byte);
+        }, "");
+        setBase64(btoa(b));
+      }
     } else {
-      const a = new Uint8Array(images.data.data);
-      const b = a.reduce((data, byte) => {
-        return data + String.fromCharCode(byte);
-      }, "");
-      setBase64(btoa(b));
+      // useEffect(() => {
+      fetch(`${server}/api/product/${id}`).then(async (res) => {
+        const product = await res.json();
+        const a = new Uint8Array(product.img.data.data);
+        const b = a.reduce((data, byte) => {
+          return data + String.fromCharCode(byte);
+        }, "");
+        setContentType(product.img.contentType);
+        setBase64(btoa(b));
+        // console.log("aaaaaaaaaaaa", base64);
+      });
+      // }, []);
     }
   }, []);
 
@@ -103,8 +120,8 @@ const ProductItem = ({
               src={
                 viewimage
                   ? viewimage
-                  : images
-                  ? "data:" + images.contentType + ";base64," + base64
+                  : contentType != "" && base64 != ""
+                  ? "data:" + contentType + ";base64," + base64
                   : ""
               }
               alt="product"

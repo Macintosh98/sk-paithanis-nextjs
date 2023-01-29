@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { getProduct } from "store/reducers/cart";
 import Link from "next/link";
 
-const ProductsFeatured = ({ data }: any) => {
+const ProductsFeatured = () => {
   const dispatch = useDispatch();
   const AllProducts = useSelector((state: any) => state.cart);
 
@@ -27,16 +27,11 @@ const ProductsFeatured = ({ data }: any) => {
             <div className="btn btn--rounded btn--border">Show All</div>
           </Link>
         </header>
-        {/* {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+        {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
           <ProductsCarousel
             products={AllProducts.products.filter(
               (a: any) => a.currentPrice < 1500
             )}
-          />
-        )} */}
-        {data?.length > 0 && (
-          <ProductsCarousel
-            products={data.filter((a: any) => a.currentPrice < 1500)}
           />
         )}
       </div>
@@ -52,9 +47,11 @@ const ProductsFeatured = ({ data }: any) => {
           </Link>
         </header>
 
-        {data?.length > 0 && (
+        {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
           <ProductsCarousel
-            products={data.filter((a: any) => a.currentPrice > 1500)}
+            products={AllProducts.products.filter(
+              (a: any) => a.currentPrice > 1500
+            )}
           />
         )}
       </div>

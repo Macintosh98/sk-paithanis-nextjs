@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+// import { GetServerSideProps } from "next";
 
 // import { useState } from "react";
 // import Footer from "../../components/footer";
@@ -11,7 +11,9 @@ import Content from "../../components/product-single/content";
 import Reviews from "../../components/product-single/reviews";
 import { server } from "../../utils/server";
 import products1 from "../../utils/data/products";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 // types
 // import { ProductType } from 'types';
@@ -20,25 +22,30 @@ import { motion } from "framer-motion";
 //   product: ProductType;
 // }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const pid = query.id;
-  const res = await fetch(`${server}/api/product/${pid}`);
-  // const res = await fetch(`/api/product/${pid}`);
-  const product = await res.json();
+// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+//   const pid = query.id;
+//   const res = await fetch(`${server}/api/product/${pid}`);
+//   // const res = await fetch(`/api/product/${pid}`);
+//   const product = await res.json();
 
-  return {
-    props: {
-      product: { ...products1[0], ...product },
-    },
-  };
-};
+//   return {
+//     props: {
+//       product: { ...products1[0], ...product },
+//     },
+//   };
+// };
 
-const Product = ({ product }: any) => {
+const Product = () => {
   // const [showBlock, setShowBlock] = useState("description");
+
+  const router = useRouter();
+  const pid = router.query.id;
+
+  const [product, setProduct] = useState<any>();
 
   // useEffect(() => {
   //   if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
-  //     fetch(`${server}/api/goals/${pid}`).then(async (res) => {
+  //     fetch(`${server}/api/product/${pid}`).then(async (res) => {
   //       product = await res.json();
   //     });
   //   } else if (
@@ -51,6 +58,13 @@ const Product = ({ product }: any) => {
   //     });
   //   }
   // }, [AllProducts]);
+  useEffect(() => {
+    fetch(`${server}/api/product/${pid}`).then(async (res) => {
+      const product = await res.json();
+      console.log("aaaaaaaaaaaa", product);
+      setProduct({ ...products1[0], ...product });
+    });
+  }, []);
 
   return (
     <motion.div
@@ -60,15 +74,16 @@ const Product = ({ product }: any) => {
       transition={{ duration: 0.5 }}
     >
       <Breadcrumb />
+      {product && (
+        <>
+          <section className="product-single">
+            <div className="container">
+              <div className="product-single__content glasscard">
+                <Gallery images={product.img} />
+                <Content product={product} />
+              </div>
 
-      <section className="product-single">
-        <div className="container">
-          <div className="product-single__content glasscard">
-            <Gallery images={product.img} />
-            <Content product={product} />
-          </div>
-
-          {/* <div className="product-single__info">
+              {/* <div className="product-single__info">
             <div className="product-single__info-btns">
               <button
                 type="button"
@@ -94,10 +109,11 @@ const Product = ({ product }: any) => {
                       <Reviews product={product} show={showBlock === "reviews"} />
 
           </div> */}
-          <Reviews product={product} show={true} />
-        </div>
-      </section>
-
+              <Reviews product={product} show={true} />
+            </div>
+          </section>
+        </>
+      )}
       <div className="product-single-page">
         <ProductsFeatured />
       </div>

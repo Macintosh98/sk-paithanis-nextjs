@@ -6,10 +6,8 @@ import Breadcrumb from "../../components/breadcrumb";
 import ProductsFilter from "../../components/products-filter";
 import ProductsContent from "../../components/products-content";
 import { motion } from "framer-motion";
-import Goal from "backend/models/goalModel";
-import connectDB from "backend/config/db";
 
-const Products = ({ data }: any) => {
+const Products = () => {
   const router = useRouter();
   const { minprice = 0, maxprice = 50000, pid = "all-paithani" } = router.query;
 
@@ -51,7 +49,6 @@ const Products = ({ data }: any) => {
           <ProductsContent
             // filtersSubmit={filtersSubmit}
             // setFiltersSubmit={setFiltersSubmit}
-            data={data}
             productType={productType}
             productPrice={productPrice}
             filtersOpen={filtersOpen}
@@ -62,16 +59,5 @@ const Products = ({ data }: any) => {
     </motion.div>
   );
 };
-
-// This gets called on every request
-export async function getServerSideProps() {
-  // Fetch data from external API
-  // console.log("daaaaaaaaaaaaaata 2");
-  await connectDB();
-  const goals = await Goal.find({});
-  // console.log("daaaaaaaaaaaaaata 2", goals);
-  // Pass data to the page via props
-  return { props: { data: JSON.parse(JSON.stringify(goals)) } };
-}
 
 export default Products;

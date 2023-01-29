@@ -12,16 +12,16 @@ export default async function handler(req, res) {
     }
 
     // Check for user
-    if (!req.user) {
-      res.status(401);
-      throw new Error("User not found");
-    }
+    // if (!req.user) {
+    //   res.status(401);
+    //   throw new Error("User not found");
+    // }
 
     // Make sure the logged in user matches the goal user
-    if (goal.user.toString() !== req.user.id) {
-      res.status(401);
-      throw new Error("User not authorized");
-    }
+    // if (goal.user.toString() !== req.user.id) {
+    //   res.status(401);
+    //   throw new Error("User not authorized");
+    // }
 
     await goal.remove();
 
