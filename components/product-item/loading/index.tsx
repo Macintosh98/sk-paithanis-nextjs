@@ -1,17 +1,16 @@
-const ProductItemLoading = () => (
-  <a href="#" className="product-item product-item--loading">
-    <div className="product__image">
+import Link from "next/link";
 
-    </div>
-    
+const ProductItemLoading = () => (
+  <Link href="#" className="product-item product-item--loading">
+    <div className="product__image"></div>
+
     <div className="product__description">
       <h3></h3>
-      <div className={"product__price"} >
+      <div className={"product__price"}>
         <h4></h4>
       </div>
     </div>
-  </a>
+  </Link>
 );
 
-
-export default ProductItemLoading
+export default ProductItemLoading;

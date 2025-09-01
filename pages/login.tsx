@@ -86,7 +86,7 @@ const LoginPage = () => {
           <Link href="/paithanis/all-paithani">
             <a>
               <i className="icon-left"></i> Back to store
-            </a>
+            </Link>
           </Link>
         </div> */}
           <Breadcrumb />

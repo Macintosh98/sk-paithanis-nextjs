@@ -9,8 +9,8 @@ import Link from "next/link";
 // import productsColors from './../../utils/data/products-colors';
 // import productsSizes from './../../utils/data/products-sizes';
 
-const { createSliderWithTooltip } = Slider;
-const Range = createSliderWithTooltip(Slider.Range);
+// const { createSliderWithTooltip } = Slider;
+// const Range = createSliderWithTooltip(Slider.Range);
 
 const ProductsFilter = (props: any) => {
   // const [filtersOpen, setFiltersOpen] = useState(false);
@@ -66,13 +66,14 @@ const ProductsFilter = (props: any) => {
         <div className="products-filter__block">
           <button type="button">Price</button>
           <div className="products-filter__block__content">
-            <Range
+            <Slider
               onChange={(sliderValues) => props.setProductPrice(sliderValues)}
               min={0}
               max={50000}
               value={props.productPrice}
               defaultValue={props.productPrice}
-              tipFormatter={(value) => `Rs. ${value}`}
+              ariaValueTextFormatterForHandle={(value) => `Rs. ${value}`}
+              // tipFormatter={(value) => `Rs. ${value}`}
             />
           </div>
         </div>

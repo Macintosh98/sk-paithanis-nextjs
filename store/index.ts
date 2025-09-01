@@ -26,14 +26,16 @@ const reducer = {
 
 let store = configureStore({
   reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 const makeStore = ({ isServer }: { isServer: Boolean }) => {
   // if (isServer) {
   //If it's on server side, create a store
-  return (store = configureStore({
-    reducer,
-  }));
+  return store;
   // } else {
   //   //If it's on client side, create a store which will persist
   //   const persistConfig = {

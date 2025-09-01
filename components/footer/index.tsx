@@ -21,29 +21,29 @@ const Footer = () => {
             </p>
             <ul className="site-footer__social-networks">
               <li>
-                <a href="#">
+                <Link href="#">
                   <i className="icon-facebook"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link href="#">
                   <i className="icon-twitter"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link href="#">
                   <i className="icon-linkedin"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link href="#">
                   <i className="icon-instagram"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link href="#">
                   <i className="icon-youtube-play"></i>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -53,44 +53,44 @@ const Footer = () => {
               <h4>Shopping online</h4>
               <hr />
               <li>
-                <a href="#">Order Status</a>
+                <Link href="#">Order Status</Link>
               </li>
               <li>
-                <a href="#">Shipping and Delivery</a>
+                <Link href="#">Shipping and Delivery</Link>
               </li>
               <li>
-                <a href="#">Returns</a>
+                <Link href="#">Returns</Link>
               </li>
               <li>
-                <a href="#">Payment options</a>
+                <Link href="#">Payment options</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link href="#">Contact Us</Link>
               </li>
             </ul>
             <ul className="animation glasscard">
               <h4>Information</h4>
               <hr />
               <li>
-                <a href="#">Gift Cards</a>
+                <Link href="#">Gift Cards</Link>
               </li>
               <li>
-                <a href="#">Find a store</a>
+                <Link href="#">Find a store</Link>
               </li>
               <li>
-                <a href="#">Newsletter</a>
+                <Link href="#">Newsletter</Link>
               </li>
               <li>
-                <a href="#">Bacome a member</a>
+                <Link href="#">Bacome a member</Link>
               </li>
               <li>
-                <a href="#">Site feedback</a>
+                <Link href="#">Site feedback</Link>
               </li>
             </ul>
             <ul className="animation glasscard">
               <h4>Contact</h4>
               <hr />
-              {/* <li><a href="#">store@uikit.com</a></li> */}
+              {/* <li><Link href="#">store@uikit.com</Link></li> */}
               <li>
                 <Link href="https://wa.me/+917350451717">
                   Hotline: +91 7350451717
@@ -105,12 +105,12 @@ const Footer = () => {
         <div className="container">
           <p>
             DESIGN BY{" "}
-            <a
+            <Link
               href="http://abhishekzambare.vercel.app/"
               style={{ fontWeight: 600 }}
             >
               "Abhishek Zambare"
-            </a>{" "}
+            </Link>{" "}
             - © 2022. ALL RIGHTS RESERVED.
           </p>
         </div>

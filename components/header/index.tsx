@@ -58,17 +58,11 @@ const Header = ({ isErrorPage }: HeaderType) => {
     <header className={`site-header`}>
       <div className="container glasscard" style={{ marginTop: "20px" }}>
         <Link href="/">
-          <a>
-            <div className="site-logo">
-              {/* <Logo /> */}
-              <Image
-                src={"/images/logo_21_comp.png"}
-                height={100}
-                width={150}
-              />
-              {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
-            </div>
-          </a>
+          <div className="site-logo">
+            {/* <Logo /> */}
+            <Image src={"/images/logo_21_comp.png"} height={100} width={150} />
+            {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
+          </div>
         </Link>
         <nav
           ref={navRef}

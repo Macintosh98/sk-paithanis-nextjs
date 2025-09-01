@@ -115,19 +115,17 @@ const ProductItem = ({
         </button>
 
         <Link href={`/paithani/${name}?id=${id}`}>
-          <a>
-            <img
-              src={
-                viewimage
-                  ? viewimage
-                  : contentType != "" && base64 != ""
-                  ? "data:" + contentType + ";base64," + base64
-                  : ""
-              }
-              alt="product"
-            />
-            {discount && <span className="product__discount">{discount}%</span>}
-          </a>
+          <img
+            src={
+              viewimage
+                ? viewimage
+                : contentType != "" && base64 != ""
+                ? "data:" + contentType + ";base64," + base64
+                : ""
+            }
+            alt="product"
+          />
+          {discount && <span className="product__discount">{discount}%</span>}
         </Link>
       </div>
 

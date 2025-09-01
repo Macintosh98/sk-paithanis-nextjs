@@ -35,7 +35,7 @@ const ForgotPassword = () => {
           <Link href="/paithanis/all-paithani">
             <a>
               <i className="icon-left"></i> Back to shop
-            </a>
+            </Link>
           </Link>
         </div> */}
           <Breadcrumb />

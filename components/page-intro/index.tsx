@@ -93,7 +93,7 @@ const PageIntro = () => {
             <div className="container">
               <div className="page-intro__slide__content">
                 <h2>Make your house into a home</h2>
-                <a href="#" className="btn-shop"><i className="icon-right"></i>Shop now</a>
+                <Link href="#" className="btn-shop"><i className="icon-right"></i>Shop now</Link>
               </div>
             </div>
           </div>

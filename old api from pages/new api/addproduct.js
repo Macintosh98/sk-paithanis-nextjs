@@ -4,7 +4,7 @@ import connectDB from "backend/config/db";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     connectDB();
-    console.log("req is ......", req.files, req.body);
+    console.log("req is ......", req.body);
     if (!req.body.text) {
       res.status(400);
       throw new Error("Please add a text field");

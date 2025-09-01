@@ -7,12 +7,14 @@ import Layout from "../layouts/Main";
 import type { AppProps } from "next/app";
 
 // global styles
-import "swiper/swiper.scss";
+// import "swiper/swiper.scss";old
+import "swiper/css";
 import "rc-slider/assets/index.css";
 import "react-rater/lib/react-rater.css";
 import "../assets/css/styles.scss";
 
 import * as gtag from "./../utils/gtag";
+import { Provider } from "react-redux";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -22,9 +24,11 @@ if (isProduction) {
   Router.events.on("routeChangeComplete", (url: string) => gtag.pageview(url));
 }
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
-  <Fragment>
-    {/* <div className="container-feather">
+const MyApp = ({ Component, ...rest }: AppProps) => {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  return (
+    <Fragment>
+      {/* <div className="container-feather">
       <div className="feather1">
         <div className="base-feather"></div>
         <div className="line-feather-1"></div>
@@ -71,10 +75,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         <div className="blue-circle"></div>
       </div>
     </div> */}
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  </Fragment>
-);
+      <Provider store={store}>
+        <Layout>
+          <Component {...props.pageProps} />
+        </Layout>
+      </Provider>
+    </Fragment>
+  );
+};
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
