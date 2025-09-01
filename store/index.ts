@@ -32,7 +32,7 @@ let store = configureStore({
     }),
 });
 
-const makeStore = ({ isServer }: { isServer: Boolean }) => {
+const makeStore = ({}: { isServer: Boolean }) => {
   // if (isServer) {
   //If it's on server side, create a store
   return store;

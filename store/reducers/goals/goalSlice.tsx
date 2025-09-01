@@ -48,7 +48,7 @@ export const getGoals = createAsyncThunk(
 );
 
 // Delete user goal
-export const deleteGoal = createAsyncThunk(
+export const deleteGoal: any = createAsyncThunk(
   "goals/delete",
   async (id: String, thunkAPI: any) => {
     try {

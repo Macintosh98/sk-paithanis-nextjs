@@ -36,7 +36,7 @@ const initialState = {
 //   }
 // );
 
-export const getProduct = createAsyncThunk("cart/getProduct", async () => {
+export const getProduct: any = createAsyncThunk("cart/getProduct", async () => {
   const response = await axios({
     url: `${server}/api/product/`,
     method: "GET",
