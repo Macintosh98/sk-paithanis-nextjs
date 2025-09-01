@@ -1,10 +1,10 @@
 // import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { EffectFade, Navigation } from "swiper";
+// import SwiperCore, { EffectFade, Navigation } from "swiper";
 import Link from "next/link";
 import { motion } from "framer-motion";
 // import Image from 'next/image'
 
-SwiperCore.use([EffectFade, Navigation]);
+// SwiperCore.use([EffectFade, Navigation]);
 
 const PageIntro = () => {
   return (
