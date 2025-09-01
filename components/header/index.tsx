@@ -60,7 +60,12 @@ const Header = ({ isErrorPage }: HeaderType) => {
         <Link href="/">
           <div className="site-logo">
             {/* <Logo /> */}
-            <Image src={"/images/logo_21_comp.png"} height={100} width={150} />
+            <Image
+              alt=""
+              src={"/images/logo_21_comp.png"}
+              height={100}
+              width={150}
+            />
             {/* &nbsp;&nbsp;&nbsp;&nbsp; VakratundaSK - Paithani & Sarees */}
           </div>
         </Link>

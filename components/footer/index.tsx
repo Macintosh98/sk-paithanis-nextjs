@@ -12,7 +12,12 @@ const Footer = () => {
           >
             {/* <h6><Logo /> <span>E</span>-Shop</h6> */}
             {/* <Image style={{ borderRadius: "20px", boxShadow: "0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%)"}} src={"/images/logo_22_comp.jpg"} height={150} width={150}/>  */}
-            <Image src={"/images/logo_21_comp.png"} height={220} width={400} />
+            <Image
+              alt=""
+              src={"/images/logo_21_comp.png"}
+              height={220}
+              width={400}
+            />
             {/* <br/><br/><br/> */}
             {/* <h6><span>VakratundaSK </span> - Paithani & Sarees</h6> */}
             <p className="glasscard animation">
