@@ -46,7 +46,11 @@ const PageIntro = () => {
           <div className="container">
             <div className="page-intro__slide__content">
               <h1
-                style={{ padding: "10px", width: "fit-content" }}
+                style={{
+                  padding: "10px",
+                  width: "fit-content",
+                  fontSize: 30,
+                }}
                 className="glasscard"
               >
                 VAKRATUNDA SK
@@ -68,7 +72,11 @@ const PageIntro = () => {
                 }}
               >
                 <h2
-                  style={{ padding: "10px", width: "fit-content" }}
+                  style={{
+                    padding: "10px",
+                    width: "fit-content",
+                    fontSize: 20,
+                  }}
                   className="glasscard"
                 >
                   SALE 20% OFF

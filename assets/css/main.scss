@@ -766,7 +766,8 @@ h5 {
       // margin-left: ;
       margin-bottom: 40px;
       @include breakpoint(phone) {
-        margin-bottom: 80px;
+        margin-bottom: 10px;
+        margin-right: 140px;
         margin-top: 0;
       }
       h1,
