@@ -65,11 +65,11 @@ const ProductItem = ({
       // useEffect(() => {
       fetch(`${server}/api/product/${id}`).then(async (res) => {
         const product = await res.json();
-        const a = new Uint8Array(product.img.data.data);
+        const a = new Uint8Array(product.img?.data?.data);
         const b = a.reduce((data, byte) => {
           return data + String.fromCharCode(byte);
         }, "");
-        setContentType(product.img.contentType);
+        setContentType(product.img?.contentType);
         setBase64(btoa(b));
         // console.log("aaaaaaaaaaaa", base64);
       });

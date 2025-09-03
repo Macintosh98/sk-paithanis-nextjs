@@ -7,7 +7,7 @@ function GoalItem({ goal }) {
   const [base64, setBase64] = useState("");
 
   useEffect(() => {
-    const a = new Uint8Array(goal.img.data.data);
+    const a = new Uint8Array(goal.img?.data.data);
     const b = a.reduce((data, byte) => {
       return data + String.fromCharCode(byte);
     }, "");

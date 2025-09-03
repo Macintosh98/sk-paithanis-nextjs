@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     //   throw new Error("User not authorized");
     // }
 
-    await goal.remove();
+    await goal.deleteOne();
 
     res.status(200).json({ id: req.query.id });
   } else if (req.method === "GET") {
