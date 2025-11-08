@@ -1,5 +1,5 @@
-import Rater from "react-rater";
-import { PunctuationType } from "types";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { PunctuationType } from "../../../../types";
 
 const Punctuation = ({
   votes,
@@ -13,8 +13,7 @@ const Punctuation = ({
   return (
     <section className="product-punctuation">
       <div className="product-punctuation__values">
-        <h3>{punctuation}</h3>
-        <Rater total={5} interactive={false} rating={punctuation} />
+        <h3>{punctuation}</h3>5 Rateing
         <p>
           <i className="icon-avatar"></i>
           {countOpinions} all opinions
@@ -23,9 +22,9 @@ const Punctuation = ({
 
       <div className="product-punctuation__rates">
         <ul className="punctuations-lists">
-          {votes.map((vote) => (
+          {votes.map((vote: any) => (
             <li key={vote.count} className="punctuation-item">
-              <Rater total={1} interactive={false} rating={1} />
+              1 Rateing
               <span>{vote.value}</span>
               <div className="punctuation-item__bar">
                 <div

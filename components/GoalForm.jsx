@@ -1,42 +1,62 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createGoal } from "../store/reducers/goals/goalSlice";
-import { addProductLocal } from "../store/reducers/cart";
-import products1 from "../utils/data/products";
-
+import axios from "axios";
+// import products1 from "../utils/data/products";
+import { useRouter } from "next/navigation";
 function GoalForm() {
+  const router = useRouter();
   const [text, setText] = useState("");
   const [discription, setdiscription] = useState("");
   const [category, setcategory] = useState("semi-silk-paithani");
   const [price, setprice] = useState(0);
   const [currentPrice, setcurrentPrice] = useState(0);
-
+  const [added, setAdded] = useState(false);
+  const [error, setError] = useState(false);
   const [image, setImage] = useState();
   const [viewimage, setViewImage] = useState();
 
-  const dispatch = useDispatch();
+  const create = async (profiledata) => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        // Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // try {
+    const response = await axios.post("/api/product/", profiledata, config);
+    router.refresh();
+    if (response.status == 200) {
+      setAdded(true);
+    } else {
+      setError(true);
+    }
+    // } catch {
+    //   setError(true);
+    // }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const temp = {
-      ...products1[0],
-      ...{
-        text,
-        discription,
-        currentPrice,
-        category,
-        price,
-        img: {
-          //not using in local
-          data: false,
-          // contentType: image.mimetype,
-          file: image,
-        },
-        _id: Math.random() * 100000,
-        local: true,
-      },
-    };
+    // const temp = {
+    //   ...products1[0],
+    //   ...{
+    //     text,
+    //     discription,
+    //     currentPrice,
+    //     category,
+    //     price,
+    //     img: {
+    //       //not using in local
+    //       data: false,
+    //       // contentType: image.mimetype,
+    //       file: image,
+    //     },
+    //     _id: Math.random() * 100000,
+    //     local: true,
+    //   },
+    // };
 
     const profiledata = new FormData();
 
@@ -47,8 +67,9 @@ function GoalForm() {
     profiledata.append("currentPrice", currentPrice);
     profiledata.append("file", image);
 
-    dispatch(createGoal(profiledata));
-    dispatch(addProductLocal(temp));
+    // dispatch(createGoal(profiledata));
+    create(profiledata);
+
     setText("");
     setdiscription("");
     setcategory("semi-silk-paithani");
@@ -62,7 +83,7 @@ function GoalForm() {
     setImage(e.target.files[0]);
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
-    reader.onloadend = (e) => setViewImage(reader.result);
+    reader.onloadend = () => setViewImage(reader.result);
   }
 
   return (
@@ -144,6 +165,8 @@ function GoalForm() {
         </div>
         <hr />
         <div className="form-group">
+          {error && "unable to add the product"}
+          {added && "product added refresh th page"}
           <button
             onClick={(e) => onSubmit(e)}
             className="btn btn--rounded btn--border"

@@ -1,6 +1,7 @@
-import Rater from "react-rater";
-import createMarkup from "utils/markup";
-import { ReviewType } from "types";
+"use client";
+/* eslint-disable @next/next/no-img-element */
+
+import { ReviewType } from "../../../../types";
 
 type ReviewsListType = {
   reviews: ReviewType[];
@@ -16,12 +17,7 @@ const ReviewsList = ({ reviews }: ReviewsListType) => {
           </div>
 
           <div className="review__content">
-            <h3>{review.name}</h3>
-            <Rater total={5} interactive={false} rating={review.punctuation} />
-            <div
-              className="review__comment"
-              dangerouslySetInnerHTML={createMarkup(review.description)}
-            ></div>
+            <h3>{review.name}</h3>5 Rateings
           </div>
         </div>
       ))}

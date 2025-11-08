@@ -1,21 +1,8 @@
-import { useSelector } from "react-redux";
 import CheckoutStatus from "../../components/checkout-status";
 import Item from "./item";
-import { RootState } from "store";
 import Link from "next/link";
-
+import products from "../../utils/data/products";
 const ShoppingCart = () => {
-  const { cartItems } = useSelector((state: RootState) => state.cart);
-
-  const priceTotal = () => {
-    let totalPrice = 0;
-    if (cartItems.length > 0) {
-      cartItems.map((item) => (totalPrice += item.price * item.count));
-    }
-
-    return totalPrice;
-  };
-
   return (
     <section className="cart">
       <div className="container">
@@ -25,35 +12,31 @@ const ShoppingCart = () => {
         </div>
 
         <div className="cart-list glasscard">
-          {cartItems.length > 0 && (
-            <table>
-              <tbody>
-                <tr>
-                  <th style={{ textAlign: "left" }}>Product</th>
-                  {/* <th>Color</th>
+          <table>
+            <tbody>
+              <tr>
+                <th style={{ textAlign: "left" }}>Product</th>
+                {/* <th>Color</th>
                   <th>Size</th> */}
-                  <th>Ammount</th>
-                  <th>Price</th>
-                  <th></th>
-                </tr>
+                <th>Ammount</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
 
-                {cartItems.map((item) => (
-                  <Item
-                    key={item.id}
-                    id={item.id}
-                    thumb={item.thumb}
-                    name={item.name}
-                    // color={item.color}
-                    price={item.price}
-                    // size={item.size}
-                    count={item.count}
-                  />
-                ))}
-              </tbody>
-            </table>
-          )}
-
-          {cartItems.length === 0 && <p>Nothing in the cart</p>}
+              {products.map((item) => (
+                <Item
+                  key={item.id}
+                  id={item.id}
+                  thumb={"this is thumb"}
+                  name={item.name}
+                  // color={item.color}
+                  price={item.price}
+                  // size={item.size}
+                  count={66}
+                />
+              ))}
+            </tbody>
+          </table>
         </div>
 
         <div className="cart-actions glasscard">
@@ -70,7 +53,7 @@ const ShoppingCart = () => {
 
           <div className="cart-actions__items-wrapper">
             <p className="cart-actions__total">
-              Total cost <strong>₹{priceTotal().toFixed(2)}</strong>
+              Total cost <strong>₹555</strong>
             </p>
             <Link href="/cart/checkout">
               <div className="btn btn--rounded btn--yellow">Checkout</div>

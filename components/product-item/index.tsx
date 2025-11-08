@@ -1,12 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+/* eslint-disable @next/next/no-img-element */
+import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { some } from "lodash";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleFavProduct } from "store/reducers/user";
-import { RootState } from "store";
-import { deleteGoal } from "store/reducers/goals/goalSlice";
-import { removeProductLocal } from "store/reducers/cart";
-import { server } from "utils/server";
 // import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
@@ -20,29 +18,12 @@ const ProductItem = ({
   productType,
   admin = false,
 }: any) => {
-  const dispatch = useDispatch();
-  const { favProducts } = useSelector((state: RootState) => state.user);
-
   const [viewimage, setViewImage] = useState();
 
-  // const { isLoading } = useSelector((state: any) => state.goal);
-  // const AllProducts = useSelector((state: any) => state.cart);
+  const deleteGoal = async (goalId: any) => {
+    const response = await axios.delete("/api/product/" + goalId);
 
-  // useEffect(() => {
-  //   if (isSuccess && AllProducts.status == "idle")
-  //     console.log("logggg", AllProducts, isSuccess, isLoading);
-  //   // dispatch(getProduct());
-  //   dispatch(reset());
-  // }, [isSuccess]);
-
-  const isFavourite = some(favProducts, (productId) => productId === id);
-
-  const toggleFav = () => {
-    dispatch(
-      toggleFavProduct({
-        id,
-      })
-    );
+    return response.data;
   };
 
   const [base64, setBase64] = useState("");
@@ -51,7 +32,7 @@ const ProductItem = ({
   useEffect(() => {
     if (images) {
       if (images.data == false) {
-        var reader: any = new FileReader();
+        const reader: any = new FileReader();
         reader.readAsDataURL(images.file);
         reader.onloadend = () => setViewImage(reader.result);
       } else {
@@ -63,8 +44,16 @@ const ProductItem = ({
       }
     } else {
       // useEffect(() => {
-      fetch(`${server}/api/product/${id}`).then(async (res) => {
-        const product = await res.json();
+      axios({
+        url: `/api/product/${id}`,
+        method: "GET",
+        responseType: "json",
+        headers: {
+          // Authorization: this.authString,
+          "Content-Type": "application/json",
+        },
+      }).then(async (res) => {
+        const product = await res.data;
         const a = new Uint8Array(product.img?.data?.data);
         const b = a.reduce((data, byte) => {
           return data + String.fromCharCode(byte);
@@ -84,8 +73,7 @@ const ProductItem = ({
       {admin && !viewimage && (
         <button
           onClick={() => {
-            dispatch(deleteGoal(id));
-            dispatch(removeProductLocal(id));
+            deleteGoal(id);
           }}
           className="glasscard animation close"
         >
@@ -106,11 +94,7 @@ const ProductItem = ({
       `}</style>
 
       <div className="product__image">
-        <button
-          type="button"
-          onClick={toggleFav}
-          className={`btn-heart ${isFavourite ? "btn-heart--active" : ""}`}
-        >
+        <button type="button" className={`btn-heart btn-heart--active}`}>
           <i className="icon-heart"></i>
         </button>
 
@@ -121,7 +105,7 @@ const ProductItem = ({
                 ? viewimage
                 : contentType != "" && base64 != ""
                 ? "data:" + contentType + ";base64," + base64
-                : ""
+                : "./x.png"
             }
             alt="product"
           />

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ProductItem from "./../../product-item";
-import { ProductTypeList } from "types";
+import { ProductTypeList } from "../../../types";
 import products1 from "../../../utils/data/products";
 
 // import Swiper core and required components

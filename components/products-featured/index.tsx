@@ -1,20 +1,31 @@
+"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/set-state-in-effect */
 import ProductsCarousel from "./carousel";
 // import useSwr from "swr";
 // import { server } from "../../utils/server";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { getProduct } from "store/reducers/cart";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
 const ProductsFeatured = () => {
-  const dispatch = useDispatch();
-  const AllProducts = useSelector((state: any) => state.cart);
+  const [Products, setProducts] = useState([]);
+  const onload = async () => {
+    const response = await axios({
+      url: `/api/product/`,
+      method: "GET",
+      responseType: "json",
+      headers: {
+        // Authorization: this.authString,
+        "Content-Type": "application/json",
+      },
+    });
 
+    setProducts(response.data);
+  };
   useEffect(() => {
-    if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
-      dispatch(getProduct());
-    }
-  }, [AllProducts]);
+    onload();
+  }, []);
 
   // if (AllProducts.status == "fail") return <div>Failed to load products</div>;
 
@@ -27,11 +38,9 @@ const ProductsFeatured = () => {
             <div className="btn btn--rounded btn--border">Show All</div>
           </Link>
         </header>
-        {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+        {Products.length > 0 && (
           <ProductsCarousel
-            products={AllProducts.products.filter(
-              (a: any) => a.currentPrice < 1500
-            )}
+            products={Products.filter((a: any) => a.currentPrice < 1500)}
           />
         )}
       </div>
@@ -47,11 +56,9 @@ const ProductsFeatured = () => {
           </Link>
         </header>
 
-        {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+        {Products.length > 0 && (
           <ProductsCarousel
-            products={AllProducts.products.filter(
-              (a: any) => a.currentPrice > 1500
-            )}
+            products={Products.filter((a: any) => a.currentPrice > 1500)}
           />
         )}
       </div>

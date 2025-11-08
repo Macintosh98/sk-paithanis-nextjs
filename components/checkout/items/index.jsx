@@ -1,15 +1,14 @@
-import { useSelector } from 'react-redux';
+/* eslint-disable @next/next/no-img-element */
+import products from "../../../utils/data/products";
 
 const CheckoutItems = () => {
-  const { cartItems } = useSelector(state => state.cart);
-
   return (
     <ul className="checkout-items">
-      {cartItems.map(item => (
-        <li className="checkout-item">
+      {products.map((item) => (
+        <li key={item.id} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
-              <img src={item.thumb} />
+              <img src={item.thumb} alt={item.name} />
             </div>
 
             <div className="checkout-item__data">
@@ -21,8 +20,7 @@ const CheckoutItems = () => {
         </li>
       ))}
     </ul>
-  )
+  );
 };
 
-  
-export default CheckoutItems
+export default CheckoutItems;

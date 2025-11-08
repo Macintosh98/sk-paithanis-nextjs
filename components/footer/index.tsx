@@ -16,7 +16,7 @@ const Footer = () => {
               alt=""
               src={"/images/logo_21_comp.png"}
               height={220}
-              width={400}
+              width={350}
             />
             {/* <br/><br/><br/> */}
             {/* <h6><span>VakratundaSK </span> - Paithani & Sarees</h6> */}
@@ -114,7 +114,7 @@ const Footer = () => {
               href="http://abhishekzambare.vercel.app/"
               style={{ fontWeight: 600 }}
             >
-              "Abhishek Zambare"
+              &quot;Abhishek Zambare&quot;
             </Link>{" "}
             - © 2022. ALL RIGHTS RESERVED.
           </p>

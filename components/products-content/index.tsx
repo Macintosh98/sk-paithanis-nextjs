@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import { useState } from 'react';
 import List from "./list";
 
@@ -9,7 +10,7 @@ const ProductsContent = (props: any) => {
     <section className="products-content">
       <div className="products-content__intro glasscard">
         {/* <h2>Men's Tops <span>(133)</span></h2> */}
-        <h2>Paithani's</h2>
+        <h2>Paithani&apos;s</h2>
         <button
           type="button"
           onClick={() => props.setFiltersOpen(!props.filtersOpen)}

@@ -1,47 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { removeProduct, setCount } from 'store/reducers/cart';
-import { ProductStoreType } from 'types';
+/* eslint-disable @next/next/no-img-element */
 
-const ShoppingCart = ({ thumb, name, id, 
-  // color, size, 
-  count, price }: ProductStoreType) => {
-  const dispatch = useDispatch();
+import { ProductStoreType } from "../../../types";
 
-  const removeFromCart = () => {
-    dispatch(removeProduct(
-      { 
-        thumb, 
-        name, 
-        id, 
-        // color, 
-        // size, 
-        count, 
-        price
-      }
-    ))
-  }
-
-  const setProductCount = (count: number) => {
-    if(count <= 0) {
-      return;
-    }
-
-    const payload = {
-      product: { 
-        thumb, 
-        name, 
-        id, 
-        // color, 
-        // size, 
-        count, 
-        price
-      },
-      count,
-    }
-
-    dispatch(setCount(payload))
-  }
-
+const ShoppingCart = ({
+  thumb,
+  name,
+  id,
+  // color, size,
+  count,
+  price,
+}: ProductStoreType) => {
   return (
     <tr>
       <td>
@@ -60,20 +28,21 @@ const ShoppingCart = ({ thumb, name, id,
       <td className="cart-item-before" data-label="Size">{size}</td> */}
       <td>
         <div className="quantity-button">
-          <button type="button" onClick={() => setProductCount(count - 1)} className="quantity-button__btn">
+          <button type="button" className="quantity-button__btn">
             -
           </button>
-          <span>{ count }</span>
-          <button type="button" onClick={() => setProductCount(count + 1)} className="quantity-button__btn">
+          <span>{count}</span>
+          <button type="button" className="quantity-button__btn">
             +
           </button>
         </div>
       </td>
       <td>₹{price}</td>
-      <td className="cart-item-cancel"><i className="icon-cancel" onClick={() => removeFromCart()}></i></td>
+      <td className="cart-item-cancel">
+        <i className="icon-cancel"></i>
+      </td>
     </tr>
-  )
+  );
 };
 
-  
-export default ShoppingCart
+export default ShoppingCart;

@@ -2,58 +2,12 @@ import { useState } from "react";
 // import productsColors from './../../../utils/data/products-colors';
 // import productsSizes from './../../../utils/data/products-sizes';
 // import CheckboxColor from './../../products-filter/form-builder/checkbox-color';
-import { useDispatch, useSelector } from "react-redux";
-import { some } from "lodash";
-import { addProduct } from "store/reducers/cart";
-import { toggleFavProduct } from "store/reducers/user";
-import { ProductStoreType } from "types";
-import { RootState } from "store";
-
 // type ProductContent = {
 //   product: ProductType;
 // }
 
 const Content = ({ product }: any) => {
-  const dispatch = useDispatch();
   const [count, setCount] = useState<number>(1);
-  // const [color, setColor] = useState<string>('');
-  // const [itemSize, setItemSize] = useState<string>('');
-
-  // const onColorSet = (e: string) => setColor(e);
-  // const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => setItemSize(e.target.value);
-
-  const { favProducts } = useSelector((state: RootState) => state.user);
-  const isFavourite = some(
-    favProducts,
-    (productId) => productId === product.id
-  );
-
-  const toggleFav = () => {
-    dispatch(
-      toggleFavProduct({
-        id: product.id,
-      })
-    );
-  };
-
-  const addToCart = () => {
-    const productToSave: ProductStoreType = {
-      id: product.id,
-      name: product.name,
-      thumb: product.images ? product.images[0] : "",
-      price: product.currentPrice,
-      count: count,
-      // color: color,
-      // size: itemSize
-    };
-
-    const productStore = {
-      count,
-      product: productToSave,
-    };
-
-    dispatch(addProduct(productStore));
-  };
 
   return (
     <section className="product-content animation glasscard">
@@ -126,18 +80,10 @@ const Content = ({ product }: any) => {
               </button>
             </div>
 
-            <button
-              type="submit"
-              onClick={() => addToCart()}
-              className="btn btn--rounded btn--yellow"
-            >
+            <button type="submit" className="btn btn--rounded btn--yellow">
               Add to cart
             </button>
-            <button
-              type="button"
-              onClick={toggleFav}
-              className={`btn-heart ${isFavourite ? "btn-heart--active" : ""}`}
-            >
+            <button type="button" className={`btn-heart btn-heart--active`}>
               <i className="icon-heart"></i>
             </button>
           </div>

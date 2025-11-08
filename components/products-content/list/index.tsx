@@ -1,12 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import useSwr from 'swr';
 import ProductItem from "../../product-item";
 import ProductsLoading from "./loading";
 // import { ProductTypeList } from 'types';
 import products1 from "../../../utils/data/products";
-// import { server } from '../../../utils/server';
-import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { getProduct } from "store/reducers/cart";
+import axios from "axios";
 
 const ProductsContent = ({
   // setFiltersSubmit,
@@ -15,30 +15,33 @@ const ProductsContent = ({
   productPrice,
   admin,
 }: any) => {
-  const AllProducts = useSelector((state: any) => state.cart);
   const [Products, setProducts] = useState([]);
 
-  const dispatch = useDispatch();
+  const onload = async () => {
+    const response = await axios({
+      url: `/api/product/`,
+      method: "GET",
+      responseType: "json",
+      headers: {
+        // Authorization: this.authString,
+        "Content-Type": "application/json",
+      },
+    });
 
+    setProducts(
+      response.data.filter((a: any) => {
+        a = { ...products1[0], ...a };
+        return (
+          a.currentPrice <= productPrice[1] &&
+          a.currentPrice >= productPrice[0] &&
+          a.category == productType
+        );
+      })
+    );
+  };
   useEffect(() => {
-    if (AllProducts.status == "idle" && AllProducts.products.length == 0) {
-      dispatch(getProduct());
-    } else if (
-      AllProducts.status == "idle" &&
-      AllProducts.products.length > 0
-    ) {
-      setProducts(
-        AllProducts.products.filter((a: any) => {
-          a = { ...products1[0], ...a };
-          return (
-            a.currentPrice <= productPrice[1] &&
-            a.currentPrice >= productPrice[0] &&
-            a.category == productType
-          );
-        })
-      );
-    }
-  }, [AllProducts, productType, productPrice]);
+    onload();
+  }, []);
 
   // useEffect(() => {
   //   if (filtersSubmit == true) {
@@ -56,13 +59,17 @@ const ProductsContent = ({
   //   }
   // }, [filtersSubmit]);
 
-  if (AllProducts.status == "fail") return <div>Failed to load products</div>;
+  if (Products.length == 0)
+    return (
+      <div>
+        Failed to load products
+        <ProductsLoading />
+      </div>
+    );
 
   return (
     <>
-      {AllProducts.status == "loading" && <ProductsLoading />}
-
-      {AllProducts.status == "idle" && AllProducts.products.length > 0 && (
+      {Products.length > 0 && (
         <section className="products-list">
           {Products.map((item: any) => {
             item = { ...products1[0], ...item };

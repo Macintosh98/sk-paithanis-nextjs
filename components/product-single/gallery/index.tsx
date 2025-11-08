@@ -1,19 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // type GalleryProductType = {
 //   images: string[]
 // }
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from "react";
 
+const Gallery = ({ images }: { images: any }) => {
+  const [base64, setBase64] = useState("");
 
-const Gallery = ({ images }:any) => {
-  const [base64,setBase64]=useState("");
-
-  useEffect(()=>{
-    const a=new Uint8Array(images.data.data)
-    const b = a.reduce((data, byte)=> {
+  useEffect(() => {
+    const a = new Uint8Array(images.data.data);
+    const b = a.reduce((data, byte) => {
       return data + String.fromCharCode(byte);
-      }, '');
-    setBase64(btoa(b))
-  },[images])
+    }, "");
+    setBase64(btoa(b));
+  }, [images]);
 
   // const featImage = images[0];
 
@@ -29,11 +31,15 @@ const Gallery = ({ images }:any) => {
 
       <div className="product-gallery__image">
         {/* <img src={featImage} alt="" /> */}
-        <img src={images ? "data:"+images.contentType+";base64,"+base64 : ''} alt="product" />
+        {images && (
+          <img
+            src={"data:" + images.contentType + ";base64," + base64}
+            alt="product"
+          />
+        )}
       </div>
     </section>
   );
 };
-  
+
 export default Gallery;
-  
