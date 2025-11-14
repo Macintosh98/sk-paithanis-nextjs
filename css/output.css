@@ -3084,18 +3084,3 @@ h5 {
 .message.message--error:before {
   background-color: red;
 }
-
-@keyframes move {
-  0% {
-    transform: rotateZ(50deg);
-    opacity: 0.2;
-  }
-  50% {
-    transform: rotateZ(120deg);
-    opacity: 0.8;
-  }
-  from {
-    transform: rotateZ(15deg);
-    opacity: 1;
-  }
-}

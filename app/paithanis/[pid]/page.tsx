@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 // import Layout from "../../layouts/Main";
 // import Footer from "../../components/footer";
-import Breadcrumb from "../../../components/breadcrumb";
 import ProductsFilter from "../../../components/products-filter";
 import ProductsContent from "../../../components/products-content";
 import { motion } from "framer-motion";
@@ -37,7 +36,6 @@ const Products = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Breadcrumb />
         <section className="products-page">
           <div className="container">
             <ProductsFilter

@@ -2,7 +2,6 @@
 // import Layout from "../layouts/Main";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Breadcrumb from "../../components/breadcrumb";
 
 const RegisterPage = () => (
   // <Layout>
@@ -21,7 +20,6 @@ const RegisterPage = () => (
           </Link>
         </Link>
       </div> */}
-        <Breadcrumb />
 
         <div className="form-block glasscard">
           <div className="glasscard animation">

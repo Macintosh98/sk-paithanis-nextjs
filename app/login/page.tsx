@@ -4,7 +4,6 @@
 // import Layout from "../layouts/Main";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Breadcrumb from "../../components/breadcrumb";
 // import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 // import Spinner from "../../components/Spinner";
@@ -96,7 +95,6 @@ const LoginPage = () => {
             </Link>
           </Link>
         </div> */}
-          <Breadcrumb />
 
           <div className="form-block glasscard">
             <div className="glasscard animation">

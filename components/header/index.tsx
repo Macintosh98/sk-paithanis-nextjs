@@ -59,7 +59,7 @@ const Header = () => {
               className="icon-search"
             ></i>
           </button>
-          <Link href="/cart">
+          <Link href="/">
             <button className="btn-cart">
               <i className="icon-cart"></i>
 

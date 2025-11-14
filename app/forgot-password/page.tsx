@@ -1,7 +1,6 @@
 "use client";
 // import Layout from "../layouts/Main";
 // import Link from "next/link";
-import Breadcrumb from "../../components/breadcrumb";
 // import { useForm } from "react-hook-form";
 // import { server } from "../utils/server";
 // import { postData } from "../utils/services";
@@ -39,7 +38,6 @@ const ForgotPassword = () => {
             </Link>
           </Link>
         </div> */}
-          <Breadcrumb />
 
           <div className="form-block glasscard">
             <div className="glasscard animation">
