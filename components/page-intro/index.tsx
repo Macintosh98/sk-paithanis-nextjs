@@ -6,7 +6,7 @@ const PageIntro = () => {
     <section
       className="page-intro"
       style={{
-        background: "url('/images/featured-111.png') no-repeat left top",
+        background: "url('/images/slide-1.png') no-repeat left top",
         backgroundSize: "contain",
       }}
     >
