@@ -3,16 +3,20 @@
 * {
   font-family: "Fredoka" !important;
   border-radius: 30px;
+  text-transform: capitalize;
   font-weight: 500 !important;
 }
 
-.maincoloranimation {
-  animation: color-black 10s infinite;
-  animation: fgnormal 10s infinite;
+.white {
+  animation: colorwhitebg 10s infinite;
+  background: white;
 }
-.lightcoloranimation {
+
+.fg {
+  animation: fg 10s infinite;
+}
+.bg {
   animation: bg 10s infinite;
-  animation: color-black 10s infinite;
 }
 
 .whitecard {
@@ -265,16 +269,16 @@
   }
 }
 .container-feather {
-  top: 10%;
-  left: 10%;
-  position: fixed;
+  top: 15%;
+  left: 8%;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   transform: scale(0.7);
   z-index: -999;
 }
 
-@keyframes fg {
+/* @keyframes fg {
   0% {
     background-color: rgba(155, 255, 255, 0.5);
   }
@@ -287,7 +291,7 @@
   100% {
     background-color: rgba(155, 255, 255, 0.5);
   }
-}
+} */
 @keyframes bg {
   0% {
     background-color: rgb(222, 255, 255);
@@ -306,7 +310,7 @@
     color: rgb(0, 55, 55);
   }
 }
-@keyframes color-black {
+@keyframes colorwhitebg {
   0% {
     color: rgb(0, 100, 100);
   }
@@ -320,19 +324,32 @@
     color: rgb(0, 100, 100);
   }
 }
-@keyframes fgnormal {
+@keyframes fg {
   0% {
     background-color: rgb(155, 255, 255);
+    color: rgb(0, 100, 100);
   }
   33% {
     background-color: rgb(255, 155, 255);
+    color: rgb(100, 0, 100);
   }
   66% {
     background-color: rgb(255, 255, 155);
+    color: rgb(100, 100, 0);
   }
   100% {
     background-color: rgb(155, 255, 255);
+    color: rgb(0, 100, 100);
   }
 }
 
 /*# sourceMappingURL=a.css.map */
+body {
+  background-color: rgb(255, 222, 255);
+  animation: bg 10s infinite;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}

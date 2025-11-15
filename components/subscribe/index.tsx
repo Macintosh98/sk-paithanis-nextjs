@@ -1,41 +1,37 @@
+import { Stack, Button, Card, TextField, Typography } from "@mui/material";
+
 const Subscribe = () => {
   return (
-    // <section className="subscribe">
-    //   <div className="container">
-    //     <div style={{backgroundImage: 'url(/images/subscribe.jpg)'}} className="subscribe__content">
-    //       <h4>Subscribe to our newsletter and receive exclusive offers every week</h4>
+    <Card
+      className="white"
+      sx={{
+        backgroundImage: "url(/images/pngegg2.png)",
+        backgroundPosition: "center",
+        backgroundRepeat: "repeat",
+        backgroundSize: "contain",
+      }}
+    >
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        height={"300px"}
+        spacing={4}
+      >
+        <Typography variant="h6" className="white">
+          Subscribe to our newsletter and receive exclusive offers every week
+        </Typography>
 
-    //       <form className="subscribe__form">
-    //         <input type="email" placeholder="Email address" />
-    //         <button type="submit" className="btn btn--rounded btn--yellow">Subscribe</button>
-    //       </form>
-    //     </div>
-    //   </div>
-    // </section>
-    <section className="subscribe">
-      <div className="container">
-        <div
-          className="subscribe__content glasscard"
-          style={{
-            backgroundImage: "url(/images/pngegg2.png)",
-            backgroundPosition: "center",
-            backgroundRepeat: "repeat",
-            backgroundSize: "contain",
-          }}
+        <TextField variant="filled" type="email" placeholder="Email address" />
+        <Button
+          variant="contained"
+          className="fg"
+          sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
         >
-          <h4>
-            Subscribe to our newsletter and receive exclusive offers every week
-          </h4>
-
-          <form className="subscribe__form">
-            <input type="email" placeholder="Email address" />
-            <button type="submit" className="btn btn--rounded btn--yellow">
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
+          Subscribe
+        </Button>
+      </Stack>
+    </Card>
   );
 };
 

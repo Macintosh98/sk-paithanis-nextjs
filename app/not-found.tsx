@@ -1,4 +1,5 @@
 "use client";
+import { Button, Card, Typography } from "@mui/material";
 // import LayoutError from "../layouts/404";
 
 import { motion } from "framer-motion";
@@ -6,22 +7,33 @@ import Link from "next/link";
 
 const ErrorPage = () => (
   // <LayoutError>
-  <section className="error-page">
-    <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+
+  <motion.div
+    initial={{ y: -100, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <Card
+      className="white"
+      sx={{ borderRadius: (theme) => theme.shape.borderRadius, p: 4 }}
     >
-      <div className="container glasscard">
-        <h1>Error 404</h1>
-        <p>Woops. Looks like this page doesn&apos;t exist</p>
-        <Link href="/">
-          <div className="btn btn--rounded btn--yellow">Go to home</div>
-        </Link>
-      </div>
-    </motion.div>
-  </section>
+      <Typography variant="h5">Error 404</Typography>
+      <Typography variant="subtitle2">
+        Woops. Looks like this page doesn&apos;t exist
+      </Typography>
+      <Link href="/">
+        <Button
+          variant="contained"
+          className="fg"
+          sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+        >
+          Go to home
+        </Button>
+      </Link>
+    </Card>
+  </motion.div>
+
   // {/* </LayoutError> */}
 );
 

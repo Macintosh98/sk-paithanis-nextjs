@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import useSwr from 'swr';
 import ProductItem from "../../product-item";
-import ProductsLoading from "./loading";
 // import { ProductTypeList } from 'types';
 import products1 from "../../../utils/data/products";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Card, Grid } from "@mui/material";
 
 const ProductsContent = ({
   // setFiltersSubmit,
@@ -61,33 +61,33 @@ const ProductsContent = ({
 
   if (Products.length == 0)
     return (
-      <div>
+      <Card className="white" sx={{ p: 2, m: 2 }}>
         Failed to load products
-        <ProductsLoading />
-      </div>
+      </Card>
     );
 
   return (
     <>
       {Products.length > 0 && (
-        <section className="products-list">
+        <Grid container spacing={5}>
           {Products.map((item: any) => {
             item = { ...products1[0], ...item };
             return (
-              <ProductItem
-                id={item._id}
-                name={item.text}
-                price={item.price}
-                color={item.color}
-                currentPrice={item.currentPrice}
-                key={item._id}
-                images={item.img}
-                productType={item.category}
-                admin={admin}
-              />
+              <Grid key={item._id} size={{ xs: 12, md: 3 }} sx={{ mb: 4 }}>
+                <ProductItem
+                  id={item._id}
+                  name={item.text}
+                  price={item.price}
+                  color={item.color}
+                  currentPrice={item.currentPrice}
+                  images={item.img}
+                  productType={item.category}
+                  admin={admin}
+                />
+              </Grid>
             );
           })}
-        </section>
+        </Grid>
       )}
     </>
   );

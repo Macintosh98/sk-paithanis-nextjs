@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 // import products1 from "../utils/data/products";
 import { useRouter } from "next/navigation";
+import { Button, TextField, Select, MenuItem } from "@mui/material";
 function GoalForm() {
   const router = useRouter();
   const [text, setText] = useState("");
@@ -87,28 +88,34 @@ function GoalForm() {
   }
 
   return (
-    <section className="form glasscard">
-      <br /> <br />
+    <>
       <form>
-        <div className="form-group">
-          <label htmlFor="text">Name</label>
-          <input
-            type="text"
-            name="text"
-            id="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-          <label htmlFor="text">Description</label>
-          <input
-            type="text"
-            name="discription"
-            id="text"
-            value={discription}
-            onChange={(e) => setdiscription(e.target.value)}
-          />
-          <label htmlFor="text">Category</label>
-          {/* <input
+        <label htmlFor="text">Name</label>
+        <TextField
+          variant="filled"
+          fullWidth
+          type="text"
+          name="text"
+          id="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <br />
+        <br />
+        <label htmlFor="text">Description</label>
+        <TextField
+          variant="filled"
+          fullWidth
+          type="text"
+          name="discription"
+          id="text"
+          value={discription}
+          onChange={(e) => setdiscription(e.target.value)}
+        />
+        <br />
+        <br />
+        <label htmlFor="text">Category</label>
+        {/* <input
             type="text"
             name="discription"
             id="text"
@@ -116,114 +123,74 @@ function GoalForm() {
             onChange={(e) => setcategory(e.target.value)}
           /> */}
 
-          <select
-            name="category"
-            value={category}
-            onChange={(e) => setcategory(e.target.value)}
-          >
-            <option value="semi-silk-paithani">Semi Silk Paithani</option>
-            <option value="pure-silk-paithani">Pure Silk Paithani</option>
-            <option value="all-paithani">Others</option>
-          </select>
-          <label htmlFor="text">Price</label>
-          <input
-            type="number"
-            name="price"
-            id="text"
-            value={price}
-            onChange={(e) => setprice(e.target.value)}
-          />
-          <label htmlFor="text">Current Price</label>
-          <input
-            type="number"
-            name="currentPrice"
-            id="text"
-            value={currentPrice}
-            onChange={(e) => setcurrentPrice(e.target.value)}
-          />
-          {viewimage && (
-            <img
-              alt={"profile"}
-              height="150px"
-              width="150px"
-              className="rounded-circle"
-              src={viewimage}
-            />
-          )}
+        <Select
+          name="category"
+          value={category}
+          fullWidth
+          onChange={(e) => setcategory(e.target.value)}
+        >
+          <MenuItem value="semi-silk-paithani">Semi Silk Paithani</MenuItem>
+          <MenuItem value="pure-silk-paithani">Pure Silk Paithani</MenuItem>
+          <MenuItem value="all-paithani">Others</MenuItem>
+        </Select>
+        <br />
+        <br />
+        <label htmlFor="text">Price</label>
+        <TextField
+          variant="filled"
+          fullWidth
+          type="number"
+          name="price"
+          id="text"
+          value={price}
+          onChange={(e) => setprice(e.target.value)}
+        />
+        <br />
+        <br />
+        <label htmlFor="text">Current Price</label>
+        <TextField
+          variant="filled"
+          fullWidth
+          type="number"
+          name="currentPrice"
+          id="text"
+          value={currentPrice}
+          onChange={(e) => setcurrentPrice(e.target.value)}
+        />
+        <br />
+        <br />
+        {viewimage && (
+          <img alt={"profile"} height="150px" width="150px" src={viewimage} />
+        )}
 
-          <div className="custom-file">
-            <label className="custom-file-label" htmlFor="customFile">
-              Image
-            </label>
-            <input
-              name="image"
-              className="custom-file-input"
-              type="file"
-              onChange={loadimage}
-            />
-          </div>
+        <div>
+          <label>Image</label>
+          <TextField
+            variant="filled"
+            fullWidth
+            name="image"
+            type="file"
+            onChange={loadimage}
+          />
         </div>
+        <br />
         <hr />
-        <div className="form-group">
+        <br />
+        <div>
           {error && "unable to add the product"}
           {added && "product added refresh th page"}
-          <button
+          <Button
+            variant="contained"
+            fullWidth
             onClick={(e) => onSubmit(e)}
-            className="btn btn--rounded btn--border"
+            className="fg"
+            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
           >
             Add
-          </button>
+          </Button>
         </div>
       </form>
-      <style jsx>{`
-        .form,
-        .content {
-          width: 50%;
-          margin: 50px auto;
-        }
-
-        .form-group {
-          margin-bottom: 10px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #e6e6e6;
-          animation: bg 10s infinite;
-          border-radius: 5px;
-          margin-bottom: 10px;
-          font-family: inherit;
-        }
-
-        .form-group label {
-          text-align: left;
-          display: block;
-          margin: 0 0 5px 3px;
-        }
-
-        .btn {
-          width: 100%;
-          margin: 10px 0;
-        }
-
-        @media (max-width: 600px) {
-          .form {
-            width: 100%;
-          }
-
-          .heading h1 {
-            font-size: 2rem;
-          }
-
-          .heading p {
-            font-size: 1.5rem;
-          }
-        }
-      `}</style>
-    </section>
+    </>
   );
 }
 

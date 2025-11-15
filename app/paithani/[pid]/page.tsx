@@ -10,11 +10,12 @@ import ProductsFeatured from "../../../components/products-featured";
 import Gallery from "../../../components/product-single/gallery";
 import Content from "../../../components/product-single/content";
 // import Description from "../../components/product-single/description";
-import Reviews from "../../../components/product-single/reviews";
+// import Reviews from "../../../components/product-single/reviews";
 import products1 from "../../../utils/data/products";
 // import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { use, useEffect, useState } from "react";
+import { Card, Grid } from "@mui/material";
 
 // types
 // import { ProductType } from 'types';
@@ -70,59 +71,54 @@ const Product = ({ searchParams }: any) => {
   }, []);
 
   return (
-    <div>
-      <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {product && (
-          <>
-            <section className="product-single">
-              <div className="container">
-                <div className="product-single__content glasscard">
-                  <Gallery images={product.img} />
-                  <Content product={product} />
-                </div>
-
-                {/* <div className="product-single__info">
-            <div className="product-single__info-btns">
-              <button
-                type="button"
-                onClick={() => setShowBlock("description")}
-                className={`btn btn--rounded ${
-                  showBlock === "description" ? "btn--active" : ""
-                }`}
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {product && (
+        <Card
+          className="white"
+          sx={{
+            p: 4,
+            mb: 8,
+            textAlign: "center",
+            // boxShadow: (theme) => theme.shadows[1],
+            borderRadius: (theme) => theme.shape.borderRadius,
+          }}
+        >
+          <Grid container spacing={4}>
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Card
+                className="bg"
+                sx={{
+                  // p: 2,
+                  borderRadius: (theme) => theme.shape.borderRadius,
+                }}
               >
-                Description
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowBlock("reviews")}
-                className={`btn btn--rounded ${
-                  showBlock === "reviews" ? "btn--active" : ""
-                }`}
+                <Gallery images={product.img} />
+              </Card>
+            </Grid>{" "}
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Card
+                className="bg"
+                sx={{
+                  p: 2,
+                  borderRadius: (theme) => theme.shape.borderRadius,
+                }}
               >
-                Reviews (2)
-              </button>
-            </div>
+                <Content product={product} />
+              </Card>
+            </Grid>
+          </Grid>{" "}
+        </Card>
+      )}
 
-            <Description show={showBlock === "description"} />
-                      <Reviews product={product} show={showBlock === "reviews"} />
+      <ProductsFeatured />
 
-          </div> */}
-                <Reviews product={product} show={true} />
-              </div>
-            </section>
-          </>
-        )}
-        <div className="product-single-page">
-          <ProductsFeatured />
-        </div>
-        {/* <Footer /> */}
-      </motion.div>
-    </div>
+      {/* <Footer /> */}
+    </motion.div>
   );
 };
 

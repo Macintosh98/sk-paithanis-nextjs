@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Button, Typography } from "@mui/material";
 function GoalItem({ goal }) {
   const router = useRouter();
   const [base64, setBase64] = useState("");
@@ -29,8 +30,9 @@ function GoalItem({ goal }) {
   return (
     <div className="goal">
       <div>{new Date(goal.createdAt).toLocaleString("en-US")}</div>
-      <h2
-        style={{
+      <Typography
+        variant="h5"
+        sx={{
           backgroundColor: "black",
           padding: "10px",
           marginTop: "10px",
@@ -38,11 +40,11 @@ function GoalItem({ goal }) {
         }}
       >
         {goal.text}
-      </h2>
+      </Typography>
       <br />
-      <h5 style={{ color: "#555" }}>
+      <Typography variant="subtitle1" style={{ color: "#555" }}>
         {goal.discription} - {goal.category}
-      </h5>
+      </Typography>
       <br />
       <img
         alt=""
@@ -50,12 +52,17 @@ function GoalItem({ goal }) {
         style={{ borderRadius: "20px" }}
         src={"data:" + goal.img.contentType + ";base64," + base64}
       />
-      <h4 className="">
+      <Typography variant="subtitle1">
         Rs. {goal.currentPrice}/{goal.price}
-      </h4>
-      <button onClick={() => deleteGoal(goal._id)} className="close">
+      </Typography>
+      <Button
+        variant="contained"
+        className="fg"
+        onClick={() => deleteGoal(goal._id)}
+        sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+      >
         X
-      </button>
+      </Button>
     </div>
   );
 }

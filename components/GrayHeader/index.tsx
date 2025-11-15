@@ -21,6 +21,7 @@ const GrayHeader = ({
 
   return (
     <Box
+      className="white"
       sx={
         isOnlyStack
           ? sx

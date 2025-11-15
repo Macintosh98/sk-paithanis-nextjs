@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+// import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
@@ -6,22 +7,136 @@ import Footer from "@/components/footer";
 import "swiper/css";
 import "rc-slider/assets/index.css";
 import "../css/output.css";
-import { Box, Container } from "@mui/material";
+import {
+  Box,
+  Container,
+  createTheme,
+  CssBaseline,
+  extendTheme,
+  ThemeProvider,
+} from "@mui/material";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
+const theme = extendTheme({
+  shadows: [
+    "none",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+  ],
+
+  typography: {
+    fontWeightLight: "800",
+    fontWeightRegular: "800",
+    fontWeightMedium: "800",
+    fontWeightBold: "800",
+  },
+  shape: {
+    borderRadius: "30px !important",
+  },
+  transitions: {
+    duration: {
+      shortest: 1000,
+      shorter: 1000,
+      short: 1000,
+      standard: 1000,
+      complex: 1000,
+      enteringScreen: 1000,
+      leavingScreen: 1000,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "capitalize",
+        },
+      },
+    },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
+          "& .MuiFilledInput-input": {
+            padding: "10px 40px !important",
+          },
+          // margin: "0px !important",
+          paddingTop: "0px !important",
+          animation: "bg 10s infinite",
+          borderRadius: "30px !important",
+          boxShadow:
+            "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+          "&::before, &::after": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderColor)",
+          },
+          "&:hover:not(.Mui-disabled, .Mui-error):before": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderHoverColor)",
+          },
+          "&.Mui-focused:after": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderFocusedColor)",
+          },
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          // margin: "0px !important",
+          // padding: "0px !important",
+          borderRadius: "30px !important",
+          "&::before": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderColor)",
+          },
+          "&:hover:not(.Mui-disabled, .Mui-error):before": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderHoverColor)",
+          },
+          "&.Mui-focused:after": {
+            borderRadius: "30px !important",
+            borderBottom: "0px solid var(--TextField-brandBorderFocusedColor)",
+          },
+        },
+      },
+    },
+  },
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Create Next App",
-  description: "Generated by create next app",
-};
+// export const metadata: Metadata = {
+//   title: "Create Next App",
+//   description: "Generated by create next app",
+// };
 
 export default function RootLayout({
   children,
@@ -126,13 +241,16 @@ export default function RootLayout({
             <div className="middle-circle"></div>
             <div className="blue-circle"></div>
           </div>
-        </div>
-        <Container>
-          <Header />
-          <Box sx={{ mt: 11 }}> {children}</Box>
+        </div>{" "}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Container>
+            <Header />
+            <Box sx={{ mt: 4 }}> {children}</Box>
 
-          <Footer />
-        </Container>
+            <Footer />
+          </Container>
+        </ThemeProvider>
       </body>
     </html>
   );

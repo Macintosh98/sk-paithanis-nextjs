@@ -1,4 +1,4 @@
-/* devanagari */
+/* 
 @import "./fonts/icons/icons.css";
 @import "./partials/reset.css";
 
@@ -132,9 +132,9 @@ span {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
+ 
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
 }
 
 button {
@@ -142,7 +142,7 @@ button {
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield; 
 }
 
 input,
@@ -263,7 +263,8 @@ h5 {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05),
     0 12px 24px rgba(0, 0, 0, 0.05);
   padding: 20px;
-  /* From https://css.glass */
+  border-radius: 30px;
+  
 }
 
 .btn {
@@ -331,11 +332,11 @@ h5 {
   box-shadow: none;
   transition: all 0.3s ease;
 }
-/* @media (min-width: 767px) {
+@media (min-width: 767px) {
   .site-header {
     height: 100px;
   }
-} */
+}
 .site-header .btn-hamburger:before,
 .site-header .btn-hamburger:after,
 .site-header .btn-hamburger span {
@@ -2453,11 +2454,11 @@ h5 {
   color: #ababab;
 }
 .cart .cart__promo-code:-moz-placeholder {
-  /* Firefox 18- */
+
   color: #ababab;
 }
 .cart .cart__promo-code::-moz-placeholder {
-  /* Firefox 19+ */
+
   color: #ababab;
 }
 .cart .cart__promo-code:-ms-input-placeholder {
@@ -3083,4 +3084,4 @@ h5 {
 }
 .message.message--error:before {
   background-color: red;
-}
+} */

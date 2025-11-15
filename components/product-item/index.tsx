@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import { Stack, Button, Card, Typography } from "@mui/material";
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import Link from "next/link";
@@ -69,66 +70,98 @@ const ProductItem = ({
   // if (isLoading) return <Spinner />;
 
   return (
-    <div className="product-item glasscard">
-      {admin && !viewimage && (
-        <button
-          onClick={() => {
-            deleteGoal(id);
-          }}
-          className="glasscard animation close"
+    <Card
+      sx={{
+        p: 2,
+        borderRadius: (theme) => theme.shape.borderRadius,
+        // width: "240px",
+      }}
+      className="white"
+    >
+      <Stack
+        direction={"row"}
+        spacing={2}
+        mb={1}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Button
+          variant="contained"
+          sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+          type="button"
+          className="fg"
         >
-          Delete
-        </button>
-      )}
+          Fav
+        </Button>
 
-      <style jsx>{`
-        .close {
-          position: absolute;
-          // top: 10px;
-          // right: 15px;
-          cursor: pointer;
-          border: none;
-          background: none;
-          z-index: 6;
-        }
-      `}</style>
+        {admin && !viewimage && (
+          <Button
+            variant="contained"
+            className="fg"
+            onClick={() => {
+              deleteGoal(id);
+            }}
+            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+          >
+            Delete
+          </Button>
+        )}
 
-      <div className="product__image">
-        <button type="button" className={`btn-heart btn-heart--active}`}>
-          <i className="icon-heart"></i>
-        </button>
-
-        <Link href={`/paithani/${name}?id=${id}`}>
-          <img
-            src={
-              viewimage
-                ? viewimage
-                : contentType != "" && base64 != ""
-                ? "data:" + contentType + ";base64," + base64
-                : "./x.png"
-            }
-            alt="product"
-          />
-          {discount && <span className="product__discount">{discount}%</span>}
-        </Link>
-      </div>
-
-      <div className="product__description glasscard animation">
-        <h2>{name}</h2>
-        <br />
-        <p>Type: {productType}</p>
-        <br />
-        <div
-          className={
-            "product__price " + (discount ? "product__price--discount" : "")
+        {discount && (
+          <Typography className="white" variant="caption">
+            {discount}%
+          </Typography>
+        )}
+      </Stack>
+      <Link href={`/paithani/${name}?id=${id}`}>
+        <img
+          height={"250px"}
+          width={"100%"}
+          style={{ borderRadius: "16px", marginBottom: "5px" }}
+          src={
+            viewimage
+              ? viewimage
+              : contentType != "" && base64 != ""
+              ? "data:" + contentType + ";base64," + base64
+              : "./x.png"
           }
+          alt="product"
+        />
+      </Link>
+
+      <Card
+        sx={{
+          p: 2,
+          borderRadius: (theme) => theme.shape.borderRadius,
+          // height: "150px",
+        }}
+        className="bg"
+      >
+        <Typography
+          variant="subtitle1"
+          sx={{ textWrap: "nowrap", textOverflow: "ellipsis", width: "90%" }}
         >
-          <h4>₹{currentPrice}</h4>
+          {name}
+        </Typography>
+
+        <Typography
+          variant="subtitle2"
+          sx={{ textWrap: "nowrap", textOverflow: "ellipsis", width: "90%" }}
+        >
+          Type: {productType}
+        </Typography>
+
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Typography variant="subtitle1">₹{currentPrice}</Typography>
 
           {discount && <span>₹{price}</span>}
-        </div>
-      </div>
-    </div>
+        </Stack>
+      </Card>
+    </Card>
   );
 };
 

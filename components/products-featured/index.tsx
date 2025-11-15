@@ -7,6 +7,7 @@ import ProductsCarousel from "./carousel";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { Button, Card, Typography, Stack } from "@mui/material";
 
 const ProductsFeatured = () => {
   const [Products, setProducts] = useState([]);
@@ -30,39 +31,80 @@ const ProductsFeatured = () => {
   // if (AllProducts.status == "fail") return <div>Failed to load products</div>;
 
   return (
-    <section className="section section-products-featured">
-      <div className="container">
-        <header className="section-products-featured__header glasscard">
-          <h3>Paithanis under ₹1500</h3>
+    <>
+      <Card
+        className="white"
+        sx={{
+          p: 2,
+          mb: 4,
+          borderRadius: (theme) => theme.shape.borderRadius,
+        }}
+      >
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Typography variant="h6" className="white">
+            Paithanis under ₹1500
+          </Typography>
           <Link href="/paithanis/all-paithani?minprice=0&maxprice=1500">
-            <div className="btn btn--rounded btn--border">Show All</div>
+            <Button
+              variant="contained"
+              className="fg"
+              sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+            >
+              Show All
+            </Button>
           </Link>
-        </header>
-        {Products.length > 0 && (
-          <ProductsCarousel
-            products={Products.filter((a: any) => a.currentPrice < 1500)}
-          />
-        )}
-      </div>
+        </Stack>
+      </Card>
+      {Products.length > 0 && (
+        <ProductsCarousel
+          products={Products.filter((a: any) => a.currentPrice < 1500)}
+        />
+      )}
       <br />
       <br />
       <br />
       <br />
-      <div className="container">
-        <header className="section-products-featured__header glasscard">
-          <h3>Our Bestsellers</h3>
-          <Link href="/paithanis/all-paithani?minprice=1500&maxprice=50000">
-            <div className="btn btn--rounded btn--border">Show All</div>
+      <Card
+        className="white"
+        sx={{
+          p: 2,
+          mb: 4,
+          borderRadius: (theme) => theme.shape.borderRadius,
+        }}
+      >
+        <Stack
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Typography variant="h6" className="white">
+            Our Bestsellers
+          </Typography>
+          <Link href="/paithanis/all-paithani?minprice=5000&maxprice=50000">
+            <Button
+              variant="contained"
+              className="fg"
+              sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+            >
+              Show All
+            </Button>
           </Link>
-        </header>
-
-        {Products.length > 0 && (
-          <ProductsCarousel
-            products={Products.filter((a: any) => a.currentPrice > 1500)}
-          />
-        )}
-      </div>
-    </section>
+        </Stack>
+      </Card>
+      {Products.length > 0 && (
+        <ProductsCarousel
+          products={Products.filter((a: any) => a.currentPrice > 5000)}
+        />
+      )}{" "}
+      <br />
+      <br />
+      <br />
+      <br />
+    </>
   );
 };
 

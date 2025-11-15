@@ -6,12 +6,21 @@ import GoalForm from "../../../components/GoalForm";
 // import GoalItem from "../../components/GoalItem";
 // import Spinner from "../../components/Spinner";
 
-import ProductsFilter from "../../../components/products-filter";
+// import ProductsFilter from "../../../components/products-filter";
 import ProductsContent from "../../../components/products-content";
-
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 // import { getGoals, reset } from "store/reducers/goals/goalSlice";
 // import Layout from "../../layouts/Main";
 import { useParams } from "next/navigation";
+import GrayHeader from "../../../components/GrayHeader";
+import {
+  Button,
+  Card,
+  Modal,
+  Stack,
+  IconButton,
+  Typography,
+} from "@mui/material";
 
 function Dashboard({ searchParams }) {
   const t = use(searchParams);
@@ -57,97 +66,95 @@ function Dashboard({ searchParams }) {
   // if (isLoading) return <Spinner />;
 
   return (
-    <div>
-      <motion.div
-        key={productType}
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+    <motion.div
+      key={productType}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <GrayHeader
+        isOnlyStack
+        sx={{
+          mb: 2,
+          px: 4,
+          py: 1,
+          boxShadow: (theme) => theme.shadows[1],
+          borderRadius: (theme) => theme.shape.borderRadius,
+        }}
+        startElement={[
+          <Typography variant="h6" key={"h"}>
+            Add & View Products
+          </Typography>,
+        ]}
+        endElement={[
+          <Button
+            variant="contained"
+            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+            key={"b"}
+            className="fg"
+            onClick={() => {
+              setShow(!Show);
+            }}
+          >
+            Add New Product
+          </Button>,
+        ]}
+      ></GrayHeader>
+
+      <Modal
+        open={Show}
+        onClose={() => setShow(false)}
+        // title={"Filters"}
+        // maxWidth={"md"}
       >
-        <div className="container">
-          <section className="heading glasscard">
-            <div>
-              {/* <h1>Welcome {user && user.name}</h1> */}
-              <h1>Add & View Products</h1>
-            </div>
-            <button
-              className="btn btn--rounded btn--border"
-              onClick={() => {
-                setShow(!Show);
-              }}
-            >
-              Add New Product
-            </button>
-          </section>
+        <Stack alignItems={"center"} justifyContent={"center"} height={"100vh"}>
+          <Card
+            className="white"
+            sx={{
+              p: 4,
+              overflow: "auto",
+              my: 6,
+              width: "500px",
+              borderRadius: (theme) => theme.shape.borderRadius,
+            }}
+          >
+            {" "}
+            <GrayHeader
+              isOnlyStack
+              sx={{ mb: 4 }}
+              startElement={[
+                <Typography key="t" variant="h6" noWrap>
+                  Add Product
+                </Typography>,
+              ]}
+              endElement={[
+                <IconButton
+                  key={"b"}
+                  onClick={() => setShow(false)}
+                  sx={{
+                    p: 0,
+                  }}
+                >
+                  <CloseRoundedIcon />
+                </IconButton>,
+              ]}
+            ></GrayHeader>
+            <GoalForm />
+          </Card>
+        </Stack>
+      </Modal>
 
-          {Show && <GoalForm />}
-
-          {/* <section className="">
-          {goals.length > 0 ? (
-            <div className="goals">
-              {goals.map((goal) => (
-                <GoalItem key={goal._id} goal={goal} />
-              ))}
-            </div>
-          ) : (
-            <h3>You have not set any goals</h3>
-          )}
-        </section> */}
-        </div>
-        <section className="products-page">
-          <div className="container">
-            <ProductsFilter
-              admin={true}
-              productType={productType}
-              productPrice={productPrice}
-              setProductType={setProductType}
-              setProductPrice={setProductPrice}
-              filtersOpen={filtersOpen}
-              setFiltersOpen={setFiltersOpen}
-              // setFiltersSubmit={setFiltersSubmit}
-            />
-            <ProductsContent
-              // filtersSubmit={filtersSubmit}
-              // setFiltersSubmit={setFiltersSubmit}
-              admin={true}
-              productType={productType}
-              productPrice={productPrice}
-              filtersOpen={filtersOpen}
-              setFiltersOpen={setFiltersOpen}
-            />
-          </div>
-        </section>
-
-        <style jsx>{`
-          .heading {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 50px;
-            margin-top: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          }
-
-          @media (max-width: 600px) {
-            .heading h1 {
-              font-size: 1.5rem;
-              margin-bottom: 10px;
-            }
-
-            .heading {
-              display: block;
-            }
-
-            .btn {
-              width: 100%;
-              margin: 20px 0;
-            }
-          }
-        `}</style>
-      </motion.div>
-    </div>
+      <ProductsContent
+        // filtersSubmit={filtersSubmit}
+        // setFiltersSubmit={setFiltersSubmit}
+        admin={true}
+        productType={productType}
+        productPrice={productPrice}
+        filtersOpen={filtersOpen}
+        setFiltersOpen={setFiltersOpen}
+      />
+    </motion.div>
   );
 }
 
