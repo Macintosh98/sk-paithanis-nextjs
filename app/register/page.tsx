@@ -1,5 +1,12 @@
 "use client";
-import { Button, Card, Checkbox, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Divider,
+  TextField,
+  Typography,
+} from "@mui/material";
 // import Layout from "../layouts/Main";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -25,7 +32,7 @@ const RegisterPage = () => (
       }}
     >
       <Typography variant="h5">Sign Up</Typography>
-      <hr />
+      <Divider />
       <Typography variant="subtitle2">
         Create an account and discover the benefits
       </Typography>

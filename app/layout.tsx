@@ -246,7 +246,7 @@ export default function RootLayout({
           <CssBaseline />
           <Container>
             <Header />
-            <Box sx={{ mt: 4 }}> {children}</Box>
+            <Box sx={{ mt: 4, justifyContent: "center" }}> {children}</Box>
 
             <Footer />
           </Container>

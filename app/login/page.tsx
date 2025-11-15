@@ -15,6 +15,7 @@ import {
   Button,
   Card,
   Checkbox,
+  Divider,
   Stack,
   TextField,
   Typography,
@@ -106,7 +107,7 @@ const LoginPage = () => {
         }}
       >
         <Typography variant="h5">Log in</Typography>
-        <hr />
+        <Divider />
         <Typography variant="subtitle2">
           Enter your email or phone number and recover your account
         </Typography>

@@ -1,5 +1,5 @@
 "use client";
-import { Button, Card, TextField, Typography } from "@mui/material";
+import { Button, Card, Divider, TextField, Typography } from "@mui/material";
 // import Layout from "../layouts/Main";
 // import Link from "next/link";
 // import { useForm } from "react-hook-form";
@@ -44,7 +44,7 @@ const ForgotPassword = () => {
         }}
       >
         <Typography variant="h5">Forgot your password?</Typography>
-        <hr />
+        <Divider />
         <Typography variant="subtitle2">
           Enter your email or phone number and recover your account
         </Typography>

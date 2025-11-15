@@ -39,13 +39,19 @@ const Header = () => {
           key={"hlink"}
         >
           <Link href="/paithanis/all-paithani">
-            <Typography variant="subtitle2">All Paithani</Typography>
+            <Typography sx={{ textWrap: "nowrap" }} variant="subtitle2">
+              All Paithani
+            </Typography>
           </Link>
           <Link href="/paithanis/semi-silk-paithani">
-            <Typography variant="subtitle2">Semi Silk Paithani</Typography>
+            <Typography sx={{ textWrap: "nowrap" }} variant="subtitle2">
+              Semi Silk Paithani
+            </Typography>
           </Link>
           <Link href="/paithanis/pure-silk-paithani">
-            <Typography variant="subtitle2">Pure Silk Paithani</Typography>
+            <Typography sx={{ textWrap: "nowrap" }} variant="subtitle2">
+              Pure Silk Paithani
+            </Typography>
           </Link>
         </Stack>,
       ]}

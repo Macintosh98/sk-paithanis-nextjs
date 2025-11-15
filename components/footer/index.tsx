@@ -11,7 +11,6 @@ const Footer = () => {
           <Paper
             elevation={1}
             sx={{
-              height: "300px",
               borderRadius: (theme) => theme.shape.borderRadius,
             }}
           >
@@ -19,8 +18,8 @@ const Footer = () => {
               <Image
                 src="/images/logo_21_comp.png"
                 alt="Vakratunda Logo"
-                width={250}
-                height={150}
+                width={200}
+                height={120}
               />
               <Paper
                 elevation={1}
@@ -44,7 +43,7 @@ const Footer = () => {
               <Paper
                 elevation={1}
                 sx={{
-                  height: "300px",
+                  height: "250px",
                   borderRadius: (theme) => theme.shape.borderRadius,
                 }}
               >
@@ -53,7 +52,7 @@ const Footer = () => {
                     elevation={1}
                     sx={{
                       p: 2,
-                      fontSize: "14px",
+                      fontSize: "15px",
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                     className="bg"
@@ -63,16 +62,16 @@ const Footer = () => {
                     <br />
                     <Link href="#">Order Status</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Shipping and Delivery</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Returns</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Payment options</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Contact Us</Link>
                   </Paper>
                 </Box>
@@ -83,7 +82,7 @@ const Footer = () => {
               <Paper
                 elevation={1}
                 sx={{
-                  height: "300px",
+                  height: "250px",
                   borderRadius: (theme) => theme.shape.borderRadius,
                 }}
               >
@@ -92,7 +91,7 @@ const Footer = () => {
                     elevation={1}
                     sx={{
                       p: 2,
-                      fontSize: "14px",
+                      fontSize: "15px",
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                     className="bg"
@@ -102,16 +101,16 @@ const Footer = () => {
                     <br />
                     <Link href="#">Gift Cards</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Find a store</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Newsletter</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Become a member</Link>
                     <br />
-                    <br />
+
                     <Link href="#">Site feedback</Link>
                   </Paper>{" "}
                 </Box>
@@ -122,7 +121,7 @@ const Footer = () => {
               <Paper
                 elevation={1}
                 sx={{
-                  height: "300px",
+                  height: "250px",
                   borderRadius: (theme) => theme.shape.borderRadius,
                 }}
               >
@@ -131,7 +130,7 @@ const Footer = () => {
                     elevation={1}
                     sx={{
                       p: 2,
-                      fontSize: "14px",
+                      fontSize: "15px",
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                     className="bg"

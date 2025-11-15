@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Divider } from "@mui/material";
 // import { useState } from "react";
 // import productsColors from './../../../utils/data/products-colors';
 // import productsSizes from './../../../utils/data/products-sizes';
@@ -20,7 +20,7 @@ const Content = ({ product }: any) => {
           {product.discount && <span>₹{product.price}</span>}
         </Box>
       </Stack>{" "}
-      <hr />
+      <Divider />
       <Typography variant="subtitle1">Details :</Typography>
       <br />
       <Typography variant="subtitle2">Type : {product.category}</Typography>

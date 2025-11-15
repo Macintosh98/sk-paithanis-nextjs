@@ -64,10 +64,6 @@ const ProductsFeatured = () => {
           products={Products.filter((a: any) => a.currentPrice < 1500)}
         />
       )}
-      <br />
-      <br />
-      <br />
-      <br />
       <Card
         className="white"
         sx={{
@@ -100,10 +96,6 @@ const ProductsFeatured = () => {
           products={Products.filter((a: any) => a.currentPrice > 5000)}
         />
       )}{" "}
-      <br />
-      <br />
-      <br />
-      <br />
     </>
   );
 };

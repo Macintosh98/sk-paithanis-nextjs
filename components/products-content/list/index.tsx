@@ -73,7 +73,7 @@ const ProductsContent = ({
           {Products.map((item: any) => {
             item = { ...products1[0], ...item };
             return (
-              <Grid key={item._id} size={{ xs: 12, md: 3 }} sx={{ mb: 4 }}>
+              <Grid key={item._id} size={{ xs: 12, md: 3 }} sx={{ mb: 2 }}>
                 <ProductItem
                   id={item._id}
                   name={item.text}

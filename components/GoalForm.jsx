@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 // import products1 from "../utils/data/products";
 import { useRouter } from "next/navigation";
-import { Button, TextField, Select, MenuItem } from "@mui/material";
+import { Button, TextField, Select, MenuItem, Divider } from "@mui/material";
 function GoalForm() {
   const router = useRouter();
   const [text, setText] = useState("");
@@ -174,7 +174,7 @@ function GoalForm() {
           />
         </div>
         <br />
-        <hr />
+        <Divider />
         <br />
         <div>
           {error && "unable to add the product"}

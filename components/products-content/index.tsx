@@ -28,7 +28,7 @@ const ProductsContent = (props: any) => {
       <GrayHeader
         isOnlyStack
         sx={{
-          mb: 2,
+          mb: 4,
           px: 4,
           py: 1,
           boxShadow: (theme) => theme.shadows[1],
