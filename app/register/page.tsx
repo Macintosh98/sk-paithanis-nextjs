@@ -1,4 +1,5 @@
 "use client";
+import AnimateItem from "@/components/animations/AnimateItem";
 import {
   Button,
   Card,
@@ -13,12 +14,7 @@ import Link from "next/link";
 
 const RegisterPage = () => (
   // <Layout>
-  <motion.div
-    initial={{ y: -100, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
-  >
+  <AnimateItem key="init">
     <Card
       className="white"
       sx={{
@@ -97,7 +93,7 @@ const RegisterPage = () => (
         </Typography>
       </form>
     </Card>
-  </motion.div>
+  </AnimateItem>
 );
 
 export default RegisterPage;

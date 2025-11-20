@@ -18,6 +18,7 @@ import productsTypes from "@/utils/data/products-types";
 import { useState } from "react";
 import Link from "next/link";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import AnimateItem from "../animations/AnimateItem";
 
 const ProductsContent = (props: any) => {
   const [filters, setfilters] = useState(false);
@@ -25,32 +26,34 @@ const ProductsContent = (props: any) => {
 
   return (
     <>
-      <GrayHeader
-        isOnlyStack
-        sx={{
-          mb: 4,
-          px: 4,
-          py: 1,
-          boxShadow: (theme) => theme.shadows[1],
-          borderRadius: (theme) => theme.shape.borderRadius,
-        }}
-        startElement={[
-          <Typography variant="h5" key={"head"}>
-            Paithani&apos;s
-          </Typography>,
-        ]}
-        endElement={[
-          <Button
-            variant="contained"
-            key={"b"}
-            className="fg"
-            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
-            onClick={() => setfilters(true)}
-          >
-            Filters
-          </Button>,
-        ]}
-      ></GrayHeader>
+      <AnimateItem key="init">
+        <GrayHeader
+          isOnlyStack
+          sx={{
+            mb: 4,
+            px: 4,
+            py: 1,
+            boxShadow: (theme) => theme.shadows[1],
+            borderRadius: (theme) => theme.shape.borderRadius,
+          }}
+          startElement={[
+            <Typography variant="h5" key={"head"}>
+              Paithani&apos;s
+            </Typography>,
+          ]}
+          endElement={[
+            <Button
+              variant="contained"
+              key={"b"}
+              className="fg"
+              sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+              onClick={() => setfilters(true)}
+            >
+              Filters
+            </Button>,
+          ]}
+        ></GrayHeader>
+      </AnimateItem>
 
       <List
         // setFiltersSubmit={props.setFiltersSubmit}

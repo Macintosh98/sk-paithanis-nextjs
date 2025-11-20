@@ -1,4 +1,5 @@
 "use client";
+import AnimateItem from "@/components/animations/AnimateItem";
 import { Button, Card, Typography } from "@mui/material";
 // import LayoutError from "../layouts/404";
 
@@ -8,12 +9,7 @@ import Link from "next/link";
 const ErrorPage = () => (
   // <LayoutError>
 
-  <motion.div
-    initial={{ y: -100, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.5 }}
-  >
+  <AnimateItem key="init">
     <Card
       className="white"
       sx={{ borderRadius: (theme) => theme.shape.borderRadius, p: 4 }}
@@ -32,7 +28,7 @@ const ErrorPage = () => (
         </Button>
       </Link>
     </Card>
-  </motion.div>
+  </AnimateItem>
 
   // {/* </LayoutError> */}
 );

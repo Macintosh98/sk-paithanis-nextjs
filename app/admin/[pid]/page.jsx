@@ -21,6 +21,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import AnimateItem from "@/components/animations/AnimateItem";
 
 function Dashboard({ searchParams }) {
   const t = use(searchParams);
@@ -66,42 +67,37 @@ function Dashboard({ searchParams }) {
   // if (isLoading) return <Spinner />;
 
   return (
-    <motion.div
-      key={productType}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <GrayHeader
-        isOnlyStack
-        sx={{
-          mb: 2,
-          px: 4,
-          py: 1,
-          boxShadow: (theme) => theme.shadows[1],
-          borderRadius: (theme) => theme.shape.borderRadius,
-        }}
-        startElement={[
-          <Typography variant="h6" key={"h"}>
-            Add & View Products
-          </Typography>,
-        ]}
-        endElement={[
-          <Button
-            variant="contained"
-            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
-            key={"b"}
-            className="fg"
-            onClick={() => {
-              setShow(!Show);
-            }}
-          >
-            Add New Product
-          </Button>,
-        ]}
-      ></GrayHeader>
-
+    <>
+      <AnimateItem key="init">
+        <GrayHeader
+          isOnlyStack
+          sx={{
+            mb: 2,
+            px: 4,
+            py: 1,
+            boxShadow: (theme) => theme.shadows[1],
+            borderRadius: (theme) => theme.shape.borderRadius,
+          }}
+          startElement={[
+            <Typography variant="h6" key={"h"}>
+              Add & View Products
+            </Typography>,
+          ]}
+          endElement={[
+            <Button
+              variant="contained"
+              sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+              key={"b"}
+              className="fg"
+              onClick={() => {
+                setShow(!Show);
+              }}
+            >
+              Add New Product
+            </Button>,
+          ]}
+        ></GrayHeader>
+      </AnimateItem>
       <Modal
         open={Show}
         onClose={() => setShow(false)}
@@ -154,7 +150,7 @@ function Dashboard({ searchParams }) {
         filtersOpen={filtersOpen}
         setFiltersOpen={setFiltersOpen}
       />
-    </motion.div>
+    </>
   );
 }
 

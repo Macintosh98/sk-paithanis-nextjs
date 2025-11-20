@@ -16,6 +16,8 @@ import products1 from "../../../utils/data/products";
 import { motion } from "framer-motion";
 import { use, useEffect, useState } from "react";
 import { Card, Grid } from "@mui/material";
+import AnimateItem from "@/components/animations/AnimateItem";
+import AnimateOnScroll from "@/components/animations/AnimateOnScroll";
 
 // types
 // import { ProductType } from 'types';
@@ -71,54 +73,53 @@ const Product = ({ searchParams }: any) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      {product && (
-        <Card
-          className="white"
-          sx={{
-            p: 4,
-            mb: 8,
-            textAlign: "center",
-            // boxShadow: (theme) => theme.shadows[1],
-            borderRadius: (theme) => theme.shape.borderRadius,
-          }}
-        >
-          <Grid container spacing={4}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card
-                className="bg"
-                sx={{
-                  // p: 2,
-                  borderRadius: (theme) => theme.shape.borderRadius,
-                }}
-              >
-                <Gallery images={product.img} />
-              </Card>
+    <>
+      <AnimateItem key="init">
+        {product && (
+          <Card
+            className="white"
+            sx={{
+              p: 4,
+              mb: 8,
+              textAlign: "center",
+              // boxShadow: (theme) => theme.shadows[1],
+              borderRadius: (theme) => theme.shape.borderRadius,
+            }}
+          >
+            <Grid container spacing={4}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Card
+                  className="bg"
+                  sx={{
+                    // p: 2,
+                    borderRadius: (theme) => theme.shape.borderRadius,
+                  }}
+                >
+                  <Gallery images={product.img} />
+                </Card>
+              </Grid>{" "}
+              <Grid size={{ xs: 12, md: 6 }}>
+                <Card
+                  className="bg"
+                  sx={{
+                    p: 2,
+                    borderRadius: (theme) => theme.shape.borderRadius,
+                  }}
+                >
+                  <Content product={product} />
+                </Card>
+              </Grid>
             </Grid>{" "}
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Card
-                className="bg"
-                sx={{
-                  p: 2,
-                  borderRadius: (theme) => theme.shape.borderRadius,
-                }}
-              >
-                <Content product={product} />
-              </Card>
-            </Grid>
-          </Grid>{" "}
-        </Card>
-      )}
-
-      <ProductsFeatured />
-
+          </Card>
+        )}
+      </AnimateItem>
+      <AnimateOnScroll>
+        <AnimateItem key="init">
+          <ProductsFeatured />
+        </AnimateItem>
+      </AnimateOnScroll>
       {/* <Footer /> */}
-    </motion.div>
+    </>
   );
 };
 

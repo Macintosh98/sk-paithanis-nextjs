@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Grid } from "@mui/material";
 
-const ProductsContent = ({
+const ProductsContentList = ({
   // setFiltersSubmit,
   // filtersSubmit,
   productType,
@@ -93,4 +93,4 @@ const ProductsContent = ({
   );
 };
 
-export default ProductsContent;
+export default ProductsContentList;

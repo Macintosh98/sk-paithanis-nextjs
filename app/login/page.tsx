@@ -20,6 +20,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import AnimateItem from "@/components/animations/AnimateItem";
 
 type LoginMail = {
   email: string;
@@ -88,12 +89,7 @@ const LoginPage = () => {
 
   return (
     // <Layout>
-    <motion.div
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <AnimateItem key="init">
       <Card
         className="white"
         sx={{
@@ -170,7 +166,7 @@ const LoginPage = () => {
           </Typography>
         </form>
       </Card>
-    </motion.div>
+    </AnimateItem>
     // {/* </Layout> */}
   );
 };

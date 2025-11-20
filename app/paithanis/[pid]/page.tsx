@@ -7,6 +7,7 @@ import { useParams } from "next/navigation";
 // import ProductsFilter from "../../../components/products-filter";
 import ProductsContent from "../../../components/products-content";
 import { motion } from "framer-motion";
+import AnimateItem from "@/components/animations/AnimateItem";
 
 const Products = () => {
   const params = useParams();
@@ -29,22 +30,16 @@ const Products = () => {
 
   return (
     // <div>
-    <motion.div
-      key={productType as string}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <ProductsContent
-        // filtersSubmit={filtersSubmit}
-        // setFiltersSubmit={setFiltersSubmit}
-        productType={productType}
-        productPrice={productPrice}
-        // filtersOpen={filtersOpen}
-        // setFiltersOpen={setFiltersOpen}
-      />
-    </motion.div>
+    // <AnimateItem key="init">
+    <ProductsContent
+      // filtersSubmit={filtersSubmit}
+      // setFiltersSubmit={setFiltersSubmit}
+      productType={productType}
+      productPrice={productPrice}
+      // filtersOpen={filtersOpen}
+      // setFiltersOpen={setFiltersOpen}
+    />
+    // </AnimateItem>
   );
 };
 

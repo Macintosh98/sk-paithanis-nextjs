@@ -1,11 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { Stack, Button, Card, Typography } from "@mui/material";
+import {
+  Stack,
+  Button,
+  Card,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import AnimateItem from "../animations/AnimateItem";
+import AnimateOnScroll from "../animations/AnimateOnScroll";
+import { Box } from "@mui/system";
 // import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
@@ -70,98 +79,116 @@ const ProductItem = ({
   // if (isLoading) return <Spinner />;
 
   return (
-    <Card
-      sx={{
-        p: 2,
-        borderRadius: (theme) => theme.shape.borderRadius,
-        // width: "240px",
-      }}
-      className="white"
-    >
-      <Stack
-        direction={"row"}
-        spacing={2}
-        mb={1}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
-        <Button
-          variant="contained"
-          sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
-          type="button"
-          className="fg"
+    <AnimateOnScroll key={id}>
+      <AnimateItem key={id}>
+        <Card
+          sx={{
+            p: 2,
+            borderRadius: (theme) => theme.shape.borderRadius,
+            // width: "240px",
+          }}
+          className="white"
         >
-          Fav
-        </Button>
-
-        {admin && !viewimage && (
-          <Button
-            variant="contained"
-            className="fg"
-            onClick={() => {
-              deleteGoal(id);
-            }}
-            sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+          <Stack
+            direction={"row"}
+            spacing={2}
+            mb={1}
+            justifyContent={"space-between"}
+            alignItems={"center"}
           >
-            Delete
-          </Button>
-        )}
+            <Button
+              variant="contained"
+              sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+              type="button"
+              className="fg"
+            >
+              Fav
+            </Button>
 
-        {discount && (
-          <Typography className="white" variant="caption">
-            {discount}%
-          </Typography>
-        )}
-      </Stack>
-      <Link href={`/paithani/${name}?id=${id}`}>
-        <img
-          height={"250px"}
-          width={"100%"}
-          style={{ borderRadius: "16px", marginBottom: "5px" }}
-          src={
-            viewimage
-              ? viewimage
-              : contentType != "" && base64 != ""
-              ? "data:" + contentType + ";base64," + base64
-              : "./x.png"
-          }
-          alt="product"
-        />
-      </Link>
+            {admin && !viewimage && (
+              <Button
+                variant="contained"
+                className="fg"
+                onClick={() => {
+                  deleteGoal(id);
+                }}
+                sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
+              >
+                Delete
+              </Button>
+            )}
 
-      <Card
-        sx={{
-          p: 2,
-          borderRadius: (theme) => theme.shape.borderRadius,
-          // height: "150px",
-        }}
-        className="bg"
-      >
-        <Typography
-          variant="subtitle1"
-          sx={{ textWrap: "nowrap", textOverflow: "ellipsis", width: "90%" }}
-        >
-          {name}
-        </Typography>
+            {discount && (
+              <Typography className="white" variant="caption">
+                {discount}%
+              </Typography>
+            )}
+          </Stack>
+          <Link href={`/paithani/${name}?id=${id}`}>
+            {viewimage || (contentType != "" && base64 != "") ? (
+              <img
+                height={"250px"}
+                width={"100%"}
+                style={{ borderRadius: "16px", marginBottom: "5px" }}
+                src={
+                  viewimage
+                    ? viewimage
+                    : contentType != "" && base64 != ""
+                    ? "data:" + contentType + ";base64," + base64
+                    : "./x.png"
+                }
+                alt="product"
+              />
+            ) : (
+              <Card sx={{ height: "250px" }}>
+                <CircularProgress></CircularProgress>
+              </Card>
+            )}
+          </Link>
 
-        <Typography
-          variant="subtitle2"
-          sx={{ textWrap: "nowrap", textOverflow: "ellipsis", width: "90%" }}
-        >
-          Type: {productType}
-        </Typography>
+          <Card
+            sx={{
+              p: 2,
+              borderRadius: (theme) => theme.shape.borderRadius,
+              // height: "150px",
+            }}
+            className="bg"
+          >
+            <Typography
+              variant="subtitle1"
+              sx={{
+                textWrap: "nowrap",
+                textOverflow: "ellipsis",
+                width: "90%",
+              }}
+            >
+              {name}
+            </Typography>
 
-        <Stack
-          direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
-          <Typography variant="subtitle1">₹{currentPrice}</Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                textWrap: "nowrap",
+                textOverflow: "ellipsis",
+                width: "90%",
+              }}
+            >
+              Type: {productType}
+            </Typography>
 
-          {discount && <span>₹{price}</span>}
-        </Stack>
-      </Card>
-    </Card>
+            <Stack
+              direction={"row"}
+              justifyContent={"space-between"}
+              alignItems={"center"}
+            >
+              <Typography variant="subtitle1">₹{currentPrice}</Typography>
+
+              {discount && <span>₹{price}</span>}
+            </Stack>
+          </Card>
+        </Card>
+      </AnimateItem>
+    </AnimateOnScroll>
   );
 };
 
