@@ -96,7 +96,6 @@ function GoalForm() {
           fullWidth
           type="text"
           name="text"
-          id="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -108,7 +107,6 @@ function GoalForm() {
           fullWidth
           type="text"
           name="discription"
-          id="text"
           value={discription}
           onChange={(e) => setdiscription(e.target.value)}
         />
@@ -118,7 +116,7 @@ function GoalForm() {
         {/* <input
             type="text"
             name="discription"
-            id="text"
+            
             value={category}
             onChange={(e) => setcategory(e.target.value)}
           /> */}
@@ -141,7 +139,6 @@ function GoalForm() {
           fullWidth
           type="number"
           name="price"
-          id="text"
           value={price}
           onChange={(e) => setprice(e.target.value)}
         />
@@ -153,7 +150,6 @@ function GoalForm() {
           fullWidth
           type="number"
           name="currentPrice"
-          id="text"
           value={currentPrice}
           onChange={(e) => setcurrentPrice(e.target.value)}
         />

@@ -7,6 +7,11 @@
   font-weight: 500 !important;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .white {
   animation: colorwhitebg 10s infinite;
   background: white;
@@ -269,8 +274,8 @@
   }
 }
 .container-feather {
-  top: 15%;
-  left: 8%;
+  top: 4%;
+  left: 2%;
   position: absolute;
   width: 100vw;
   height: 100vh;
