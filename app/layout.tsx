@@ -4,8 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import "swiper/css";
-import "rc-slider/assets/index.css";
 import "../css/output.css";
 import {
   Box,

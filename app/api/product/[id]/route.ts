@@ -80,8 +80,10 @@
 
 // app/api/goals/[id]/route.ts
 
-import connectDB from "@/backend/config/db";
-import Goal from "@/backend/models/goalModel";
+// import connectDB from "@/backend/config/db";
+// import Goal from "@/backend/models/goalModel";
+import { MongoClient, ObjectId } from "mongodb";
+const client = new MongoClient(process.env.MONGO_URI || "");
 
 // GET /api/goals/[id]
 export async function GET(
@@ -90,8 +92,10 @@ export async function GET(
 ) {
   const { id } = await params;
   try {
-    await connectDB();
-    const goal = await Goal.findById(id);
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("goals");
+    const goal = await collection.findOne({ _id: new ObjectId(id) });
 
     if (!goal) {
       return Response.json({ message: "Goal not found" }, { status: 400 });
@@ -114,17 +118,20 @@ export async function PUT(
 ) {
   const { id } = await params;
   try {
-    await connectDB();
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("goals");
 
-    const goal = await Goal.findById(id);
+    const goal = await collection.findOne({ _id: new ObjectId(id) });
     if (!goal) {
       return Response.json({ message: "Goal not found" }, { status: 400 });
     }
 
     const body = await req.json();
-    const updatedGoal = await Goal.findByIdAndUpdate(id, body, {
-      new: true,
-    });
+    const updatedGoal = await collection.updateOne(
+      { _id: new ObjectId(id) },
+      body
+    );
 
     return Response.json(updatedGoal, { status: 200 });
   } catch (error: any) {
@@ -143,14 +150,16 @@ export async function DELETE(
 ) {
   const { id } = await params;
   try {
-    await connectDB();
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("goals");
 
-    const goal = await Goal.findById(id);
+    const goal = await collection.deleteOne({ _id: new ObjectId(id) });
     if (!goal) {
       return Response.json({ message: "Goal not found" }, { status: 400 });
     }
 
-    await goal.deleteOne();
+    // await goal.deleteOne();
 
     return Response.json({ id: id }, { status: 200 });
   } catch (error: any) {

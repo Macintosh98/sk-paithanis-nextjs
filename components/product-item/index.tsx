@@ -11,10 +11,10 @@ import {
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AnimateItem from "../animations/AnimateItem";
 import AnimateOnScroll from "../animations/AnimateOnScroll";
-import { Box } from "@mui/system";
+// import { Box } from "@mui/system";
 // import Spinner from "../Spinner";
 // import { ProductTypeList } from 'types';
 
@@ -28,7 +28,7 @@ const ProductItem = ({
   productType,
   admin = false,
 }: any) => {
-  const [viewimage, setViewImage] = useState();
+  // const [viewimage, setViewImage] = useState();
 
   const deleteGoal = async (goalId: any) => {
     const response = await axios.delete("/api/product/" + goalId);
@@ -36,44 +36,38 @@ const ProductItem = ({
     return response.data;
   };
 
-  const [base64, setBase64] = useState("");
-  const [contentType, setContentType] = useState("");
+  // const [base64, setBase64] = useState("");
+  // const [contentType, setContentType] = useState("");
 
   useEffect(() => {
-    if (images) {
-      if (images.data == false) {
-        const reader: any = new FileReader();
-        reader.readAsDataURL(images.file);
-        reader.onloadend = () => setViewImage(reader.result);
-      } else {
-        const a = new Uint8Array(images.data.data);
-        const b = a.reduce((data, byte) => {
-          return data + String.fromCharCode(byte);
-        }, "");
-        setBase64(btoa(b));
-      }
-    } else {
-      // useEffect(() => {
-      axios({
-        url: `/api/product/${id}`,
-        method: "GET",
-        responseType: "json",
-        headers: {
-          // Authorization: this.authString,
-          "Content-Type": "application/json",
-        },
-      }).then(async (res) => {
-        const product = await res.data;
-        const a = new Uint8Array(product.img?.data?.data);
-        const b = a.reduce((data, byte) => {
-          return data + String.fromCharCode(byte);
-        }, "");
-        setContentType(product.img?.contentType);
-        setBase64(btoa(b));
-        // console.log("aaaaaaaaaaaa", base64);
-      });
-      // }, []);
-    }
+    // if (images) {
+    //   if (images.data == false) {
+    //     const reader: any = new FileReader();
+    //     reader.readAsDataURL(images.file);
+    //     reader.onloadend = () => setViewImage(reader.result);
+    //   } else {
+    //     const a = new Uint8Array(images.data.data);
+    //     const b = a.reduce((data, byte) => {
+    //       return data + String.fromCharCode(byte);
+    //     }, "");
+    //     setBase64(btoa(b));
+    //   }
+    // } else {
+    // axios({
+    //   url: `/api/product/${id}`,
+    //   method: "GET",
+    //   responseType: "json",
+    //   headers: {
+    //     // Authorization: this.authString,
+    //     "Content-Type": "application/json",
+    //   },
+    // }).then(async (res) => {
+    //   const product = await res.data;
+    //   setContentType(product.img?.contentType);
+    //   setBase64(product.img?.data);
+    //   // console.log("aaaaaaaaaaaa", base64);
+    // });
+    // }
   }, []);
 
   // if (isLoading) return <Spinner />;
@@ -105,7 +99,7 @@ const ProductItem = ({
               Fav
             </Button>
 
-            {admin && !viewimage && (
+            {admin && (
               <Button
                 variant="contained"
                 className="fg"
@@ -125,18 +119,12 @@ const ProductItem = ({
             )}
           </Stack>
           <Link href={`/paithani/${name}?id=${id}`}>
-            {viewimage || (contentType != "" && base64 != "") ? (
+            {images ? (
               <img
                 height={"250px"}
                 width={"100%"}
                 style={{ borderRadius: "16px", marginBottom: "5px" }}
-                src={
-                  viewimage
-                    ? viewimage
-                    : contentType != "" && base64 != ""
-                    ? "data:" + contentType + ";base64," + base64
-                    : "./x.png"
-                }
+                src={"data:" + images.contentType + ";base64," + images.data}
                 alt="product"
               />
             ) : (

@@ -4,7 +4,7 @@ export const runtime = "nodejs";
 // import Goal from "@/backend/models/goalModel";
 // import connectDB from "@/backend/config/db";
 // import formidable from "formidable";
-import fs from "fs";
+// import fs from "fs";
 
 // export const config = {
 //   api: {
@@ -61,8 +61,9 @@ import fs from "fs";
 //     });
 //   }
 // }
-import connectDB from "@/backend/config/db";
-import Goal from "@/backend/models/goalModel";
+// import connectDB from "@/backend/config/db";
+// import Goal from "@/backend/models/goalModel";
+
 // import formidable from "formidable";
 // import fs from "fs";
 
@@ -85,23 +86,16 @@ import Goal from "@/backend/models/goalModel";
 //     }
 //   );
 // };
-
+import { MongoClient } from "mongodb";
+const client = new MongoClient(process.env.MONGO_URI || "");
 // GET /api/goals
 export async function GET() {
   try {
-    await connectDB();
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("goals");
 
-    const goals = await Goal.find(
-      {},
-      {
-        text: 1,
-        price: 1,
-        currentPrice: 1,
-        discription: 1,
-        category: 1,
-        // user: 1,
-      }
-    );
+    const goals = await collection.find({}).toArray();
 
     return Response.json(goals, { status: 200 });
   } catch (error: any) {
@@ -116,7 +110,9 @@ export async function GET() {
 // POST /api/goals
 export async function POST(req: Request) {
   try {
-    await connectDB();
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("goals");
 
     // Parse multipart form
     // const { fields, files } = await parseForm(req);
@@ -140,7 +136,7 @@ export async function POST(req: Request) {
       return Response.json({ message: "File not uploaded" }, { status: 400 });
     }
 
-    const goal = await Goal.create({
+    const goal = await collection.insertOne({
       text: formData.get("text"),
       price: formData.get("price"),
       currentPrice: formData.get("currentPrice"),

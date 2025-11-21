@@ -4,6 +4,7 @@
 // type GalleryProductType = {
 //   images: string[]
 // }
+import { Card, CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 
 const Gallery = ({ images }: { images: any }) => {
@@ -21,12 +22,16 @@ const Gallery = ({ images }: { images: any }) => {
 
   return (
     <>
-      {images && (
+      {images ? (
         <img
           height={"400px"}
           src={"data:" + images.contentType + ";base64," + base64}
           alt="product"
         />
+      ) : (
+        <Card sx={{ height: "400px" }}>
+          <CircularProgress></CircularProgress>
+        </Card>
       )}
       {/* </div> */}
     </>

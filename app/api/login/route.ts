@@ -38,34 +38,36 @@
 // app/api/login/route.ts
 
 import { NextRequest } from "next/server";
-import jwt from "jsonwebtoken";
-import connectDB from "@/backend/config/db";
-import User from "@/backend/models/userModel";
+// import jwt from "jsonwebtoken";
+// import connectDB from "@/backend/config/db";
+// import User from "@/backend/models/userModel";
 
 // Generate JWT
-const generateToken = (id: string) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET as string, {
-    expiresIn: "30d",
-  });
-};
-
+// const generateToken = (id: string) => {
+//   return jwt.sign({ id }, process.env.JWT_SECRET as string, {
+//     expiresIn: "30d",
+//   });
+// };
+import { MongoClient } from "mongodb";
+const client = new MongoClient(process.env.MONGO_URI || "");
 // POST /api/login
 export async function POST(req: NextRequest) {
   try {
-    await connectDB();
     const { email, password } = await req.json();
-
-    const user = await User.findOne({ email });
+    await client.connect();
+    const database = client.db("test"); // Replace with your database name
+    const collection = database.collection("users");
+    const user = await collection.findOne({ email });
 
     if (user && password === user.password) {
-      const token = generateToken(user._id.toString());
+      // const token = generateToken(user._id.toString());
 
       return Response.json(
         {
           _id: user._id,
           name: user.name,
           email: user.email,
-          token,
+          // token,
         },
         { status: 200 }
       );
