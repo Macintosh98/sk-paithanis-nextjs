@@ -82,11 +82,11 @@ const Home = () => {
           <div className="blue-circle"></div>
         </div>
       </div>{" "}
-      {/* <AnimateOnScroll> */}
-      <AnimateItem key="init">
-        <PageIntro />
-      </AnimateItem>
-      {/* </AnimateOnScroll> */}
+      <AnimateOnScroll>
+        <AnimateItem key="init">
+          <PageIntro />
+        </AnimateItem>
+      </AnimateOnScroll>
       <AnimateOnScroll>
         <AnimateItem key="init">
           <Card

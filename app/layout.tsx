@@ -22,30 +22,30 @@ const geistSans = Geist({
 const theme = extendTheme({
   shadows: [
     "none",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
-    "0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05), 0 12px 24px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
+    "0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 13px rgba(0, 0, 0, 0.05),0 0px 25px rgba(0, 0, 0, 0.05)",
   ],
 
   typography: {
@@ -195,9 +195,9 @@ export default function RootLayout({
       >
         <ThemeProvider theme={theme}>
           {/* <CssBaseline /> */}
-          <Container>
+          <Container sx={{ overflow: "auto", height: "100vh" }}>
             <Header />
-            <Box sx={{ mt: 4, justifyContent: "center" }}> {children}</Box>
+            <Box sx={{ mt: 13, justifyContent: "center" }}> {children}</Box>
 
             <Footer />
           </Container>
