@@ -13,6 +13,7 @@ import {
   extendTheme,
   ThemeProvider,
 } from "@mui/material";
+import MousePointer from "@/components/animations/MousePointer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -196,6 +197,7 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           {/* <CssBaseline /> */}
           <Container sx={{ overflow: "auto", height: "100vh" }}>
+            <MousePointer />
             <Header />
             <Box sx={{ mt: 13, justifyContent: "center" }}> {children}</Box>
 

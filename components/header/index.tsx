@@ -19,7 +19,7 @@ const Header = () => {
             px: 4,
             position: "fixed",
             width: "84%",
-            zIndex: 99999,
+            zIndex: 999,
             boxShadow: (theme) => theme.shadows[1],
             borderRadius: (theme) => theme.shape.borderRadius,
           }}

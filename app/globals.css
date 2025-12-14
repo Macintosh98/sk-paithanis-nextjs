@@ -14,6 +14,36 @@ body {
   overflow: hidden;
 }
 
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  /* background-color: #ebebeb; */
+  -webkit-border-radius: "20px";
+  border-radius: "20px";
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: "20px";
+  border-radius: "20px";
+  background-color: #d9d9d9;
+
+  width: 3px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 3px;
+  /* background-color: #d9d9d9; */
+  border-radius: "20px";
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #d9d9d9;
+
+  border-radius: 10px;
+}
+
 .white {
   animation: colorwhitebg 10s infinite;
   background: white;
