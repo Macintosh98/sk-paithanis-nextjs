@@ -88,7 +88,7 @@ const client = new MongoClient(process.env.MONGO_URI || "");
 // GET /api/goals/[id]
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }:  any
 ) {
   const { id } = await params;
   try {
@@ -114,7 +114,7 @@ export async function GET(
 // PUT /api/goals/[id]
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }:any
 ) {
   const { id } = await params;
   try {
@@ -146,7 +146,7 @@ export async function PUT(
 // DELETE /api/goals/[id]
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: any
 ) {
   const { id } = await params;
   try {
