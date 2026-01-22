@@ -196,12 +196,12 @@ export default function RootLayout({
       >
         <ThemeProvider theme={theme}>
           {/* <CssBaseline /> */}
-          <Container sx={{ overflow: "auto", height: "100vh" }}>
+          <Container >
             <MousePointer />
             <Header />
-            <Box sx={{ mt: 13, justifyContent: "center" }}> {children}</Box>
+            <Box sx={{ overflow: "auto", height: "calc(100vh - 100px)", justifyContent: "center" }}> {children}<Footer /></Box>
 
-            <Footer />
+            
           </Container>
         </ThemeProvider>
       </body>
