@@ -54,7 +54,6 @@ const ProductsContent = (props: any) => {
           ]}
         ></GrayHeader>
       </AnimateItem>
-
       <List
         // setFiltersSubmit={props.setFiltersSubmit}
         // filtersSubmit={props.filtersSubmit}
@@ -62,14 +61,18 @@ const ProductsContent = (props: any) => {
         productType={props.productType}
         productPrice={props.productPrice}
       />
-
       <Modal
         open={filters}
         onClose={() => setfilters(false)}
         // title={"Filters"}
         // maxWidth={"md"}
       >
-        <Stack alignItems={"center"} justifyContent={"center"} height={"100vh"}>
+        <Stack
+          sx={{
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh"
+          }}>
           <Card
             className="white"
             sx={{
@@ -107,7 +110,7 @@ const ProductsContent = (props: any) => {
               sx={{ p: 2, borderRadius: (theme) => theme.shape.borderRadius }}
             >
               {productsTypes.map((type) => (
-                <>
+                (<>
                   <Link
                     href={`/${props.admin ? "admin" : "paithanis"}/${
                       type.value
@@ -117,7 +120,7 @@ const ProductsContent = (props: any) => {
                     <Typography variant="button">{type.name}</Typography>
                   </Link>
                   <br />
-                </>
+                </>)
                 // <Checkbox
                 //   key={type.id}
                 //   name="product-type"

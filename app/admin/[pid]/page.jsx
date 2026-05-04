@@ -104,7 +104,12 @@ function Dashboard({ searchParams }) {
         // title={"Filters"}
         // maxWidth={"md"}
       >
-        <Stack alignItems={"center"} justifyContent={"center"} height={"100vh"}>
+        <Stack
+          sx={{
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100vh"
+          }}>
           <Card
             className="white"
             sx={{
@@ -140,7 +145,6 @@ function Dashboard({ searchParams }) {
           </Card>
         </Stack>
       </Modal>
-
       <ProductsContent
         // filtersSubmit={filtersSubmit}
         // setFiltersSubmit={setFiltersSubmit}

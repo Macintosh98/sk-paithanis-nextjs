@@ -13,11 +13,12 @@ const Subscribe = () => {
     >
       <Stack
         direction={"row"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        height={"300px"}
         spacing={4}
-      >
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          height: "300px"
+        }}>
         <Typography variant="h6" className="white">
           Subscribe to our newsletter and receive exclusive offers every week
         </Typography>

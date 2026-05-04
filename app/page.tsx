@@ -125,7 +125,9 @@ const Home = () => {
                     borderRadius: (theme) => theme.shape.borderRadius,
                   }}
                 >
-                  <Typography variant="h6" mb={2}>
+                  <Typography variant="h6" sx={{
+                    mb: 2
+                  }}>
                     Free Shipping
                   </Typography>
                   <Typography variant="subtitle2">
@@ -142,7 +144,9 @@ const Home = () => {
                     borderRadius: (theme) => theme.shape.borderRadius,
                   }}
                 >
-                  <Typography variant="h6" mb={2}>
+                  <Typography variant="h6" sx={{
+                    mb: 2
+                  }}>
                     Easy Payments
                   </Typography>
                   <Typography variant="subtitle2">
@@ -159,7 +163,9 @@ const Home = () => {
                     borderRadius: (theme) => theme.shape.borderRadius,
                   }}
                 >
-                  <Typography variant="h6" mb={2}>
+                  <Typography variant="h6" sx={{
+                    mb: 2
+                  }}>
                     Money Guarantee
                   </Typography>
                   <Typography variant="subtitle2">
@@ -176,7 +182,9 @@ const Home = () => {
                     borderRadius: (theme) => theme.shape.borderRadius,
                   }}
                 >
-                  <Typography variant="h6" mb={2}>
+                  <Typography variant="h6" sx={{
+                    mb: 2
+                  }}>
                     Finest Quality
                   </Typography>
                   <Typography variant="subtitle2">

@@ -27,7 +27,14 @@ const PageIntro = () => {
         // }}
         >
           {/* // <div className="container"> */}
-          <Stack direction={"row"} justifyContent={"end"} mb={8} py={8} mr={30}>
+          <Stack
+            direction={"row"}
+            sx={{
+              justifyContent: "end",
+              mb: 8,
+              py: 8,
+              mr: 30
+            }}>
             <Stack spacing={2}>
               <Typography
                 variant="h5"

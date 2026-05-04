@@ -42,39 +42,43 @@ const GrayHeader = ({
     >
       <Stack
         direction={"row"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        overflow={"auto"}
         spacing={upLg ? 0 : 2}
-        maxWidth={upLg ? "100%" : isOnlyStack ? "100vw" : "calc(100vw - 48px)"}
-        height={"100%"}
-      >
+        sx={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          overflow: "auto",
+          maxWidth: upLg ? "100%" : isOnlyStack ? "100vw" : "calc(100vw - 48px)",
+          height: "100%"
+        }}>
         <Stack
           direction={"row"}
-          justifyContent={"start"}
-          alignItems={"center"}
-          width={upLg ? "33%" : undefined}
           spacing={2}
-        >
+          sx={{
+            justifyContent: "start",
+            alignItems: "center",
+            width: upLg ? "33%" : undefined
+          }}>
           {...startElement}
         </Stack>
         <Stack
           direction={"row"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          width={upLg ? "33%" : undefined}
           spacing={2}
-        >
+          sx={{
+            justifyContent: "center",
+            alignItems: "center",
+            width: upLg ? "33%" : undefined
+          }}>
           {...centerElement}
         </Stack>
 
         <Stack
           direction={"row"}
-          justifyContent={"end"}
-          alignItems={"center"}
-          width={upLg ? "33%" : undefined}
           spacing={2}
-        >
+          sx={{
+            justifyContent: "end",
+            alignItems: "center",
+            width: upLg ? "33%" : undefined
+          }}>
           {...endElement}
         </Stack>
       </Stack>

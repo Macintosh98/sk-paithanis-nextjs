@@ -86,10 +86,11 @@ const ProductItem = ({
           <Stack
             direction={"row"}
             spacing={2}
-            mb={1}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-          >
+            sx={{
+              mb: 1,
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
             <Button
               variant="contained"
               sx={{ borderRadius: (theme) => theme.shape.borderRadius }}
@@ -166,9 +167,10 @@ const ProductItem = ({
 
             <Stack
               direction={"row"}
-              justifyContent={"space-between"}
-              alignItems={"center"}
-            >
+              sx={{
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}>
               <Typography variant="subtitle1">₹{currentPrice}</Typography>
 
               {discount && <span>₹{price}</span>}

@@ -14,7 +14,7 @@ import Link from "next/link";
 
 const RegisterPage = () => (
   // <Layout>
-  <AnimateItem key="init">
+  (<AnimateItem key="init">
     <Card
       className="white"
       sx={{
@@ -93,7 +93,7 @@ const RegisterPage = () => (
         </Typography>
       </form>
     </Card>
-  </AnimateItem>
+  </AnimateItem>)
 );
 
 export default RegisterPage;

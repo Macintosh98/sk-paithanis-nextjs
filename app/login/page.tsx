@@ -89,6 +89,7 @@ const LoginPage = () => {
 
   return (
     // <Layout>
+    // {/* </Layout> */}
     <AnimateItem key="init">
       <Card
         className="white"
@@ -136,14 +137,16 @@ const LoginPage = () => {
           )}
           <Stack
             direction={"row"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-          >
+            sx={{
+              alignItems: "center",
+              justifyContent: "space-between"
+            }}>
             <Stack
               direction={"row"}
-              alignItems={"center"}
-              justifyContent={"center"}
-            >
+              sx={{
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
               <Checkbox />
               <Typography variant="subtitle2">Keep me signed in</Typography>
             </Stack>
@@ -167,7 +170,6 @@ const LoginPage = () => {
         </form>
       </Card>
     </AnimateItem>
-    // {/* </Layout> */}
   );
 };
 

@@ -31,6 +31,7 @@ const Products = () => {
   return (
     // <div>
     // <AnimateItem key="init">
+    // </AnimateItem>
     <ProductsContent
       // filtersSubmit={filtersSubmit}
       // setFiltersSubmit={setFiltersSubmit}
@@ -39,7 +40,6 @@ const Products = () => {
       // filtersOpen={filtersOpen}
       // setFiltersOpen={setFiltersOpen}
     />
-    // </AnimateItem>
   );
 };
 

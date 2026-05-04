@@ -37,15 +37,14 @@ const Header = () => {
             <Stack
               direction={"row"}
               spacing={3}
-              px={2}
-              py={1}
               className="bg"
-              sx={{
-                boxShadow: (theme) => theme.shadows[1],
-                borderRadius: (theme) => theme.shape.borderRadius,
-              }}
               key={"hlink"}
-            >
+              sx={{
+                px: 2,
+                py: 1,
+                boxShadow: (theme) => theme.shadows[1],
+                borderRadius: (theme) => theme.shape.borderRadius
+              }}>
               <Link href="/paithanis/all-paithani">
                 <Typography sx={{ textWrap: "nowrap" }} variant="subtitle2">
                   All Paithani

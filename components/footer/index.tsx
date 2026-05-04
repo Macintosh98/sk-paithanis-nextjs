@@ -6,7 +6,9 @@ import AnimateItem from "../animations/AnimateItem";
 
 const Footer = () => {
   return (
-    <Stack spacing={4} mt={4}>
+    <Stack spacing={4} sx={{
+      mt: 4
+    }}>
       <AnimateOnScroll>
         <AnimateItem key="init">
           <Grid container spacing={4}>
@@ -18,7 +20,11 @@ const Footer = () => {
                   borderRadius: (theme) => theme.shape.borderRadius,
                 }}
               >
-                <Box p={2} textAlign="center">
+                <Box
+                  sx={{
+                    p: 2,
+                    textAlign: "center"
+                  }}>
                   <Image
                     src="/images/logo_21_comp.png"
                     alt="Vakratunda Logo"
@@ -54,7 +60,9 @@ const Footer = () => {
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                   >
-                    <Box p={2}>
+                    <Box sx={{
+                      p: 2
+                    }}>
                       <Paper
                         elevation={1}
                         sx={{
@@ -95,7 +103,9 @@ const Footer = () => {
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                   >
-                    <Box p={2}>
+                    <Box sx={{
+                      p: 2
+                    }}>
                       <Paper
                         elevation={1}
                         sx={{
@@ -134,7 +144,9 @@ const Footer = () => {
                       borderRadius: (theme) => theme.shape.borderRadius,
                     }}
                   >
-                    <Box p={2}>
+                    <Box sx={{
+                      p: 2
+                    }}>
                       <Paper
                         elevation={1}
                         sx={{
@@ -174,8 +186,10 @@ const Footer = () => {
             >
               <Typography
                 variant="subtitle1"
-                textAlign={"center"}
                 className="white"
+                sx={{
+                  textAlign: "center"
+                }}
               >
                 DESIGN BY{" "}
                 <Link href="http://abhishekzambare.vercel.app/">

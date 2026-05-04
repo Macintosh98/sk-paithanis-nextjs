@@ -13,7 +13,12 @@ const Content = ({ product }: any) => {
 
   return (
     <Box sx={{ height: "308px", p: 4, textAlign: "start" }}>
-      <Stack direction={"row"} mb={8} justifyContent={"space-between"}>
+      <Stack
+        direction={"row"}
+        sx={{
+          mb: 8,
+          justifyContent: "space-between"
+        }}>
         <Typography variant="h5">{product.text}</Typography>
         <Box>
           <Typography variant="subtitle1">₹{product.currentPrice}</Typography>

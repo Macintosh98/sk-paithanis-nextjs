@@ -9,7 +9,7 @@ import Link from "next/link";
 const ErrorPage = () => (
   // <LayoutError>
 
-  <AnimateItem key="init">
+  (<AnimateItem key="init">
     <Card
       className="white"
       sx={{ borderRadius: (theme) => theme.shape.borderRadius, p: 4 }}
@@ -28,7 +28,7 @@ const ErrorPage = () => (
         </Button>
       </Link>
     </Card>
-  </AnimateItem>
+  </AnimateItem>)
 
   // {/* </LayoutError> */}
 );

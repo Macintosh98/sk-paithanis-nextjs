@@ -42,9 +42,10 @@ const ProductsFeatured = () => {
       >
         <Stack
           direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}>
           <Typography variant="h6" className="white">
             Paithanis under ₹1500
           </Typography>
@@ -74,9 +75,10 @@ const ProductsFeatured = () => {
       >
         <Stack
           direction={"row"}
-          justifyContent={"space-between"}
-          alignItems={"center"}
-        >
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}>
           <Typography variant="h6" className="white">
             Our Bestsellers
           </Typography>
